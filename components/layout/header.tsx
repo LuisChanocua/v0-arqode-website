@@ -4,13 +4,14 @@ import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 const navItems = [
   { label: "Inicio", href: "#inicio" },
   { label: "Problemas que resolvemos", href: "#problemas" },
   { label: "Casos de impacto", href: "#casos" },
   { label: "Soluciones", href: "#soluciones" },
-  { label: "Proyectos públicos", href: "#proyectos" },
+  { label: "Proyectos", href: "#proyectos" },
   { label: "Contacto", href: "#contacto" },
 ]
 
@@ -30,15 +31,15 @@ export function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "glass py-3"
+          ? "glass py-3 shadow-lg"
           : "bg-transparent py-5"
       }`}
     >
       <div className="container mx-auto px-4 lg:px-8">
         <nav className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#inicio" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+          <a href="#inicio" className="flex items-center gap-2 group">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300">
               <span className="text-primary-foreground font-bold text-lg">C</span>
             </div>
             <span className="text-xl font-semibold text-foreground">Codara</span>
@@ -57,24 +58,28 @@ export function Header() {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden lg:block">
+          {/* Right Side - Theme Toggle + CTA */}
+          <div className="hidden lg:flex items-center gap-3">
+            <ThemeToggle />
             <Button
               asChild
-              className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity text-primary-foreground"
+              className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all duration-300 text-primary-foreground shadow-lg hover:shadow-xl hover:scale-[1.02]"
             >
               <a href="#contacto">Hablemos de tu proyecto</a>
             </Button>
           </div>
 
-          {/* Mobile Menu Toggle */}
-          <button
-            className="lg:hidden p-2 text-foreground"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Mobile - Theme Toggle + Menu */}
+          <div className="flex lg:hidden items-center gap-2">
+            <ThemeToggle />
+            <button
+              className="p-2 text-foreground rounded-lg hover:bg-secondary/50 transition-colors"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </nav>
       </div>
 

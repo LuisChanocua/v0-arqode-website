@@ -3,55 +3,48 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Sparkles } from "lucide-react"
+import { InteractiveParticlesBackground } from "@/components/interactive-particles-background"
 
 const floatingCards = [
   { label: "Procesos", delay: 0 },
   { label: "Datos", delay: 0.1 },
   { label: "Experiencia", delay: 0.2 },
   { label: "Resultados", delay: 0.3 },
-  { label: "Automatización", delay: 0.4 },
+  { label: "Automatizacion", delay: 0.4 },
 ]
 
 export function Hero() {
   return (
     <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Background Elements */}
-      <div className="absolute inset-0 grid-pattern opacity-40" />
-      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/20 rounded-full blur-[128px]" />
-      <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-accent/20 rounded-full blur-[128px]" />
+      {/* Background gradient blobs - warmer and more premium */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Primary blue blob */}
+        <div 
+          className="blob-gradient w-[500px] h-[500px] -top-32 -left-32"
+          style={{ background: "var(--hero-gradient-1)" }}
+        />
+        {/* Cyan/teal blob */}
+        <div 
+          className="blob-gradient w-[600px] h-[600px] top-1/4 -right-48"
+          style={{ background: "var(--hero-gradient-2)" }}
+        />
+        {/* Subtle purple accent */}
+        <div 
+          className="blob-gradient w-[400px] h-[400px] bottom-1/4 left-1/4"
+          style={{ background: "var(--hero-gradient-3)" }}
+        />
+        {/* Warm accent for balance */}
+        <div 
+          className="blob-gradient w-[350px] h-[350px] bottom-0 right-1/4"
+          style={{ background: "var(--hero-gradient-warm)" }}
+        />
+      </div>
+
+      {/* Subtle grid pattern */}
+      <div className="absolute inset-0 grid-pattern opacity-30" />
       
-      {/* Animated Lines */}
-      <svg className="absolute inset-0 w-full h-full opacity-20" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="var(--primary)" stopOpacity="0" />
-            <stop offset="50%" stopColor="var(--primary)" stopOpacity="1" />
-            <stop offset="100%" stopColor="var(--accent)" stopOpacity="0" />
-          </linearGradient>
-        </defs>
-        <motion.line
-          x1="0%"
-          y1="30%"
-          x2="100%"
-          y2="30%"
-          stroke="url(#lineGradient)"
-          strokeWidth="1"
-          initial={{ pathLength: 0, opacity: 0 }}
-          animate={{ pathLength: 1, opacity: 1 }}
-          transition={{ duration: 2, repeat: Infinity, repeatType: "loop" }}
-        />
-        <motion.line
-          x1="0%"
-          y1="70%"
-          x2="100%"
-          y2="70%"
-          stroke="url(#lineGradient)"
-          strokeWidth="1"
-          initial={{ pathLength: 0, opacity: 0 }}
-          animate={{ pathLength: 1, opacity: 1 }}
-          transition={{ duration: 2, delay: 1, repeat: Infinity, repeatType: "loop" }}
-        />
-      </svg>
+      {/* Interactive particles canvas */}
+      <InteractiveParticlesBackground className="opacity-60" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
@@ -63,7 +56,9 @@ export function Hero() {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8"
           >
             <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm text-muted-foreground">Transformamos problemas en soluciones digitales</span>
+            <span className="text-sm text-muted-foreground">
+              Tecnologia pensada para negocio, operacion y experiencia
+            </span>
           </motion.div>
 
           {/* Headline */}
@@ -73,8 +68,8 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-balance mb-6"
           >
-            Soluciones digitales diseñadas para generar{" "}
-            <span className="text-gradient">impacto real</span> en tu negocio
+            Soluciones digitales que convierten procesos en{" "}
+            <span className="text-gradient">resultados</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -84,8 +79,8 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 text-pretty"
           >
-            Creamos plataformas, automatizaciones, experiencias web y herramientas digitales 
-            que ayudan a las empresas a operar mejor, entender sus datos y conectar con sus clientes.
+            Disenamos plataformas, automatizaciones y experiencias digitales para ayudarte 
+            a operar mejor, entender tus datos y crear interacciones mas valiosas con tus clientes.
           </motion.p>
 
           {/* CTAs */}
@@ -98,7 +93,7 @@ export function Hero() {
             <Button
               asChild
               size="lg"
-              className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity text-primary-foreground px-8"
+              className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all duration-300 text-primary-foreground px-8 shadow-lg hover:shadow-xl hover:scale-[1.02] glow-subtle"
             >
               <a href="#contacto">
                 Hablemos de tu proyecto
@@ -109,7 +104,7 @@ export function Hero() {
               asChild
               variant="outline"
               size="lg"
-              className="border-border/50 hover:bg-secondary/50 px-8"
+              className="border-border hover:bg-secondary/50 px-8 transition-all duration-300 hover:scale-[1.02]"
             >
               <a href="#casos">Ver casos de impacto</a>
             </Button>
@@ -122,14 +117,14 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.5 }}
             className="flex flex-wrap items-center justify-center gap-3 mt-16"
           >
-            {floatingCards.map((card, index) => (
+            {floatingCards.map((card) => (
               <motion.div
                 key={card.label}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.6 + card.delay }}
-                whileHover={{ scale: 1.05, y: -2 }}
-                className="glass px-5 py-3 rounded-xl cursor-default"
+                whileHover={{ scale: 1.05, y: -4 }}
+                className="glass px-5 py-3 rounded-xl cursor-default transition-all duration-300 hover:shadow-lg"
               >
                 <span className="text-sm font-medium text-foreground">{card.label}</span>
               </motion.div>

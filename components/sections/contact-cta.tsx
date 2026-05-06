@@ -21,9 +21,21 @@ export function ContactCTA() {
   return (
     <section id="contacto" className="py-24 relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 grid-pattern opacity-30" />
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/15 rounded-full blur-[120px]" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent/15 rounded-full blur-[120px]" />
+      <div className="absolute inset-0 grid-pattern opacity-20" />
+      <div className="absolute inset-0 overflow-hidden">
+        <div 
+          className="blob-gradient w-[600px] h-[600px] top-0 left-1/4"
+          style={{ background: "var(--hero-gradient-1)", opacity: 0.25 }}
+        />
+        <div 
+          className="blob-gradient w-[500px] h-[500px] bottom-0 right-1/4"
+          style={{ background: "var(--hero-gradient-2)", opacity: 0.2 }}
+        />
+        <div 
+          className="blob-gradient w-[300px] h-[300px] top-1/2 right-0"
+          style={{ background: "var(--hero-gradient-warm)", opacity: 0.15 }}
+        />
+      </div>
       
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto">
@@ -36,12 +48,12 @@ export function ContactCTA() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">
-              ¿Tienes un proceso que podría funcionar{" "}
-              <span className="text-gradient">mejor con tecnología</span>?
+              Tienes un proceso que podria funcionar{" "}
+              <span className="text-gradient">mejor con tecnologia</span>?
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-              Cuéntanos qué estás intentando resolver. Podemos ayudarte a convertir una necesidad operativa, 
-              comercial o de datos en una solución digital clara, funcional y medible.
+              Cuentanos que estas intentando resolver. Podemos ayudarte a convertir una necesidad operativa, 
+              comercial o de datos en una solucion digital clara, funcional y medible.
             </p>
           </motion.div>
 
@@ -51,7 +63,7 @@ export function ContactCTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="glass rounded-2xl p-8 lg:p-12"
+            className="card-elevated p-8 lg:p-12"
           >
             {isSubmitted ? (
               <motion.div
@@ -59,7 +71,7 @@ export function ContactCTA() {
                 animate={{ opacity: 1, scale: 1 }}
                 className="text-center py-12"
               >
-                <div className="w-16 h-16 mx-auto rounded-full bg-accent/20 flex items-center justify-center mb-6">
+                <div className="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mb-6">
                   <CheckCircle className="w-8 h-8 text-accent" />
                 </div>
                 <h3 className="text-2xl font-semibold text-foreground mb-2">
@@ -79,7 +91,7 @@ export function ContactCTA() {
                       id="name"
                       placeholder="Tu nombre"
                       required
-                      className="bg-input/50 border-border/50 focus:border-primary"
+                      className="bg-input/50 border-border focus:border-primary transition-colors"
                     />
                   </div>
                   
@@ -89,20 +101,20 @@ export function ContactCTA() {
                     <Input
                       id="company"
                       placeholder="Nombre de tu empresa"
-                      className="bg-input/50 border-border/50 focus:border-primary"
+                      className="bg-input/50 border-border focus:border-primary transition-colors"
                     />
                   </div>
                 </div>
 
                 {/* Email */}
                 <div className="space-y-2">
-                  <Label htmlFor="email">Correo electrónico</Label>
+                  <Label htmlFor="email">Correo electronico</Label>
                   <Input
                     id="email"
                     type="email"
                     placeholder="tu@correo.com"
                     required
-                    className="bg-input/50 border-border/50 focus:border-primary"
+                    className="bg-input/50 border-border focus:border-primary transition-colors"
                   />
                 </div>
 
@@ -111,10 +123,10 @@ export function ContactCTA() {
                   <Label htmlFor="message">Mensaje</Label>
                   <Textarea
                     id="message"
-                    placeholder="Cuéntanos sobre tu proyecto o necesidad..."
+                    placeholder="Cuentanos sobre tu proyecto o necesidad..."
                     rows={5}
                     required
-                    className="bg-input/50 border-border/50 focus:border-primary resize-none"
+                    className="bg-input/50 border-border focus:border-primary transition-colors resize-none"
                   />
                 </div>
 
@@ -122,7 +134,7 @@ export function ContactCTA() {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity text-primary-foreground"
+                  className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all duration-300 text-primary-foreground shadow-lg hover:shadow-xl hover:scale-[1.01]"
                 >
                   <Send className="w-4 h-4 mr-2" />
                   Hablemos de tu proyecto

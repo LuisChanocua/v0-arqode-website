@@ -21,18 +21,18 @@ export function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="border-t border-border/50 bg-card/30">
+    <footer className="border-t border-border/50 bg-secondary/30">
       <div className="container mx-auto px-4 lg:px-8 py-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <a href="#inicio" className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+            <a href="#inicio" className="flex items-center gap-2 mb-4 group">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300">
                 <span className="text-primary-foreground font-bold text-lg">C</span>
               </div>
               <span className="text-xl font-semibold text-foreground">Codara</span>
             </a>
-            <p className="text-muted-foreground max-w-md mb-6">
+            <p className="text-muted-foreground max-w-md mb-6 leading-relaxed">
               Soluciones digitales para operar mejor, entender tus datos y crear mejores experiencias.
             </p>
             {/* Social Links */}
@@ -43,7 +43,7 @@ export function Footer() {
                   href={social.href}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-10 h-10 rounded-lg bg-secondary/50 hover:bg-secondary flex items-center justify-center transition-colors"
+                  className="w-10 h-10 rounded-xl glass hover:bg-secondary flex items-center justify-center transition-all duration-300"
                   aria-label={social.label}
                 >
                   <social.icon className="w-5 h-5 text-muted-foreground" />
@@ -83,7 +83,7 @@ export function Footer() {
               </li>
               <li>
                 <span className="text-muted-foreground">
-                  Ciudad de México, MX
+                  Ciudad de Mexico, MX
                 </span>
               </li>
             </ul>
@@ -96,7 +96,7 @@ export function Footer() {
             {currentYear} Codara. Todos los derechos reservados.
           </p>
           <p className="text-muted-foreground text-sm">
-            Hecho con tecnología moderna para negocios modernos.
+            Hecho con tecnologia moderna para negocios modernos.
           </p>
         </div>
       </div>

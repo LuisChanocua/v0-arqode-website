@@ -9,50 +9,50 @@ import { ProjectGalleryModal } from "./project-gallery-modal"
 const defaultSlides = [
   {
     title: "Vista general",
-    description: "Vista inicial de la solución y navegación principal.",
+    description: "Vista inicial de la solucion y navegacion principal.",
     imagePlaceholder: "Captura de la pantalla principal",
   },
   {
     title: "Problema resuelto",
-    description: "Centralización de información que antes podía estar dispersa en archivos o procesos manuales.",
-    imagePlaceholder: "Visualización del problema resuelto",
+    description: "Centralizacion de informacion que antes podia estar dispersa en archivos o procesos manuales.",
+    imagePlaceholder: "Visualizacion del problema resuelto",
   },
   {
     title: "Flujo principal",
-    description: "Flujo diseñado para registrar, consultar o administrar información de forma sencilla.",
+    description: "Flujo disenado para registrar, consultar o administrar informacion de forma sencilla.",
     imagePlaceholder: "Captura del flujo de trabajo",
   },
   {
-    title: "Panel de operación",
+    title: "Panel de operacion",
     description: "Herramientas internas para dar seguimiento y mantener control operativo.",
     imagePlaceholder: "Vista del panel administrativo",
   },
   {
     title: "Resultado",
-    description: "Información más clara, operación más ordenada y mejor experiencia para los usuarios.",
+    description: "Informacion mas clara, operacion mas ordenada y mejor experiencia para los usuarios.",
     imagePlaceholder: "Vista del resultado final",
   },
 ]
 
 const projects = [
   {
-    title: "Plataforma de gestión deportiva",
+    title: "Plataforma de gestion deportiva",
     need: "Organizar ligas, equipos, calendarios, partidos y resultados desde un solo lugar.",
-    solution: "Se diseñó una plataforma administrativa y pública para consultar información deportiva de forma ordenada.",
-    value: "Mejor organización, consulta rápida de información y una experiencia más clara para jugadores, organizadores y público.",
+    solution: "Se diseno una plataforma administrativa y publica para consultar informacion deportiva de forma ordenada.",
+    value: "Mejor organizacion, consulta rapida de informacion y una experiencia mas clara para jugadores, organizadores y publico.",
     slides: defaultSlides,
   },
   {
     title: "Sitio web para negocio local",
     need: "Mejorar la presencia digital y facilitar el contacto con clientes potenciales.",
-    solution: "Diseño de un sitio claro, responsivo y orientado a comunicar servicios de forma profesional.",
-    value: "Mayor confianza, mejor presentación comercial y un canal digital disponible 24/7.",
+    solution: "Diseno de un sitio claro, responsivo y orientado a comunicar servicios de forma profesional.",
+    value: "Mayor confianza, mejor presentacion comercial y un canal digital disponible 24/7.",
     slides: defaultSlides,
   },
   {
-    title: "Prototipo digital para validación de idea",
+    title: "Prototipo digital para validacion de idea",
     need: "Convertir una idea inicial en una experiencia visual navegable para validar concepto y flujo.",
-    solution: "Se construyó una interfaz funcional para presentar la propuesta y evaluar posibles mejoras antes de escalar.",
+    solution: "Se construyo una interfaz funcional para presentar la propuesta y evaluar posibles mejoras antes de escalar.",
     value: "Mayor claridad para tomar decisiones antes de invertir en una plataforma completa.",
     slides: defaultSlides,
   },
@@ -82,7 +82,21 @@ export function PublicProjects() {
 
   return (
     <section id="proyectos" className="py-24 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/30 to-transparent" />
+      {/* Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div 
+          className="blob-gradient w-[500px] h-[500px] top-0 left-1/3"
+          style={{ background: "var(--hero-gradient-1)", opacity: 0.2 }}
+        />
+        <div 
+          className="blob-gradient w-[400px] h-[400px] bottom-1/4 right-0"
+          style={{ background: "var(--hero-gradient-2)", opacity: 0.15 }}
+        />
+        <div 
+          className="blob-gradient w-[300px] h-[300px] bottom-0 left-0"
+          style={{ background: "var(--hero-gradient-warm)", opacity: 0.15 }}
+        />
+      </div>
       
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -94,11 +108,11 @@ export function PublicProjects() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">
-            Proyectos públicos y{" "}
+            Proyectos publicos y{" "}
             <span className="text-gradient">muestras visuales</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Algunos proyectos que podemos mostrar abiertamente. Explora cada uno para ver el recorrido visual de la solución.
+            Algunos proyectos que podemos mostrar abiertamente. Explora cada uno para ver el recorrido visual de la solucion.
           </p>
         </motion.div>
 
@@ -114,18 +128,18 @@ export function PublicProjects() {
             <motion.div
               key={project.title}
               variants={itemVariants}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="glass rounded-2xl overflow-hidden group"
+              whileHover={{ y: -6, transition: { duration: 0.2 } }}
+              className="card-elevated overflow-hidden group"
             >
               {/* Image Placeholder */}
               <div className="aspect-video bg-gradient-to-br from-secondary to-muted relative overflow-hidden">
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-16 h-16 rounded-xl bg-primary/20 flex items-center justify-center">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/30 to-accent/20 flex items-center justify-center shadow-lg">
                     <span className="text-2xl font-bold text-primary">{index + 1}</span>
                   </div>
                 </div>
                 {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
 
               {/* Content */}
@@ -136,26 +150,20 @@ export function PublicProjects() {
 
                 <div className="space-y-3 mb-6">
                   <div>
-                    <span className="text-xs font-semibold text-primary uppercase tracking-wider">
-                      Necesidad
-                    </span>
-                    <p className="text-muted-foreground text-sm mt-1">
+                    <span className="label-chip-challenge">Necesidad</span>
+                    <p className="text-muted-foreground text-sm mt-2 leading-relaxed">
                       {project.need}
                     </p>
                   </div>
                   <div>
-                    <span className="text-xs font-semibold text-primary uppercase tracking-wider">
-                      Solución
-                    </span>
-                    <p className="text-muted-foreground text-sm mt-1">
+                    <span className="label-chip-solution">Solucion</span>
+                    <p className="text-muted-foreground text-sm mt-2 leading-relaxed">
                       {project.solution}
                     </p>
                   </div>
                   <div>
-                    <span className="text-xs font-semibold text-accent uppercase tracking-wider">
-                      Valor
-                    </span>
-                    <p className="text-foreground text-sm mt-1 font-medium">
+                    <span className="label-chip-impact">Valor</span>
+                    <p className="text-foreground text-sm mt-2 font-medium leading-relaxed">
                       {project.value}
                     </p>
                   </div>
@@ -163,7 +171,7 @@ export function PublicProjects() {
 
                 <Button
                   onClick={() => setSelectedProject(project)}
-                  className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity text-primary-foreground"
+                  className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all duration-300 text-primary-foreground shadow-lg hover:shadow-xl"
                 >
                   <Eye className="w-4 h-4 mr-2" />
                   Ver recorrido visual
