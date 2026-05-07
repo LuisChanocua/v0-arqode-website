@@ -117,6 +117,54 @@ codara-website/
 └── .dockerignore           # Archivos excluidos del build Docker
 ```
 
+## Agregar imágenes de proyectos públicos
+
+Para agregar imágenes reales a un proyecto público:
+
+1. **Crear carpeta del proyecto:**
+   ```
+   public/projects/[project-id]/
+   ```
+
+2. **Agregar imágenes:**
+   - `cover.webp` - Imagen de portada para la card
+   - `slide-1.webp`, `slide-2.webp`, etc. - Imágenes para la galería
+
+3. **Actualizar datos:**
+   Editar `data/public-projects.ts` con las rutas correctas:
+   ```ts
+   {
+     id: "mi-proyecto",
+     coverImage: "/projects/mi-proyecto/cover.webp",
+     slides: [
+       {
+         title: "Vista general",
+         description: "Descripción del slide",
+         image: "/projects/mi-proyecto/slide-1.webp",
+         alt: "Texto alternativo"
+       },
+       // más slides...
+     ]
+   }
+   ```
+
+**Estructura esperada:**
+```
+public/
+  projects/
+    gestion-deportiva/
+      cover.webp
+      slide-1.webp
+      slide-2.webp
+      ...
+    sitio-negocio-local/
+      cover.webp
+      slide-1.webp
+      ...
+```
+
+Si las imágenes no existen, se mostrará un placeholder automáticamente.
+
 ## Personalización
 
 ### Colores y Tema
