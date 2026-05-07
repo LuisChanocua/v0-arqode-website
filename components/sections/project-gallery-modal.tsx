@@ -126,7 +126,7 @@ export function ProjectGalleryModal({
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="relative w-[calc(100vw-1.5rem)] sm:w-[calc(100vw-2rem)] max-w-5xl max-h-[calc(100vh-1.5rem)] sm:max-h-[calc(100vh-2rem)] bg-card border border-border rounded-2xl shadow-2xl overflow-hidden flex flex-col"
+            className="relative w-[calc(100vw-1.5rem)] sm:w-[calc(100vw-2rem)] max-w-6xl max-h-[calc(100vh-1.5rem)] sm:max-h-[calc(100vh-2rem)] bg-card border border-border rounded-2xl shadow-2xl overflow-hidden flex flex-col"
           >
             {/* Header - Fixed */}
             <div className="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 border-b border-border shrink-0">
@@ -149,11 +149,11 @@ export function ProjectGalleryModal({
               </Button>
             </div>
 
-            {/* Content - Scrollable */}
-            <div className="flex-1 overflow-y-auto">
-              <div className="p-4 sm:p-6">
-                {/* Image Area with Controls */}
-                <div className="relative">
+            {/* Content - Scrollable with centered wrapper */}
+            <div className="flex-1 overflow-y-auto px-4 py-6 md:px-8">
+              <div className="mx-auto flex w-full max-w-4xl flex-col items-center">
+                {/* Image Area with Controls - Centered wrapper */}
+                <div className="relative mx-auto w-full max-w-4xl">
                   {/* Image Container */}
                   <AnimatePresence mode="wait" custom={direction}>
                     <motion.div
@@ -170,7 +170,7 @@ export function ProjectGalleryModal({
                       onDragEnd={handleDragEnd}
                       className="cursor-grab active:cursor-grabbing"
                     >
-                      <div className="aspect-[16/9] max-h-[50vh] sm:max-h-[55vh] rounded-xl bg-gradient-to-br from-secondary to-muted flex items-center justify-center overflow-hidden border border-border">
+                      <div className="aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-gradient-to-br from-secondary to-muted flex items-center justify-center">
                         <div className="text-center p-6 sm:p-8">
                           <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 rounded-xl bg-gradient-to-br from-primary/20 to-accent/15 flex items-center justify-center shadow-md">
                             <span className="text-xl sm:text-2xl font-bold text-primary">
@@ -185,7 +185,7 @@ export function ProjectGalleryModal({
                     </motion.div>
                   </AnimatePresence>
 
-                  {/* Previous Button - Inside image area */}
+                  {/* Previous Button - Inside centered image wrapper */}
                   <Button
                     variant="outline"
                     size="icon"
@@ -196,7 +196,7 @@ export function ProjectGalleryModal({
                     <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
                   </Button>
 
-                  {/* Next Button - Inside image area */}
+                  {/* Next Button - Inside centered image wrapper */}
                   <Button
                     variant="outline"
                     size="icon"
@@ -208,37 +208,34 @@ export function ProjectGalleryModal({
                   </Button>
                 </div>
 
-                {/* Slide Info */}
-                <div className="mt-4 sm:mt-6 text-center">
+                {/* Slide Info - Centered */}
+                <div className="mx-auto mt-6 max-w-2xl text-center">
                   <h4 className="text-base sm:text-lg font-semibold text-foreground mb-2">
                     {currentSlide?.title}
                   </h4>
-                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                     {currentSlide?.description}
                   </p>
                 </div>
-              </div>
-            </div>
 
-            {/* Footer - Fixed */}
-            <div className="px-4 sm:px-6 py-3 sm:py-4 border-t border-border shrink-0">
-              {/* Dot Indicators */}
-              <div className="flex justify-center items-center gap-1.5 sm:gap-2">
-                {slides.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => {
-                      setDirection(index > currentIndex ? 1 : -1)
-                      setCurrentIndex(index)
-                    }}
-                    className={`h-2 sm:h-2.5 rounded-full transition-all duration-200 ${
-                      index === currentIndex
-                        ? "bg-primary w-5 sm:w-6"
-                        : "bg-muted-foreground/30 hover:bg-muted-foreground/50 w-2 sm:w-2.5"
-                    }`}
-                    aria-label={`Ir a diapositiva ${index + 1}`}
-                  />
-                ))}
+                {/* Dot Indicators - Centered */}
+                <div className="mt-6 flex justify-center gap-2">
+                  {slides.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => {
+                        setDirection(index > currentIndex ? 1 : -1)
+                        setCurrentIndex(index)
+                      }}
+                      className={`h-2 sm:h-2.5 rounded-full transition-all duration-200 ${
+                        index === currentIndex
+                          ? "bg-primary w-5 sm:w-6"
+                          : "bg-muted-foreground/30 hover:bg-muted-foreground/50 w-2 sm:w-2.5"
+                      }`}
+                      aria-label={`Ir a diapositiva ${index + 1}`}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           </motion.div>
