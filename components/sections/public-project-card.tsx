@@ -1,9 +1,10 @@
 "use client"
 
+import Image from "next/image"
 import { motion } from "framer-motion"
 import { Eye, Layers, Globe, Lightbulb, LayoutDashboard, Rocket, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import type { PublicProject } from "@/data/public-projects"
+import { type PublicProject, isPlaceholderImage } from "@/data/public-projects"
 
 // Category icon mapping
 const categoryIcons: Record<string, React.ReactNode> = {
@@ -32,6 +33,8 @@ interface PublicProjectCardProps {
 }
 
 export function PublicProjectCard({ project, index, onViewGallery }: PublicProjectCardProps) {
+  const hasRealCover = !isPlaceholderImage(project.coverImage)
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -44,17 +47,28 @@ export function PublicProjectCard({ project, index, onViewGallery }: PublicProje
       <div className="card-elevated h-full flex flex-col overflow-hidden group">
         {/* Cover Image / Placeholder */}
         <div className="aspect-[16/10] bg-gradient-to-br from-secondary to-muted relative overflow-hidden">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/15 flex items-center justify-center shadow-md">
-              <span className="text-xl font-bold text-primary">{index + 1}</span>
+          {hasRealCover ? (
+            <Image
+              src={project.coverImage}
+              alt={project.coverAlt || project.title}
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/15 flex items-center justify-center shadow-md">
+                <span className="text-xl font-bold text-primary">{index + 1}</span>
+              </div>
             </div>
-          </div>
+          )}
+          
           {/* Hover Overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
           
           {/* Category Badge */}
           <div className="absolute top-3 left-3">
-            <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium ${categoryColors[project.category] || "bg-muted text-muted-foreground"}`}>
+            <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium backdrop-blur-sm ${categoryColors[project.category] || "bg-muted text-muted-foreground"}`}>
               {categoryIcons[project.category]}
               {project.category}
             </span>
