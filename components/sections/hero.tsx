@@ -44,7 +44,7 @@ export function Hero() {
       <div className="absolute inset-0 z-[1] grid-pattern opacity-[0.2]" />
       
       {/* Layer 2: Interactive particles canvas */}
-      <div className="absolute inset-0 z-[5]">
+      <div className="absolute inset-0 z-[5] overflow-hidden">
         <InteractiveParticlesBackground />
       </div>
 
