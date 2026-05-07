@@ -33,15 +33,14 @@ class Particle {
     mouse: { x: number | null; y: number | null; radius: number },
     particleColor: string
   ) {
-    // Bounce off edges
     if (this.x > canvasWidth || this.x < 0) {
       this.directionX = -this.directionX
     }
+
     if (this.y > canvasHeight || this.y < 0) {
       this.directionY = -this.directionY
     }
 
-    // Check collision with mouse
     if (mouse.x !== null && mouse.y !== null) {
       const dx = mouse.x - this.x
       const dy = mouse.y - this.y
@@ -51,23 +50,24 @@ class Particle {
         if (mouse.x < this.x && this.x < canvasWidth - this.size * 10) {
           this.x += 10
         }
+
         if (mouse.x > this.x && this.x > this.size * 10) {
           this.x -= 10
         }
+
         if (mouse.y < this.y && this.y < canvasHeight - this.size * 10) {
           this.y += 10
         }
+
         if (mouse.y > this.y && this.y > this.size * 10) {
           this.y -= 10
         }
       }
     }
 
-    // Move particle
     this.x += this.directionX
     this.y += this.directionY
 
-    // Draw particle
     this.draw(ctx, particleColor)
   }
 }
@@ -76,29 +76,32 @@ export function InteractiveParticlesBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
+    const currentCanvas = canvasRef.current
 
-    const ctx = canvas.getContext("2d")
-    if (!ctx) return
+    if (!currentCanvas) return
 
-    // Set canvas size
+    const canvas: HTMLCanvasElement = currentCanvas
+    const currentContext = canvas.getContext("2d")
+
+    if (!currentContext) return
+
+    const context: CanvasRenderingContext2D = currentContext
+
     canvas.width = window.innerWidth
     canvas.height = window.innerHeight
 
     let particlesArray: Particle[] = []
     let animationFrameId: number
 
-    // Mouse interaction
     const mouse: { x: number | null; y: number | null; radius: number } = {
       x: null,
       y: null,
       radius: 170,
     }
 
-    // Get theme colors
     function getColors() {
       const isDark = document.documentElement.classList.contains("dark")
+
       return {
         particleColor: isDark ? "#00d4ff" : "#0077cc",
         lineColor: isDark ? "0, 212, 255" : "0, 119, 204",
@@ -107,34 +110,36 @@ export function InteractiveParticlesBackground() {
 
     let colors = getColors()
 
-    // Handle mouse move
     function handleMouseMove(event: MouseEvent) {
-      mouse.x = event.x
-      mouse.y = event.y
+      mouse.x = event.clientX
+      mouse.y = event.clientY
     }
 
-    // Handle mouse out
     function handleMouseOut() {
       mouse.x = null
       mouse.y = null
     }
 
-    // Handle resize
     function handleResize() {
+      const canvas = canvasRef.current
+
+      if (!canvas) return
+
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight
+
       init()
     }
 
-    // Initialize particles
     function init() {
       particlesArray = []
+
       const numberOfParticles = (canvas.height * canvas.width) / 9000
 
       for (let i = 0; i < numberOfParticles; i++) {
         const size = Math.random() * 2 + 1
-        const x = Math.random() * (innerWidth - size * 2 - size * 2) + size * 2
-        const y = Math.random() * (innerHeight - size * 2 - size * 2) + size * 2
+        const x = Math.random() * (canvas.width - size * 4) + size * 2
+        const y = Math.random() * (canvas.height - size * 4) + size * 2
         const directionX = Math.random() * 2 - 1
         const directionY = Math.random() * 2 - 1
         const color = colors.particleColor
@@ -143,7 +148,6 @@ export function InteractiveParticlesBackground() {
       }
     }
 
-    // Connect particles with lines
     function connect() {
       const { lineColor } = colors
 
@@ -155,47 +159,52 @@ export function InteractiveParticlesBackground() {
 
           if (distance < (canvas.width / 7) * (canvas.height / 7)) {
             const opacityValue = 1 - distance / 20000
-            ctx.strokeStyle = `rgba(${lineColor}, ${opacityValue})`
-            ctx.lineWidth = 1
-            ctx.beginPath()
-            ctx.moveTo(particlesArray[a].x, particlesArray[a].y)
-            ctx.lineTo(particlesArray[b].x, particlesArray[b].y)
-            ctx.stroke()
+
+            context.strokeStyle = `rgba(${lineColor}, ${opacityValue})`
+            context.lineWidth = 1
+            context.beginPath()
+            context.moveTo(particlesArray[a].x, particlesArray[a].y)
+            context.lineTo(particlesArray[b].x, particlesArray[b].y)
+            context.stroke()
           }
         }
       }
     }
 
-    // Animation loop
     function animate() {
       animationFrameId = requestAnimationFrame(animate)
-      ctx.clearRect(0, 0, innerWidth, innerHeight)
+
+      context.clearRect(0, 0, canvas.width, canvas.height)
 
       for (let i = 0; i < particlesArray.length; i++) {
-        particlesArray[i].update(ctx, canvas.width, canvas.height, mouse, colors.particleColor)
+        particlesArray[i].update(
+          context,
+          canvas.width,
+          canvas.height,
+          mouse,
+          colors.particleColor
+        )
       }
+
       connect()
     }
 
-    // Watch for theme changes
     const themeObserver = new MutationObserver(() => {
       colors = getColors()
     })
+
     themeObserver.observe(document.documentElement, {
       attributes: true,
       attributeFilter: ["class"],
     })
 
-    // Add event listeners
     window.addEventListener("mousemove", handleMouseMove)
     window.addEventListener("mouseout", handleMouseOut)
     window.addEventListener("resize", handleResize)
 
-    // Start animation
     init()
     animate()
 
-    // Cleanup
     return () => {
       cancelAnimationFrame(animationFrameId)
       window.removeEventListener("mousemove", handleMouseMove)
