@@ -16,8 +16,8 @@ const floatingCards = [
 export function Hero() {
   return (
     <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Background gradient blobs - warm and friendly */}
-      <div className="absolute inset-0 overflow-hidden">
+      {/* Layer 0: Background gradient blobs */}
+      <div className="absolute inset-0 z-0">
         {/* Primary blue blob */}
         <div 
           className="blob-gradient w-[600px] h-[600px] -top-48 -left-48"
@@ -40,12 +40,15 @@ export function Hero() {
         />
       </div>
 
-      {/* Subtle grid pattern */}
-      <div className="absolute inset-0 grid-pattern opacity-[0.25]" />
+      {/* Layer 1: Subtle grid pattern */}
+      <div className="absolute inset-0 z-[1] grid-pattern opacity-[0.2]" />
       
-      {/* Interactive particles canvas - subtle */}
-      <InteractiveParticlesBackground className="opacity-50" />
+      {/* Layer 2: Interactive particles canvas */}
+      <div className="absolute inset-0 z-[5]">
+        <InteractiveParticlesBackground />
+      </div>
 
+      {/* Layer 3: Content */}
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
@@ -138,7 +141,7 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}
