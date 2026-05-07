@@ -21,8 +21,8 @@ export function Hero() {
         <InteractiveParticlesBackground />
       </div>
 
-      {/* Layer 1: Background gradient blobs (subtle, above canvas) */}
-      <div className="absolute inset-0 z-[5] pointer-events-none">
+      {/* Layer 1: Background gradient blobs (very subtle, above canvas) */}
+      <div className="absolute inset-0 z-[5] pointer-events-none opacity-50">
         {/* Primary blue blob */}
         <div 
           className="blob-gradient w-[600px] h-[600px] -top-48 -left-48"
@@ -46,7 +46,7 @@ export function Hero() {
       </div>
 
       {/* Layer 2: Subtle grid pattern */}
-      <div className="absolute inset-0 z-[6] grid-pattern opacity-[0.15] pointer-events-none" />
+      <div className="absolute inset-0 z-[6] grid-pattern opacity-[0.08] pointer-events-none" />
 
       {/* Layer 3: Content (above everything) */}
       <div className="container mx-auto px-4 lg:px-8 relative z-20">
