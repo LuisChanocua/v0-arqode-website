@@ -4,18 +4,13 @@ import { useEffect, useCallback, useState } from "react"
 import { motion, AnimatePresence, PanInfo } from "framer-motion"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-
-interface Slide {
-  title: string
-  description: string
-  imagePlaceholder: string
-}
+import type { ProjectSlide } from "@/data/public-projects"
 
 interface ProjectGalleryModalProps {
   isOpen: boolean
   onClose: () => void
   projectTitle: string
-  slides: Slide[]
+  slides: ProjectSlide[]
 }
 
 export function ProjectGalleryModal({
@@ -107,6 +102,8 @@ export function ProjectGalleryModal({
     }),
   }
 
+  const currentSlide = slides[currentIndex]
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -175,7 +172,7 @@ export function ProjectGalleryModal({
                           <span className="text-2xl font-bold text-primary">{currentIndex + 1}</span>
                         </div>
                         <p className="text-muted-foreground text-sm">
-                          {slides[currentIndex]?.imagePlaceholder}
+                          {currentSlide?.image || `Slide ${currentIndex + 1}`}
                         </p>
                       </div>
                     </div>
@@ -183,10 +180,10 @@ export function ProjectGalleryModal({
                     {/* Slide Info */}
                     <div className="text-center">
                       <h4 className="text-lg font-semibold text-foreground mb-2">
-                        {slides[currentIndex]?.title}
+                        {currentSlide?.title}
                       </h4>
                       <p className="text-muted-foreground leading-relaxed">
-                        {slides[currentIndex]?.description}
+                        {currentSlide?.description}
                       </p>
                     </div>
                   </div>
