@@ -16,35 +16,35 @@ const floatingCards = [
 export function Hero() {
   return (
     <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Background gradient blobs - warmer and more premium */}
+      {/* Background gradient blobs - warm and friendly */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Primary blue blob */}
         <div 
-          className="blob-gradient w-[500px] h-[500px] -top-32 -left-32"
+          className="blob-gradient w-[600px] h-[600px] -top-48 -left-48"
           style={{ background: "var(--hero-gradient-1)" }}
         />
         {/* Cyan/teal blob */}
         <div 
-          className="blob-gradient w-[600px] h-[600px] top-1/4 -right-48"
+          className="blob-gradient w-[700px] h-[700px] top-1/4 -right-64"
           style={{ background: "var(--hero-gradient-2)" }}
         />
         {/* Subtle purple accent */}
         <div 
-          className="blob-gradient w-[400px] h-[400px] bottom-1/4 left-1/4"
+          className="blob-gradient w-[500px] h-[500px] bottom-1/4 left-1/4"
           style={{ background: "var(--hero-gradient-3)" }}
         />
         {/* Warm accent for balance */}
         <div 
-          className="blob-gradient w-[350px] h-[350px] bottom-0 right-1/4"
+          className="blob-gradient w-[400px] h-[400px] bottom-0 right-1/4"
           style={{ background: "var(--hero-gradient-warm)" }}
         />
       </div>
 
       {/* Subtle grid pattern */}
-      <div className="absolute inset-0 grid-pattern opacity-30" />
+      <div className="absolute inset-0 grid-pattern opacity-[0.25]" />
       
-      {/* Interactive particles canvas */}
-      <InteractiveParticlesBackground className="opacity-60" />
+      {/* Interactive particles canvas - subtle */}
+      <InteractiveParticlesBackground className="opacity-50" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
@@ -53,10 +53,10 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/80 border border-border mb-8"
           >
             <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm text-muted-foreground">
+            <span className="text-sm font-medium text-muted-foreground">
               Tecnologia pensada para negocio, operacion y experiencia
             </span>
           </motion.div>
@@ -66,7 +66,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-balance mb-6"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-balance mb-6 text-foreground"
           >
             Soluciones digitales que convierten procesos en{" "}
             <span className="text-gradient">resultados</span>
@@ -77,7 +77,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 text-pretty"
+            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 text-pretty leading-relaxed"
           >
             Disenamos plataformas, automatizaciones y experiencias digitales para ayudarte 
             a operar mejor, entender tus datos y crear interacciones mas valiosas con tus clientes.
@@ -93,7 +93,7 @@ export function Hero() {
             <Button
               asChild
               size="lg"
-              className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all duration-300 text-primary-foreground px-8 shadow-lg hover:shadow-xl hover:scale-[1.02] glow-subtle"
+              className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all duration-200 text-primary-foreground px-8 font-medium shadow-lg hover:shadow-xl"
             >
               <a href="#contacto">
                 Hablemos de tu proyecto
@@ -104,7 +104,7 @@ export function Hero() {
               asChild
               variant="outline"
               size="lg"
-              className="border-border hover:bg-secondary/50 px-8 transition-all duration-300 hover:scale-[1.02]"
+              className="border-border bg-card/50 hover:bg-secondary px-8 transition-all duration-200 font-medium"
             >
               <a href="#casos">Ver casos de impacto</a>
             </Button>
@@ -124,7 +124,7 @@ export function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.6 + card.delay }}
                 whileHover={{ scale: 1.05, y: -4 }}
-                className="glass px-5 py-3 rounded-xl cursor-default transition-all duration-300 hover:shadow-lg"
+                className="bg-card/80 border border-border px-5 py-3 rounded-xl cursor-default transition-all duration-200 shadow-sm hover:shadow-md"
               >
                 <span className="text-sm font-medium text-foreground">{card.label}</span>
               </motion.div>

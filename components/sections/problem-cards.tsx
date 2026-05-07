@@ -67,12 +67,12 @@ export function ProblemCards() {
       {/* Background gradient */}
       <div className="absolute inset-0 overflow-hidden">
         <div 
-          className="blob-gradient w-[500px] h-[500px] top-0 left-1/4"
-          style={{ background: "var(--hero-gradient-2)", opacity: 0.4 }}
+          className="blob-gradient w-[600px] h-[600px] top-0 left-1/4"
+          style={{ background: "var(--hero-gradient-2)" }}
         />
         <div 
-          className="blob-gradient w-[400px] h-[400px] bottom-0 right-1/3"
-          style={{ background: "var(--hero-gradient-warm)", opacity: 0.3 }}
+          className="blob-gradient w-[500px] h-[500px] bottom-0 right-1/3"
+          style={{ background: "var(--hero-gradient-warm)" }}
         />
       </div>
       
@@ -85,11 +85,11 @@ export function ProblemCards() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance text-foreground">
             Problemas que convertimos en{" "}
             <span className="text-gradient">soluciones digitales</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
             Identificamos los retos operativos y comerciales de tu negocio para transformarlos en herramientas que generan resultados.
           </p>
         </motion.div>
@@ -107,13 +107,13 @@ export function ProblemCards() {
               key={problem.title}
               variants={itemVariants}
               whileHover={{ y: -6, transition: { duration: 0.2 } }}
-              className="card-elevated p-6 flex flex-col h-full group hover:shadow-xl transition-all duration-300"
+              className="card-elevated p-6 flex flex-col h-full group transition-all duration-200"
             >
               {/* Label chip */}
               <span className="label-chip-challenge mb-4 self-start">Reto</span>
               
               {/* Icon */}
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mb-4 group-hover:from-primary/30 group-hover:to-accent/30 group-hover:scale-110 transition-all duration-300">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/15 to-accent/10 flex items-center justify-center mb-4 group-hover:from-primary/25 group-hover:to-accent/15 group-hover:scale-110 transition-all duration-200">
                 <problem.icon className="w-7 h-7 text-primary" />
               </div>
               
@@ -128,9 +128,9 @@ export function ProblemCards() {
               </p>
               
               {/* Result */}
-              <div className="pt-4 border-t border-border/50">
+              <div className="pt-4 border-t border-border">
                 <span className="label-chip-impact mb-2">Impacto</span>
-                <p className="text-sm font-medium text-foreground mt-2">
+                <p className="text-sm font-medium text-foreground mt-2 leading-relaxed">
                   {problem.result}
                 </p>
               </div>

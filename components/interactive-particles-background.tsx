@@ -25,22 +25,16 @@ export function InteractiveParticlesBackground({
   const animationFrameRef = useRef<number>()
   const resizeTimeoutRef = useRef<ReturnType<typeof setTimeout>>()
 
-  const getComputedColor = useCallback((cssVar: string, fallback: string): string => {
-    if (typeof window === "undefined") return fallback
-    const computed = getComputedStyle(document.documentElement).getPropertyValue(cssVar).trim()
-    return computed || fallback
-  }, [])
-
   const initParticles = useCallback((canvas: HTMLCanvasElement) => {
     const { width, height } = canvas
     const isMobile = width < 768
     const isSmall = width < 480
     
-    // Adjust particle count based on screen size
-    let particleCount = Math.floor((width * height) / 15000)
-    if (isMobile) particleCount = Math.floor(particleCount * 0.5)
-    if (isSmall) particleCount = Math.floor(particleCount * 0.3)
-    particleCount = Math.max(20, Math.min(particleCount, 120))
+    // Reduced particle count for subtler effect
+    let particleCount = Math.floor((width * height) / 20000)
+    if (isMobile) particleCount = Math.floor(particleCount * 0.4)
+    if (isSmall) particleCount = Math.floor(particleCount * 0.25)
+    particleCount = Math.max(15, Math.min(particleCount, 80))
 
     const particles: Particle[] = []
     for (let i = 0; i < particleCount; i++) {
@@ -49,9 +43,9 @@ export function InteractiveParticlesBackground({
       particles.push({
         x,
         y,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.3,
-        radius: Math.random() * 1.5 + 1,
+        vx: (Math.random() - 0.5) * 0.2,
+        vy: (Math.random() - 0.5) * 0.2,
+        radius: Math.random() * 1.2 + 0.8,
         baseX: x,
         baseY: y,
       })
@@ -65,15 +59,24 @@ export function InteractiveParticlesBackground({
     const mouse = mouseRef.current
     const isMobile = width < 768
 
-    // Get colors from CSS variables
-    const particleColor = getComputedColor("--particle-color", "oklch(0.7 0.2 220)")
-    const lineColor = getComputedColor("--particle-line", "oklch(0.7 0.2 220 / 0.2)")
+    // Get computed styles for theming
+    const computedStyle = getComputedStyle(document.documentElement)
+    const isDark = document.documentElement.classList.contains('dark')
+    
+    // Use primary color based on theme
+    const particleColor = isDark 
+      ? 'rgba(138, 180, 248, 0.6)'  // Lighter blue for dark mode
+      : 'rgba(59, 130, 246, 0.5)'   // Blue for light mode
+    
+    const lineColor = isDark
+      ? 'rgba(138, 180, 248, 0.15)'
+      : 'rgba(59, 130, 246, 0.1)'
 
     ctx.clearRect(0, 0, width, height)
 
     // Connection distance based on screen size
-    const connectionDistance = isMobile ? 100 : 150
-    const mouseInfluenceRadius = isMobile ? 100 : 180
+    const connectionDistance = isMobile ? 80 : 120
+    const mouseInfluenceRadius = isMobile ? 80 : 150
 
     // Update and draw particles
     particles.forEach((particle, i) => {
@@ -85,13 +88,13 @@ export function InteractiveParticlesBackground({
       if (distance < mouseInfluenceRadius && mouse.x > 0) {
         const force = (mouseInfluenceRadius - distance) / mouseInfluenceRadius
         const angle = Math.atan2(dy, dx)
-        // Subtle repulsion
-        particle.vx -= Math.cos(angle) * force * 0.5
-        particle.vy -= Math.sin(angle) * force * 0.5
+        // Gentle repulsion
+        particle.vx -= Math.cos(angle) * force * 0.3
+        particle.vy -= Math.sin(angle) * force * 0.3
       }
 
       // Return to base position slowly
-      const returnForce = 0.01
+      const returnForce = 0.008
       particle.vx += (particle.baseX - particle.x) * returnForce
       particle.vy += (particle.baseY - particle.y) * returnForce
 
@@ -115,7 +118,6 @@ export function InteractiveParticlesBackground({
       ctx.beginPath()
       ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2)
       ctx.fillStyle = particleColor
-      ctx.globalAlpha = 0.6
       ctx.fill()
 
       // Draw connections to nearby particles
@@ -142,14 +144,14 @@ export function InteractiveParticlesBackground({
         ctx.moveTo(particle.x, particle.y)
         ctx.lineTo(mouse.x, mouse.y)
         ctx.strokeStyle = lineColor
-        ctx.globalAlpha = (1 - distance / mouseInfluenceRadius) * 0.5
+        ctx.globalAlpha = (1 - distance / mouseInfluenceRadius) * 0.4
         ctx.lineWidth = 0.5
         ctx.stroke()
       }
     })
 
     ctx.globalAlpha = 1
-  }, [getComputedColor])
+  }, [])
 
   const animate = useCallback(() => {
     const canvas = canvasRef.current
@@ -172,7 +174,6 @@ export function InteractiveParticlesBackground({
     if (!ctx) return
 
     const handleResize = () => {
-      // Debounce resize
       if (resizeTimeoutRef.current) {
         clearTimeout(resizeTimeoutRef.current)
       }

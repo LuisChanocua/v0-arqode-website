@@ -68,16 +68,16 @@ export function SolutionsSection() {
       {/* Background */}
       <div className="absolute inset-0 overflow-hidden">
         <div 
-          className="blob-gradient w-[500px] h-[500px] top-0 right-0"
-          style={{ background: "var(--hero-gradient-1)", opacity: 0.3 }}
+          className="blob-gradient w-[600px] h-[600px] top-0 right-0"
+          style={{ background: "var(--hero-gradient-1)" }}
         />
         <div 
-          className="blob-gradient w-[400px] h-[400px] bottom-0 left-0"
-          style={{ background: "var(--hero-gradient-2)", opacity: 0.25 }}
+          className="blob-gradient w-[500px] h-[500px] bottom-0 left-0"
+          style={{ background: "var(--hero-gradient-2)" }}
         />
         <div 
-          className="blob-gradient w-[300px] h-[300px] top-1/2 left-1/3"
-          style={{ background: "var(--hero-gradient-warm)", opacity: 0.2 }}
+          className="blob-gradient w-[400px] h-[400px] top-1/2 left-1/3"
+          style={{ background: "var(--hero-gradient-warm)" }}
         />
       </div>
       <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
@@ -91,11 +91,11 @@ export function SolutionsSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance text-foreground">
             Soluciones digitales para{" "}
             <span className="text-gradient">necesidades reales</span> de negocio
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
             No vendemos tecnologia por tecnologia. Ofrecemos soluciones conectadas a problemas especificos de operacion, comercio y experiencia.
           </p>
         </motion.div>
@@ -113,11 +113,11 @@ export function SolutionsSection() {
               key={solution.title}
               variants={itemVariants}
               whileHover={{ y: -6, transition: { duration: 0.2 } }}
-              className="card-elevated p-6 group cursor-default hover:shadow-xl transition-all duration-300"
+              className="card-elevated p-6 group cursor-default transition-all duration-200"
             >
               <div className="flex items-start gap-4">
                 {/* Icon */}
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center shrink-0 group-hover:from-primary/30 group-hover:to-accent/30 group-hover:scale-110 transition-all duration-300">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/15 to-accent/10 flex items-center justify-center shrink-0 group-hover:from-primary/25 group-hover:to-accent/15 group-hover:scale-110 transition-all duration-200">
                   <solution.icon className="w-7 h-7 text-primary" />
                 </div>
                 

@@ -85,16 +85,16 @@ export function PublicProjects() {
       {/* Background */}
       <div className="absolute inset-0 overflow-hidden">
         <div 
-          className="blob-gradient w-[500px] h-[500px] top-0 left-1/3"
-          style={{ background: "var(--hero-gradient-1)", opacity: 0.2 }}
+          className="blob-gradient w-[600px] h-[600px] top-0 left-1/3"
+          style={{ background: "var(--hero-gradient-1)" }}
         />
         <div 
-          className="blob-gradient w-[400px] h-[400px] bottom-1/4 right-0"
-          style={{ background: "var(--hero-gradient-2)", opacity: 0.15 }}
+          className="blob-gradient w-[500px] h-[500px] bottom-1/4 right-0"
+          style={{ background: "var(--hero-gradient-2)" }}
         />
         <div 
-          className="blob-gradient w-[300px] h-[300px] bottom-0 left-0"
-          style={{ background: "var(--hero-gradient-warm)", opacity: 0.15 }}
+          className="blob-gradient w-[400px] h-[400px] bottom-0 left-0"
+          style={{ background: "var(--hero-gradient-warm)" }}
         />
       </div>
       
@@ -107,11 +107,11 @@ export function PublicProjects() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance text-foreground">
             Proyectos publicos y{" "}
             <span className="text-gradient">muestras visuales</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
             Algunos proyectos que podemos mostrar abiertamente. Explora cada uno para ver el recorrido visual de la solucion.
           </p>
         </motion.div>
@@ -134,12 +134,12 @@ export function PublicProjects() {
               {/* Image Placeholder */}
               <div className="aspect-video bg-gradient-to-br from-secondary to-muted relative overflow-hidden">
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/30 to-accent/20 flex items-center justify-center shadow-lg">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/15 flex items-center justify-center shadow-md">
                     <span className="text-2xl font-bold text-primary">{index + 1}</span>
                   </div>
                 </div>
                 {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
               </div>
 
               {/* Content */}
@@ -171,7 +171,7 @@ export function PublicProjects() {
 
                 <Button
                   onClick={() => setSelectedProject(project)}
-                  className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all duration-300 text-primary-foreground shadow-lg hover:shadow-xl"
+                  className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all duration-200 text-primary-foreground font-medium shadow-md hover:shadow-lg"
                 >
                   <Eye className="w-4 h-4 mr-2" />
                   Ver recorrido visual

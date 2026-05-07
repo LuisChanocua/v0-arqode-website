@@ -31,15 +31,18 @@ export function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "glass py-3 shadow-lg"
+          ? "glass py-3"
           : "bg-transparent py-5"
       }`}
+      style={{
+        boxShadow: isScrolled ? "var(--shadow-md)" : "none"
+      }}
     >
       <div className="container mx-auto px-4 lg:px-8">
         <nav className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#inicio" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-105 transition-all duration-300">
+          <a href="#inicio" className="flex items-center gap-2.5 group">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-md group-hover:shadow-lg group-hover:scale-105 transition-all duration-200">
               <span className="text-primary-foreground font-bold text-lg">C</span>
             </div>
             <span className="text-xl font-semibold text-foreground">Codara</span>
@@ -51,7 +54,7 @@ export function Header() {
               <a
                 key={item.href}
                 href={item.href}
-                className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary/50"
+                className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary/60"
               >
                 {item.label}
               </a>
@@ -63,7 +66,7 @@ export function Header() {
             <ThemeToggle />
             <Button
               asChild
-              className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all duration-300 text-primary-foreground shadow-lg hover:shadow-xl hover:scale-[1.02]"
+              className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all duration-200 text-primary-foreground font-medium shadow-md hover:shadow-lg"
             >
               <a href="#contacto">Hablemos de tu proyecto</a>
             </Button>
@@ -73,9 +76,9 @@ export function Header() {
           <div className="flex lg:hidden items-center gap-2">
             <ThemeToggle />
             <button
-              className="p-2 text-foreground rounded-lg hover:bg-secondary/50 transition-colors"
+              className="p-2 text-foreground rounded-lg hover:bg-secondary/60 transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="Toggle menu"
+              aria-label={isMobileMenuOpen ? "Cerrar menu" : "Abrir menu"}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -92,20 +95,20 @@ export function Header() {
             exit={{ opacity: 0, height: 0 }}
             className="lg:hidden glass border-t border-border/50 mt-3"
           >
-            <div className="container mx-auto px-4 py-4 flex flex-col gap-2">
+            <div className="container mx-auto px-4 py-4 flex flex-col gap-1">
               {navItems.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="px-4 py-3 text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary/50"
+                  className="px-4 py-3 text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary/60 font-medium"
                 >
                   {item.label}
                 </a>
               ))}
               <Button
                 asChild
-                className="mt-2 bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity text-primary-foreground"
+                className="mt-3 bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity text-primary-foreground font-medium"
               >
                 <a href="#contacto" onClick={() => setIsMobileMenuOpen(false)}>
                   Hablemos de tu proyecto

@@ -44,12 +44,12 @@ export function ImpactCases() {
       {/* Background */}
       <div className="absolute inset-0 overflow-hidden">
         <div 
-          className="blob-gradient w-[600px] h-[600px] top-1/4 -left-48"
-          style={{ background: "var(--hero-gradient-1)", opacity: 0.3 }}
+          className="blob-gradient w-[700px] h-[700px] top-1/4 -left-64"
+          style={{ background: "var(--hero-gradient-1)" }}
         />
         <div 
-          className="blob-gradient w-[500px] h-[500px] bottom-0 right-0"
-          style={{ background: "var(--hero-gradient-3)", opacity: 0.25 }}
+          className="blob-gradient w-[600px] h-[600px] bottom-0 right-0"
+          style={{ background: "var(--hero-gradient-3)" }}
         />
       </div>
       
@@ -62,11 +62,11 @@ export function ImpactCases() {
           transition={{ duration: 0.5 }}
           className="text-center mb-8"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance text-foreground">
             Problemas reales.{" "}
             <span className="text-gradient">Soluciones medibles.</span>
           </h2>
-          <p className="text-muted-foreground max-w-3xl mx-auto text-lg">
+          <p className="text-muted-foreground max-w-3xl mx-auto text-lg leading-relaxed">
             Por acuerdos de confidencialidad, algunos proyectos se presentan de forma anonimizada. 
             Conservamos lo mas importante: el contexto del reto, la solucion implementada y el impacto generado, 
             sin revelar informacion sensible del cliente.
@@ -82,12 +82,12 @@ export function ImpactCases() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="card-elevated overflow-hidden hover:shadow-xl transition-all duration-300"
+              className="card-elevated overflow-hidden transition-all duration-200"
             >
               <div className="p-6 lg:p-8">
                 {/* Case Header */}
                 <div className="flex flex-col lg:flex-row lg:items-center gap-4 mb-6">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center shrink-0">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/15 to-accent/10 flex items-center justify-center shrink-0">
                     <span className="text-xl font-bold text-primary">0{index + 1}</span>
                   </div>
                   <h3 className="text-xl lg:text-2xl font-semibold text-foreground">
@@ -123,7 +123,7 @@ export function ImpactCases() {
                         {caseItem.experience}
                       </p>
                     </div>
-                    <div className="p-4 rounded-xl bg-gradient-to-br from-primary/10 via-accent/5 to-transparent border border-primary/20">
+                    <div className="p-4 rounded-xl bg-secondary/50 border border-border">
                       <span className="label-chip-impact mb-2">Impacto</span>
                       <p className="text-foreground font-medium mt-2 leading-relaxed">
                         {caseItem.impact}
@@ -133,7 +133,7 @@ export function ImpactCases() {
                 </div>
 
                 {/* Capabilities */}
-                <div className="mt-6 pt-6 border-t border-border/50">
+                <div className="mt-6 pt-6 border-t border-border">
                   <h4 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3">
                     Capacidades aplicadas
                   </h4>
@@ -142,7 +142,7 @@ export function ImpactCases() {
                       <Badge
                         key={capability}
                         variant="secondary"
-                        className="bg-secondary/80 text-secondary-foreground hover:bg-secondary transition-colors"
+                        className="bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors"
                       >
                         {capability}
                       </Badge>

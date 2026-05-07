@@ -121,7 +121,7 @@ export function ProjectGalleryModal({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="absolute inset-0 bg-background/95 backdrop-blur-xl"
+            className="absolute inset-0 bg-background/90 backdrop-blur-xl"
             onClick={onClose}
           />
 
@@ -138,14 +138,14 @@ export function ProjectGalleryModal({
               variant="ghost"
               size="icon"
               onClick={onClose}
-              className="absolute top-4 right-4 z-10 rounded-full glass hover:bg-secondary"
+              className="absolute top-4 right-4 z-10 rounded-full bg-secondary hover:bg-secondary/80 border border-border"
               aria-label="Cerrar"
             >
               <X className="w-5 h-5" />
             </Button>
 
             {/* Project Title */}
-            <div className="p-6 border-b border-border/50">
+            <div className="p-6 border-b border-border">
               <h3 className="text-xl font-semibold text-foreground pr-12">{projectTitle}</h3>
             </div>
 
@@ -169,9 +169,9 @@ export function ProjectGalleryModal({
                   {/* Slide Content */}
                   <div className="p-6">
                     {/* Image Placeholder */}
-                    <div className="aspect-video rounded-2xl bg-gradient-to-br from-secondary to-muted flex items-center justify-center mb-6 overflow-hidden border border-border/50">
+                    <div className="aspect-video rounded-2xl bg-gradient-to-br from-secondary to-muted flex items-center justify-center mb-6 overflow-hidden border border-border">
                       <div className="text-center p-8">
-                        <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-primary/30 to-accent/20 flex items-center justify-center shadow-lg">
+                        <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/15 flex items-center justify-center shadow-md">
                           <span className="text-2xl font-bold text-primary">{currentIndex + 1}</span>
                         </div>
                         <p className="text-muted-foreground text-sm">
@@ -195,13 +195,13 @@ export function ProjectGalleryModal({
             </div>
 
             {/* Navigation Controls */}
-            <div className="p-6 border-t border-border/50 flex items-center justify-between">
+            <div className="p-6 border-t border-border flex items-center justify-between">
               {/* Previous Button */}
               <Button
                 variant="outline"
                 onClick={goToPrevious}
                 disabled={currentIndex === 0}
-                className="gap-2 transition-all duration-300"
+                className="gap-2 transition-all duration-200"
               >
                 <ChevronLeft className="w-4 h-4" />
                 Anterior
@@ -216,7 +216,7 @@ export function ProjectGalleryModal({
                       setDirection(index > currentIndex ? 1 : -1)
                       setCurrentIndex(index)
                     }}
-                    className={`h-2.5 rounded-full transition-all duration-300 ${
+                    className={`h-2.5 rounded-full transition-all duration-200 ${
                       index === currentIndex
                         ? "bg-primary w-6"
                         : "bg-muted-foreground/30 hover:bg-muted-foreground/50 w-2.5"
@@ -231,7 +231,7 @@ export function ProjectGalleryModal({
                 variant="outline"
                 onClick={goToNext}
                 disabled={currentIndex === slides.length - 1}
-                className="gap-2 transition-all duration-300"
+                className="gap-2 transition-all duration-200"
               >
                 Siguiente
                 <ChevronRight className="w-4 h-4" />

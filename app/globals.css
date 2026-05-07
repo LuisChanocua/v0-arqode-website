@@ -4,162 +4,192 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ========================================
-   LIGHT THEME - Warm, premium, not cold
+   LIGHT THEME - Warm, friendly, polished
+   Primary experience - professional & approachable
    ======================================== */
 :root {
-  /* Core backgrounds - warm slate/cream tones */
-  --background: oklch(0.97 0.005 80);
-  --foreground: oklch(0.15 0.02 260);
+  /* Core backgrounds - warm cream/white tones */
+  --background: oklch(0.985 0.003 75);
+  --foreground: oklch(0.18 0.015 265);
   
-  /* Cards - soft white with subtle warmth */
-  --card: oklch(0.99 0.003 80);
-  --card-foreground: oklch(0.15 0.02 260);
+  /* Cards - clean white with subtle warmth */
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.015 265);
   
   /* Popover */
-  --popover: oklch(0.99 0.003 80);
-  --popover-foreground: oklch(0.15 0.02 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.015 265);
   
-  /* Primary - vibrant blue */
-  --primary: oklch(0.55 0.2 240);
-  --primary-foreground: oklch(0.98 0 0);
+  /* Primary - vibrant blue (professional but friendly) */
+  --primary: oklch(0.52 0.22 255);
+  --primary-foreground: oklch(0.99 0 0);
   
-  /* Secondary - warm gray */
-  --secondary: oklch(0.92 0.01 80);
-  --secondary-foreground: oklch(0.25 0.02 260);
+  /* Secondary - warm light gray */
+  --secondary: oklch(0.96 0.005 75);
+  --secondary-foreground: oklch(0.25 0.015 265);
   
-  /* Muted - blue-gray */
-  --muted: oklch(0.93 0.01 250);
-  --muted-foreground: oklch(0.45 0.02 260);
+  /* Muted - soft gray with slight warmth */
+  --muted: oklch(0.94 0.005 75);
+  --muted-foreground: oklch(0.45 0.01 265);
   
-  /* Accent - cyan/teal */
-  --accent: oklch(0.6 0.18 195);
-  --accent-foreground: oklch(0.98 0 0);
+  /* Accent - vibrant teal/cyan */
+  --accent: oklch(0.65 0.16 195);
+  --accent-foreground: oklch(0.99 0 0);
+  
+  /* Success/Impact - green for positive highlights */
+  --success: oklch(0.65 0.18 155);
+  --success-foreground: oklch(0.99 0 0);
   
   /* Destructive */
   --destructive: oklch(0.55 0.22 25);
-  --destructive-foreground: oklch(0.98 0 0);
+  --destructive-foreground: oklch(0.99 0 0);
   
   /* Borders and inputs */
-  --border: oklch(0.88 0.01 260);
-  --input: oklch(0.95 0.005 260);
-  --ring: oklch(0.55 0.2 240);
+  --border: oklch(0.90 0.005 265);
+  --input: oklch(0.97 0.003 75);
+  --ring: oklch(0.52 0.22 255);
   
   /* Charts */
-  --chart-1: oklch(0.55 0.2 240);
-  --chart-2: oklch(0.6 0.18 195);
-  --chart-3: oklch(0.55 0.15 290);
-  --chart-4: oklch(0.6 0.15 150);
-  --chart-5: oklch(0.55 0.18 320);
+  --chart-1: oklch(0.52 0.22 255);
+  --chart-2: oklch(0.65 0.16 195);
+  --chart-3: oklch(0.58 0.14 290);
+  --chart-4: oklch(0.65 0.18 155);
+  --chart-5: oklch(0.58 0.16 25);
   
-  /* Radius */
-  --radius: 0.875rem;
+  /* Radius - larger for friendly feel */
+  --radius: 1rem;
   
   /* Sidebar */
-  --sidebar: oklch(0.96 0.005 80);
-  --sidebar-foreground: oklch(0.15 0.02 260);
-  --sidebar-primary: oklch(0.55 0.2 240);
-  --sidebar-primary-foreground: oklch(0.98 0 0);
-  --sidebar-accent: oklch(0.92 0.01 80);
-  --sidebar-accent-foreground: oklch(0.25 0.02 260);
-  --sidebar-border: oklch(0.88 0.01 260);
-  --sidebar-ring: oklch(0.55 0.2 240);
+  --sidebar: oklch(0.98 0.003 75);
+  --sidebar-foreground: oklch(0.18 0.015 265);
+  --sidebar-primary: oklch(0.52 0.22 255);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.96 0.005 75);
+  --sidebar-accent-foreground: oklch(0.25 0.015 265);
+  --sidebar-border: oklch(0.90 0.005 265);
+  --sidebar-ring: oklch(0.52 0.22 255);
   
-  /* Glow effects - subtle in light mode */
-  --glow: oklch(0.55 0.2 240 / 0.15);
-  --glow-cyan: oklch(0.6 0.18 195 / 0.15);
-  --warm-glow: oklch(0.7 0.12 50 / 0.1);
+  /* Shadows - soft and warm */
+  --shadow-color: 250 5% 40%;
+  --shadow-sm: 0 1px 2px hsl(var(--shadow-color) / 0.05);
+  --shadow-md: 0 4px 12px hsl(var(--shadow-color) / 0.08);
+  --shadow-lg: 0 8px 24px hsl(var(--shadow-color) / 0.10);
+  --shadow-xl: 0 16px 40px hsl(var(--shadow-color) / 0.12);
   
-  /* Hero gradients */
-  --hero-gradient-1: oklch(0.55 0.2 240 / 0.08);
-  --hero-gradient-2: oklch(0.6 0.18 195 / 0.08);
-  --hero-gradient-3: oklch(0.6 0.12 290 / 0.06);
-  --hero-gradient-warm: oklch(0.7 0.1 50 / 0.05);
+  /* Hero gradients - subtle and warm */
+  --hero-gradient-1: oklch(0.52 0.22 255 / 0.06);
+  --hero-gradient-2: oklch(0.65 0.16 195 / 0.05);
+  --hero-gradient-3: oklch(0.58 0.12 290 / 0.04);
+  --hero-gradient-warm: oklch(0.75 0.08 50 / 0.04);
   
-  /* Glass surface */
-  --surface-glass: oklch(0.99 0.003 80 / 0.8);
-  --surface-glass-border: oklch(0.85 0.01 260 / 0.5);
+  /* Glass surface - light mode is more solid */
+  --surface-glass: oklch(1 0 0 / 0.85);
+  --surface-glass-border: oklch(0.88 0.005 265 / 0.6);
   
-  /* Particles */
-  --particle-color: oklch(0.55 0.2 240);
-  --particle-line: oklch(0.55 0.2 240 / 0.15);
+  /* Particles - subtle in light mode */
+  --particle-color: oklch(0.52 0.22 255);
+  --particle-line: oklch(0.52 0.22 255 / 0.12);
+  
+  /* Label chip colors */
+  --chip-challenge-bg: oklch(0.52 0.22 255 / 0.1);
+  --chip-challenge-text: oklch(0.45 0.2 255);
+  --chip-solution-bg: oklch(0.65 0.16 195 / 0.1);
+  --chip-solution-text: oklch(0.45 0.16 195);
+  --chip-impact-bg: oklch(0.65 0.18 155 / 0.12);
+  --chip-impact-text: oklch(0.45 0.18 155);
 }
 
 /* ========================================
-   DARK THEME - Deep navy, premium glow
+   DARK THEME - Navy blue, elegant, not cold
+   Alternative experience - premium feel
    ======================================== */
 .dark {
-  /* Core backgrounds - deep navy blue */
-  --background: oklch(0.12 0.025 260);
-  --foreground: oklch(0.95 0.01 260);
+  /* Core backgrounds - deep navy (not black) */
+  --background: oklch(0.14 0.025 265);
+  --foreground: oklch(0.95 0.008 265);
   
-  /* Cards - navy with glass feel */
-  --card: oklch(0.16 0.03 260);
-  --card-foreground: oklch(0.95 0.01 260);
+  /* Cards - slightly elevated navy */
+  --card: oklch(0.18 0.025 265);
+  --card-foreground: oklch(0.95 0.008 265);
   
   /* Popover */
-  --popover: oklch(0.14 0.025 260);
-  --popover-foreground: oklch(0.95 0.01 260);
+  --popover: oklch(0.16 0.025 265);
+  --popover-foreground: oklch(0.95 0.008 265);
   
-  /* Primary - electric blue */
-  --primary: oklch(0.7 0.2 220);
-  --primary-foreground: oklch(0.12 0.02 260);
+  /* Primary - brighter blue for dark bg */
+  --primary: oklch(0.68 0.2 245);
+  --primary-foreground: oklch(0.12 0.02 265);
   
   /* Secondary - muted navy */
-  --secondary: oklch(0.2 0.03 260);
-  --secondary-foreground: oklch(0.9 0.01 260);
+  --secondary: oklch(0.22 0.025 265);
+  --secondary-foreground: oklch(0.92 0.008 265);
   
-  /* Muted - blue gray */
-  --muted: oklch(0.22 0.025 260);
-  --muted-foreground: oklch(0.6 0.02 260);
+  /* Muted - blue-gray */
+  --muted: oklch(0.24 0.02 265);
+  --muted-foreground: oklch(0.65 0.015 265);
   
   /* Accent - vibrant cyan */
-  --accent: oklch(0.75 0.18 190);
-  --accent-foreground: oklch(0.12 0.02 260);
+  --accent: oklch(0.72 0.15 195);
+  --accent-foreground: oklch(0.12 0.02 265);
+  
+  /* Success */
+  --success: oklch(0.72 0.16 155);
+  --success-foreground: oklch(0.12 0.02 265);
   
   /* Destructive */
-  --destructive: oklch(0.6 0.22 25);
-  --destructive-foreground: oklch(0.98 0 0);
+  --destructive: oklch(0.62 0.2 25);
+  --destructive-foreground: oklch(0.99 0 0);
   
   /* Borders and inputs */
-  --border: oklch(0.28 0.03 260);
-  --input: oklch(0.18 0.025 260);
-  --ring: oklch(0.7 0.2 220);
+  --border: oklch(0.30 0.025 265);
+  --input: oklch(0.20 0.02 265);
+  --ring: oklch(0.68 0.2 245);
   
   /* Charts */
-  --chart-1: oklch(0.7 0.2 220);
-  --chart-2: oklch(0.75 0.18 190);
-  --chart-3: oklch(0.65 0.15 290);
-  --chart-4: oklch(0.7 0.15 150);
-  --chart-5: oklch(0.65 0.18 320);
+  --chart-1: oklch(0.68 0.2 245);
+  --chart-2: oklch(0.72 0.15 195);
+  --chart-3: oklch(0.65 0.12 290);
+  --chart-4: oklch(0.72 0.16 155);
+  --chart-5: oklch(0.65 0.15 25);
   
   /* Sidebar */
-  --sidebar: oklch(0.14 0.025 260);
-  --sidebar-foreground: oklch(0.95 0.01 260);
-  --sidebar-primary: oklch(0.7 0.2 220);
-  --sidebar-primary-foreground: oklch(0.12 0.02 260);
-  --sidebar-accent: oklch(0.2 0.03 260);
-  --sidebar-accent-foreground: oklch(0.9 0.01 260);
-  --sidebar-border: oklch(0.28 0.03 260);
-  --sidebar-ring: oklch(0.7 0.2 220);
+  --sidebar: oklch(0.16 0.025 265);
+  --sidebar-foreground: oklch(0.95 0.008 265);
+  --sidebar-primary: oklch(0.68 0.2 245);
+  --sidebar-primary-foreground: oklch(0.12 0.02 265);
+  --sidebar-accent: oklch(0.22 0.025 265);
+  --sidebar-accent-foreground: oklch(0.92 0.008 265);
+  --sidebar-border: oklch(0.30 0.025 265);
+  --sidebar-ring: oklch(0.68 0.2 245);
   
-  /* Glow effects - more visible in dark */
-  --glow: oklch(0.7 0.2 220 / 0.35);
-  --glow-cyan: oklch(0.75 0.18 190 / 0.3);
-  --warm-glow: oklch(0.7 0.12 50 / 0.15);
+  /* Shadows - darker */
+  --shadow-color: 250 20% 10%;
+  --shadow-sm: 0 1px 2px hsl(var(--shadow-color) / 0.3);
+  --shadow-md: 0 4px 12px hsl(var(--shadow-color) / 0.4);
+  --shadow-lg: 0 8px 24px hsl(var(--shadow-color) / 0.5);
+  --shadow-xl: 0 16px 40px hsl(var(--shadow-color) / 0.6);
   
-  /* Hero gradients */
-  --hero-gradient-1: oklch(0.7 0.2 220 / 0.15);
-  --hero-gradient-2: oklch(0.75 0.18 190 / 0.12);
-  --hero-gradient-3: oklch(0.65 0.15 290 / 0.1);
-  --hero-gradient-warm: oklch(0.65 0.1 50 / 0.08);
+  /* Hero gradients - more visible in dark */
+  --hero-gradient-1: oklch(0.68 0.2 245 / 0.12);
+  --hero-gradient-2: oklch(0.72 0.15 195 / 0.10);
+  --hero-gradient-3: oklch(0.65 0.12 290 / 0.08);
+  --hero-gradient-warm: oklch(0.70 0.08 50 / 0.06);
   
-  /* Glass surface */
-  --surface-glass: oklch(0.16 0.03 260 / 0.7);
-  --surface-glass-border: oklch(0.35 0.03 260 / 0.5);
+  /* Glass surface - translucent for dark mode */
+  --surface-glass: oklch(0.18 0.025 265 / 0.75);
+  --surface-glass-border: oklch(0.35 0.025 265 / 0.5);
   
-  /* Particles */
-  --particle-color: oklch(0.7 0.2 220);
-  --particle-line: oklch(0.7 0.2 220 / 0.2);
+  /* Particles - more visible in dark */
+  --particle-color: oklch(0.68 0.2 245);
+  --particle-line: oklch(0.68 0.2 245 / 0.18);
+  
+  /* Label chip colors - brighter for dark mode */
+  --chip-challenge-bg: oklch(0.68 0.2 245 / 0.15);
+  --chip-challenge-text: oklch(0.75 0.18 245);
+  --chip-solution-bg: oklch(0.72 0.15 195 / 0.15);
+  --chip-solution-text: oklch(0.78 0.14 195);
+  --chip-impact-bg: oklch(0.72 0.16 155 / 0.15);
+  --chip-impact-text: oklch(0.78 0.15 155);
 }
 
 @theme inline {
@@ -202,8 +232,6 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  --color-glow: var(--glow);
-  --color-glow-cyan: var(--glow-cyan);
 }
 
 @layer base {
@@ -222,42 +250,23 @@
   /* Glass effect - adapts to theme */
   .glass {
     background: var(--surface-glass);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--surface-glass-border);
   }
   
   .glass-hover {
-    @apply transition-all duration-300;
+    @apply transition-all duration-200;
   }
   .glass-hover:hover {
     background: var(--surface-glass);
     border-color: var(--border);
-    box-shadow: 0 8px 32px var(--glow);
   }
   
-  /* Glow effects */
-  .glow-primary {
-    box-shadow: 0 0 30px var(--glow), 0 0 60px var(--glow);
-  }
-  .glow-cyan {
-    box-shadow: 0 0 30px var(--glow-cyan), 0 0 60px var(--glow-cyan);
-  }
-  .glow-subtle {
-    box-shadow: 0 4px 20px var(--glow);
-  }
-  
-  /* Text gradient */
+  /* Text gradient - vibrant */
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, var(--primary), var(--accent), var(--primary));
-    background-size: 200% 200%;
-    animation: gradient-shift 8s ease infinite;
-  }
-  
-  @keyframes gradient-shift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+    background-image: linear-gradient(135deg, var(--primary), var(--accent));
   }
   
   /* Grid pattern - adapts to theme */
@@ -268,44 +277,49 @@
     background-size: 60px 60px;
   }
   
-  /* Label chips */
+  /* Label chips - use CSS variables for theming */
   .label-chip {
-    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider;
+    @apply inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider;
   }
   .label-chip-challenge {
     @apply label-chip;
-    background: linear-gradient(135deg, var(--primary) / 0.15, var(--accent) / 0.1);
-    color: var(--primary);
+    background: var(--chip-challenge-bg);
+    color: var(--chip-challenge-text);
   }
   .label-chip-solution {
     @apply label-chip;
-    background: linear-gradient(135deg, var(--accent) / 0.15, var(--primary) / 0.1);
-    color: var(--accent);
+    background: var(--chip-solution-bg);
+    color: var(--chip-solution-text);
   }
   .label-chip-impact {
     @apply label-chip;
-    background: linear-gradient(135deg, oklch(0.7 0.15 150 / 0.2), oklch(0.6 0.18 195 / 0.15));
-    color: oklch(0.6 0.18 150);
-  }
-  .dark .label-chip-impact {
-    color: oklch(0.75 0.15 150);
+    background: var(--chip-impact-bg);
+    color: var(--chip-impact-text);
   }
   
-  /* Card depth */
+  /* Card with shadow - adapts to theme */
   .card-elevated {
-    @apply glass rounded-2xl;
-    box-shadow: 
-      0 1px 2px var(--border),
-      0 4px 12px var(--glow),
-      0 0 0 1px var(--surface-glass-border);
+    @apply bg-card rounded-2xl border border-border;
+    box-shadow: var(--shadow-md);
+  }
+  .card-elevated:hover {
+    box-shadow: var(--shadow-lg);
   }
   
   /* Warm background blobs */
   .blob-gradient {
     position: absolute;
     border-radius: 50%;
-    filter: blur(100px);
-    opacity: 0.6;
+    filter: blur(80px);
+    opacity: 1;
     pointer-events: none;
+  }
+  
+  /* Button glow effect */
+  .btn-glow {
+    box-shadow: 0 0 20px var(--primary) / 0.2;
+  }
+  .btn-glow:hover {
+    box-shadow: 0 0 30px var(--primary) / 0.3;
   }
 }

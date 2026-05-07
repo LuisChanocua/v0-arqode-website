@@ -36,16 +36,16 @@ export function ProcessSection() {
       {/* Background gradient */}
       <div className="absolute inset-0 overflow-hidden">
         <div 
-          className="blob-gradient w-[500px] h-[500px] top-0 left-1/4"
-          style={{ background: "var(--hero-gradient-1)", opacity: 0.25 }}
+          className="blob-gradient w-[600px] h-[600px] top-0 left-1/4"
+          style={{ background: "var(--hero-gradient-1)" }}
         />
         <div 
-          className="blob-gradient w-[400px] h-[400px] bottom-0 right-1/4"
-          style={{ background: "var(--hero-gradient-2)", opacity: 0.2 }}
+          className="blob-gradient w-[500px] h-[500px] bottom-0 right-1/4"
+          style={{ background: "var(--hero-gradient-2)" }}
         />
         <div 
-          className="blob-gradient w-[300px] h-[300px] top-1/2 right-0"
-          style={{ background: "var(--hero-gradient-warm)", opacity: 0.15 }}
+          className="blob-gradient w-[400px] h-[400px] top-1/2 right-0"
+          style={{ background: "var(--hero-gradient-warm)" }}
         />
       </div>
       
@@ -58,11 +58,11 @@ export function ProcessSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance text-foreground">
             Antes de construir,{" "}
             <span className="text-gradient">entendemos el problema</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
             Nuestro proceso esta disenado para asegurar que cada solucion responda a una necesidad real del negocio.
           </p>
         </motion.div>
@@ -84,14 +84,14 @@ export function ProcessSection() {
                 className="relative"
               >
                 {/* Step Card */}
-                <div className="card-elevated p-6 h-full flex flex-col items-center text-center group hover:shadow-xl transition-all duration-300">
+                <div className="card-elevated p-6 h-full flex flex-col items-center text-center group transition-all duration-200">
                   {/* Number Badge */}
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg">
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-md">
                     <span className="text-xs font-bold text-primary-foreground">{step.number}</span>
                   </div>
                   
                   {/* Icon */}
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mb-4 mt-4 group-hover:from-primary/30 group-hover:to-accent/30 group-hover:scale-110 transition-all duration-300">
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/15 to-accent/10 flex items-center justify-center mb-4 mt-4 group-hover:from-primary/25 group-hover:to-accent/15 group-hover:scale-110 transition-all duration-200">
                     <step.icon className="w-8 h-8 text-primary" />
                   </div>
                   

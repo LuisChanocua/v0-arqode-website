@@ -32,12 +32,12 @@ export function TrustSection() {
       {/* Background */}
       <div className="absolute inset-0 overflow-hidden">
         <div 
-          className="blob-gradient w-[500px] h-[500px] top-1/2 left-1/4 -translate-y-1/2"
-          style={{ background: "var(--hero-gradient-2)", opacity: 0.2 }}
+          className="blob-gradient w-[600px] h-[600px] top-1/2 left-1/4 -translate-y-1/2"
+          style={{ background: "var(--hero-gradient-2)" }}
         />
         <div 
-          className="blob-gradient w-[400px] h-[400px] bottom-0 right-1/4"
-          style={{ background: "var(--hero-gradient-3)", opacity: 0.15 }}
+          className="blob-gradient w-[500px] h-[500px] bottom-0 right-1/4"
+          style={{ background: "var(--hero-gradient-3)" }}
         />
       </div>
       
@@ -52,7 +52,7 @@ export function TrustSection() {
           <div className="card-elevated p-8 lg:p-12">
             {/* Header */}
             <div className="text-center mb-10">
-              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-balance">
+              <h2 className="text-2xl md:text-3xl font-bold mb-4 text-balance text-foreground">
                 Experiencia en proyectos donde la{" "}
                 <span className="text-gradient">confidencialidad importa</span>
               </h2>
@@ -75,7 +75,7 @@ export function TrustSection() {
                   whileHover={{ y: -4, transition: { duration: 0.2 } }}
                   className="text-center group cursor-default"
                 >
-                  <div className="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center mb-4 group-hover:from-primary/30 group-hover:to-accent/30 group-hover:scale-110 transition-all duration-300">
+                  <div className="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-primary/15 to-accent/10 flex items-center justify-center mb-4 group-hover:from-primary/25 group-hover:to-accent/15 group-hover:scale-110 transition-all duration-200">
                     <point.icon className="w-8 h-8 text-primary" />
                   </div>
                   <h3 className="text-lg font-semibold text-foreground mb-2">
