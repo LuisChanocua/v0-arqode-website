@@ -278,21 +278,18 @@
   }
   
   /* Label chips - use CSS variables for theming */
-  .label-chip {
-    @apply inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider;
-  }
   .label-chip-challenge {
-    @apply label-chip;
+    @apply inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider;
     background: var(--chip-challenge-bg);
     color: var(--chip-challenge-text);
   }
   .label-chip-solution {
-    @apply label-chip;
+    @apply inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider;
     background: var(--chip-solution-bg);
     color: var(--chip-solution-text);
   }
   .label-chip-impact {
-    @apply label-chip;
+    @apply inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider;
     background: var(--chip-impact-bg);
     color: var(--chip-impact-text);
   }
