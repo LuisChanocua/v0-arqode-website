@@ -86,9 +86,10 @@
   --surface-glass: oklch(1 0 0 / 0.85);
   --surface-glass-border: oklch(0.88 0.005 265 / 0.6);
   
-  /* Particles - subtle in light mode */
-  --particle-color: oklch(0.52 0.22 255);
-  --particle-line: oklch(0.52 0.22 255 / 0.12);
+  /* Particles - HSL values for canvas (readable via getComputedStyle) */
+  --particle-dot: 214 90% 48%;
+  --particle-line: 214 90% 48%;
+  --particle-line-active: 190 95% 45%;
   
   /* Label chip colors */
   --chip-challenge-bg: oklch(0.52 0.22 255 / 0.1);
@@ -179,9 +180,10 @@
   --surface-glass: oklch(0.18 0.025 265 / 0.75);
   --surface-glass-border: oklch(0.35 0.025 265 / 0.5);
   
-  /* Particles - more visible in dark */
-  --particle-color: oklch(0.68 0.2 245);
-  --particle-line: oklch(0.68 0.2 245 / 0.18);
+  /* Particles - HSL values for canvas (more visible in dark) */
+  --particle-dot: 190 95% 65%;
+  --particle-line: 190 95% 60%;
+  --particle-line-active: 265 90% 70%;
   
   /* Label chip colors - brighter for dark mode */
   --chip-challenge-bg: oklch(0.68 0.2 245 / 0.15);
