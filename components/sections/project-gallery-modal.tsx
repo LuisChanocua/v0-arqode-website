@@ -23,20 +23,16 @@ export function ProjectGalleryModal({
   const [direction, setDirection] = useState(0)
 
   const goToNext = useCallback(() => {
-    if (currentIndex < slides.length - 1) {
-      setDirection(1)
-      setCurrentIndex((prev) => prev + 1)
-    }
-  }, [currentIndex, slides.length])
+    setDirection(1)
+    setCurrentIndex((prev) => (prev + 1) % slides.length)
+  }, [slides.length])
 
   const goToPrevious = useCallback(() => {
-    if (currentIndex > 0) {
-      setDirection(-1)
-      setCurrentIndex((prev) => prev - 1)
-    }
-  }, [currentIndex])
+    setDirection(-1)
+    setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length)
+  }, [slides.length])
 
-  const handleDragEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+  const handleDragEnd = (_event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
     const threshold = 50
     if (info.offset.x > threshold) {
       goToPrevious()
@@ -89,7 +85,7 @@ export function ProjectGalleryModal({
 
   const slideVariants = {
     enter: (direction: number) => ({
-      x: direction > 0 ? 300 : -300,
+      x: direction > 0 ? 200 : -200,
       opacity: 0,
     }),
     center: {
@@ -97,12 +93,14 @@ export function ProjectGalleryModal({
       opacity: 1,
     },
     exit: (direction: number) => ({
-      x: direction < 0 ? 300 : -300,
+      x: direction < 0 ? 200 : -200,
       opacity: 0,
     }),
   }
 
   const currentSlide = slides[currentIndex]
+
+  if (!isOpen) return null
 
   return (
     <AnimatePresence>
@@ -111,7 +109,7 @@ export function ProjectGalleryModal({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4"
         >
           {/* Backdrop */}
           <motion.div
@@ -128,84 +126,104 @@ export function ProjectGalleryModal({
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="relative w-full max-w-4xl max-h-[90vh] card-elevated overflow-hidden"
+            className="relative w-[calc(100vw-1.5rem)] sm:w-[calc(100vw-2rem)] max-w-5xl max-h-[calc(100vh-1.5rem)] sm:max-h-[calc(100vh-2rem)] bg-card border border-border rounded-2xl shadow-2xl overflow-hidden flex flex-col"
           >
-            {/* Close Button */}
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={onClose}
-              className="absolute top-4 right-4 z-10 rounded-full bg-secondary hover:bg-secondary/80 border border-border"
-              aria-label="Cerrar"
-            >
-              <X className="w-5 h-5" />
-            </Button>
-
-            {/* Project Title */}
-            <div className="p-6 border-b border-border">
-              <h3 className="text-xl font-semibold text-foreground pr-12">{projectTitle}</h3>
-            </div>
-
-            {/* Slides Container */}
-            <div className="relative overflow-hidden">
-              <AnimatePresence mode="wait" custom={direction}>
-                <motion.div
-                  key={currentIndex}
-                  custom={direction}
-                  variants={slideVariants}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
-                  drag="x"
-                  dragConstraints={{ left: 0, right: 0 }}
-                  dragElastic={0.2}
-                  onDragEnd={handleDragEnd}
-                  className="cursor-grab active:cursor-grabbing"
-                >
-                  {/* Slide Content */}
-                  <div className="p-6">
-                    {/* Image Placeholder */}
-                    <div className="aspect-video rounded-2xl bg-gradient-to-br from-secondary to-muted flex items-center justify-center mb-6 overflow-hidden border border-border">
-                      <div className="text-center p-8">
-                        <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/15 flex items-center justify-center shadow-md">
-                          <span className="text-2xl font-bold text-primary">{currentIndex + 1}</span>
-                        </div>
-                        <p className="text-muted-foreground text-sm">
-                          {currentSlide?.image || `Slide ${currentIndex + 1}`}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Slide Info */}
-                    <div className="text-center">
-                      <h4 className="text-lg font-semibold text-foreground mb-2">
-                        {currentSlide?.title}
-                      </h4>
-                      <p className="text-muted-foreground leading-relaxed">
-                        {currentSlide?.description}
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-
-            {/* Navigation Controls */}
-            <div className="p-6 border-t border-border flex items-center justify-between">
-              {/* Previous Button */}
+            {/* Header - Fixed */}
+            <div className="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 border-b border-border shrink-0">
+              <div className="flex items-center gap-3 min-w-0 pr-4">
+                <h3 className="text-base sm:text-lg font-semibold text-foreground truncate">
+                  {projectTitle}
+                </h3>
+                <span className="text-xs sm:text-sm text-muted-foreground shrink-0">
+                  {currentIndex + 1} / {slides.length}
+                </span>
+              </div>
               <Button
-                variant="outline"
-                onClick={goToPrevious}
-                disabled={currentIndex === 0}
-                className="gap-2 transition-all duration-200"
+                variant="ghost"
+                size="icon"
+                onClick={onClose}
+                className="rounded-full shrink-0 w-8 h-8 sm:w-9 sm:h-9 hover:bg-secondary"
+                aria-label="Cerrar modal"
               >
-                <ChevronLeft className="w-4 h-4" />
-                Anterior
+                <X className="w-4 h-4 sm:w-5 sm:h-5" />
               </Button>
+            </div>
 
-              {/* Indicators */}
-              <div className="flex items-center gap-2">
+            {/* Content - Scrollable */}
+            <div className="flex-1 overflow-y-auto">
+              <div className="p-4 sm:p-6">
+                {/* Image Area with Controls */}
+                <div className="relative">
+                  {/* Image Container */}
+                  <AnimatePresence mode="wait" custom={direction}>
+                    <motion.div
+                      key={currentIndex}
+                      custom={direction}
+                      variants={slideVariants}
+                      initial="enter"
+                      animate="center"
+                      exit="exit"
+                      transition={{ duration: 0.25, ease: "easeInOut" }}
+                      drag="x"
+                      dragConstraints={{ left: 0, right: 0 }}
+                      dragElastic={0.15}
+                      onDragEnd={handleDragEnd}
+                      className="cursor-grab active:cursor-grabbing"
+                    >
+                      <div className="aspect-[16/9] max-h-[50vh] sm:max-h-[55vh] rounded-xl bg-gradient-to-br from-secondary to-muted flex items-center justify-center overflow-hidden border border-border">
+                        <div className="text-center p-6 sm:p-8">
+                          <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 rounded-xl bg-gradient-to-br from-primary/20 to-accent/15 flex items-center justify-center shadow-md">
+                            <span className="text-xl sm:text-2xl font-bold text-primary">
+                              {currentIndex + 1}
+                            </span>
+                          </div>
+                          <p className="text-muted-foreground text-xs sm:text-sm">
+                            {currentSlide?.image || `Slide ${currentIndex + 1}`}
+                          </p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </AnimatePresence>
+
+                  {/* Previous Button - Inside image area */}
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    onClick={goToPrevious}
+                    className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 z-30 rounded-full w-9 h-9 sm:w-10 sm:h-10 bg-card/90 backdrop-blur-sm border-border shadow-lg hover:shadow-xl transition-all"
+                    aria-label="Imagen anterior"
+                  >
+                    <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
+                  </Button>
+
+                  {/* Next Button - Inside image area */}
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    onClick={goToNext}
+                    className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 z-30 rounded-full w-9 h-9 sm:w-10 sm:h-10 bg-card/90 backdrop-blur-sm border-border shadow-lg hover:shadow-xl transition-all"
+                    aria-label="Imagen siguiente"
+                  >
+                    <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                  </Button>
+                </div>
+
+                {/* Slide Info */}
+                <div className="mt-4 sm:mt-6 text-center">
+                  <h4 className="text-base sm:text-lg font-semibold text-foreground mb-2">
+                    {currentSlide?.title}
+                  </h4>
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+                    {currentSlide?.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Footer - Fixed */}
+            <div className="px-4 sm:px-6 py-3 sm:py-4 border-t border-border shrink-0">
+              {/* Dot Indicators */}
+              <div className="flex justify-center items-center gap-1.5 sm:gap-2">
                 {slides.map((_, index) => (
                   <button
                     key={index}
@@ -213,26 +231,15 @@ export function ProjectGalleryModal({
                       setDirection(index > currentIndex ? 1 : -1)
                       setCurrentIndex(index)
                     }}
-                    className={`h-2.5 rounded-full transition-all duration-200 ${
+                    className={`h-2 sm:h-2.5 rounded-full transition-all duration-200 ${
                       index === currentIndex
-                        ? "bg-primary w-6"
-                        : "bg-muted-foreground/30 hover:bg-muted-foreground/50 w-2.5"
+                        ? "bg-primary w-5 sm:w-6"
+                        : "bg-muted-foreground/30 hover:bg-muted-foreground/50 w-2 sm:w-2.5"
                     }`}
                     aria-label={`Ir a diapositiva ${index + 1}`}
                   />
                 ))}
               </div>
-
-              {/* Next Button */}
-              <Button
-                variant="outline"
-                onClick={goToNext}
-                disabled={currentIndex === slides.length - 1}
-                className="gap-2 transition-all duration-200"
-              >
-                Siguiente
-                <ChevronRight className="w-4 h-4" />
-              </Button>
             </div>
           </motion.div>
         </motion.div>
