@@ -15,14 +15,14 @@ import {
 
 const results = [
   { icon: ArrowDownToLine, text: "Reducir procesos manuales" },
-  { icon: Eye, text: "Mejorar la trazabilidad de la operacion" },
-  { icon: Database, text: "Centralizar informacion" },
+  { icon: Eye, text: "Mejorar la trazabilidad de la operación" },
+  { icon: Database, text: "Centralizar información" },
   { icon: BrainCircuit, text: "Facilitar la toma de decisiones" },
   { icon: Smile, text: "Mejorar la experiencia del usuario" },
   { icon: Zap, text: "Aumentar la eficiencia de equipos internos" },
-  { icon: Megaphone, text: "Activar campanas digitales medibles" },
-  { icon: PieChart, text: "Convertir datos dispersos en informacion util" },
-  { icon: TrendingUp, text: "Escalar procesos que antes dependian de Excel, correos o seguimiento manual" },
+  { icon: Megaphone, text: "Activar campañas digitales medibles" },
+  { icon: PieChart, text: "Convertir datos dispersos en información útil" },
+  { icon: TrendingUp, text: "Escalar procesos que antes dependían de Excel, correos o seguimiento manual" },
 ]
 
 const containerVariants = {
@@ -71,10 +71,10 @@ export function ResultsSection() {
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance text-foreground">
             No construimos por construir.{" "}
-            <span className="text-gradient">Disenamos para generar resultados.</span>
+            <span className="text-gradient">Diseñamos para generar resultados.</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
-            Cada solucion esta orientada a generar un impacto tangible en la operacion, la experiencia o los resultados del negocio.
+            Cada solución está orientada a generar un impacto tangible en la operación, la experiencia o los resultados del negocio.
           </p>
         </motion.div>
 

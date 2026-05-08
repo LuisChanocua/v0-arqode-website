@@ -22,7 +22,7 @@ export function PromotionalDashboardMockup() {
     <div className="bg-card border border-border rounded-xl p-4 space-y-4 h-full">
       {/* Header */}
       <div className="flex items-center justify-between">
-        <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Panel de Campana</span>
+        <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Panel de campaña</span>
         <div className="h-2 w-2 rounded-full bg-accent animate-pulse" />
       </div>
       
@@ -52,7 +52,7 @@ export function PromotionalDashboardMockup() {
         <div className="bg-secondary/50 rounded-lg p-3">
           <div className="flex items-center gap-2 mb-1">
             <TrendingUp className="w-3.5 h-3.5 text-accent" />
-            <span className="text-[10px] text-muted-foreground">Conversion</span>
+            <span className="text-[10px] text-muted-foreground">Conversión</span>
           </div>
           <span className="text-lg font-bold text-foreground">87%</span>
         </div>
@@ -61,7 +61,7 @@ export function PromotionalDashboardMockup() {
       {/* Mini Table */}
       <div className="bg-secondary/30 rounded-lg overflow-hidden">
         <div className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider p-2 border-b border-border">
-          Ultimos codigos
+          Últimos códigos
         </div>
         <div className="divide-y divide-border">
           {[
@@ -133,7 +133,7 @@ export function CommercialDashboardMockup() {
       
       {/* Categories */}
       <div className="flex flex-wrap gap-1">
-        {["Categoria A", "Categoria B", "Premium"].map((cat, i) => (
+        {["Categoría A", "Categoría B", "Premium"].map((cat, i) => (
           <Badge key={i} variant="secondary" className="text-[9px]">{cat}</Badge>
         ))}
       </div>
@@ -155,13 +155,13 @@ export function InternalOperationsMockup() {
       <div className="bg-secondary/30 rounded-lg p-3">
         <div className="flex items-center gap-2 mb-3">
           <FileText className="w-3.5 h-3.5 text-primary" />
-          <span className="text-[10px] font-medium text-foreground">Flujo de Aprobacion</span>
+          <span className="text-[10px] font-medium text-foreground">Flujo de aprobación</span>
         </div>
         <div className="flex items-center gap-1">
           {[
             { step: "1", label: "Solicitud", done: true },
-            { step: "2", label: "Revision", done: true },
-            { step: "3", label: "Aprobacion", done: false },
+            { step: "2", label: "Revisión", done: true },
+            { step: "3", label: "Aprobación", done: false },
             { step: "4", label: "Completado", done: false },
           ].map((item, i) => (
             <div key={i} className="flex-1 flex flex-col items-center">
@@ -242,7 +242,7 @@ export function MobileExperienceMockup() {
               <span className="text-[8px] text-muted-foreground">Nombre completo</span>
             </div>
             <div className="bg-input rounded-md px-2 py-1.5 border border-border">
-              <span className="text-[8px] text-muted-foreground">Correo electronico</span>
+              <span className="text-[8px] text-muted-foreground">Correo electrónico</span>
             </div>
           </div>
           
@@ -250,7 +250,7 @@ export function MobileExperienceMockup() {
           <div className="bg-secondary/50 rounded-lg p-2">
             <span className="text-[8px] text-muted-foreground block mb-1.5">Selecciona tu respuesta:</span>
             <div className="space-y-1">
-              {["Opcion A", "Opcion B", "Opcion C"].map((opt, i) => (
+              {["Opción A", "Opción B", "Opción C"].map((opt, i) => (
                 <div 
                   key={i} 
                   className={`flex items-center gap-1.5 px-2 py-1 rounded ${i === 0 ? 'bg-primary/20 border border-primary' : 'bg-secondary'}`}
@@ -264,7 +264,7 @@ export function MobileExperienceMockup() {
           
           {/* CTA */}
           <div className="bg-gradient-to-r from-primary to-accent rounded-lg py-2 text-center">
-            <span className="text-[9px] font-medium text-primary-foreground">Enviar participacion</span>
+            <span className="text-[9px] font-medium text-primary-foreground">Enviar participación</span>
           </div>
         </div>
         
@@ -276,7 +276,7 @@ export function MobileExperienceMockup() {
       
       {/* Caption */}
       <div className="text-center mt-3">
-        <span className="text-[10px] text-muted-foreground">Experiencia mobile optimizada</span>
+        <span className="text-[10px] text-muted-foreground">Experiencia móvil optimizada</span>
       </div>
     </div>
   )

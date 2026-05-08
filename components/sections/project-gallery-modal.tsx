@@ -1,10 +1,11 @@
 "use client"
 
 import { useEffect, useCallback, useState } from "react"
+import Image from "next/image"
 import { motion, AnimatePresence, PanInfo } from "framer-motion"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import type { ProjectSlide } from "@/data/public-projects"
+import { type ProjectSlide, isPlaceholderImage } from "@/data/public-projects"
 
 interface ProjectGalleryModalProps {
   isOpen: boolean
@@ -99,6 +100,7 @@ export function ProjectGalleryModal({
   }
 
   const currentSlide = slides[currentIndex]
+  const hasRealImage = currentSlide && !isPlaceholderImage(currentSlide.image)
 
   if (!isOpen) return null
 
@@ -170,17 +172,29 @@ export function ProjectGalleryModal({
                       onDragEnd={handleDragEnd}
                       className="cursor-grab active:cursor-grabbing"
                     >
-                      <div className="aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-gradient-to-br from-secondary to-muted flex items-center justify-center">
-                        <div className="text-center p-6 sm:p-8">
-                          <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 rounded-xl bg-gradient-to-br from-primary/20 to-accent/15 flex items-center justify-center shadow-md">
-                            <span className="text-xl sm:text-2xl font-bold text-primary">
-                              {currentIndex + 1}
-                            </span>
+                      <div className="aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-gradient-to-br from-secondary to-muted relative flex items-center justify-center">
+                        {hasRealImage ? (
+                          <Image
+                            src={currentSlide.image}
+                            alt={currentSlide.alt || currentSlide.title}
+                            title={currentSlide.alt || currentSlide.title}
+                            fill
+                            className="object-contain"
+                            sizes="(max-width: 768px) 100vw, 900px"
+                            priority={currentIndex === 0}
+                          />
+                        ) : (
+                          <div className="text-center p-6 sm:p-8">
+                            <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 rounded-xl bg-gradient-to-br from-primary/20 to-accent/15 flex items-center justify-center shadow-md">
+                              <span className="text-xl sm:text-2xl font-bold text-primary">
+                                {currentIndex + 1}
+                              </span>
+                            </div>
+                            <p className="text-muted-foreground text-xs sm:text-sm">
+                              {currentSlide?.image || `Slide ${currentIndex + 1}`}
+                            </p>
                           </div>
-                          <p className="text-muted-foreground text-xs sm:text-sm">
-                            {currentSlide?.image || `Slide ${currentIndex + 1}`}
-                          </p>
-                        </div>
+                        )}
                       </div>
                     </motion.div>
                   </AnimatePresence>

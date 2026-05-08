@@ -9,19 +9,60 @@ import { PublicProjects } from "@/components/sections/public-projects"
 import { ResultsSection } from "@/components/sections/results-section"
 import { TrustSection } from "@/components/sections/trust-section"
 import { ContactCTA } from "@/components/sections/contact-cta"
+import { JsonLd } from "@/components/seo/json-ld"
+import { siteConfig } from "@/lib/site"
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: siteConfig.name,
+  url: siteConfig.url,
+  image: `${siteConfig.url}/opengraph-image`,
+  logo: `${siteConfig.url}/icon`,
+  description: siteConfig.description,
+  areaServed: {
+    "@type": "Country",
+    name: "México",
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "sales",
+    availableLanguage: ["es"],
+    url: siteConfig.whatsapp,
+  },
+  knowsAbout: [
+    "Desarrollo web",
+    "Automatización de procesos",
+    "Dashboards",
+    "Analítica de datos",
+    "Integraciones",
+    "Experiencias digitales",
+  ],
+}
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: siteConfig.name,
+  url: siteConfig.url,
+  inLanguage: siteConfig.language,
+  description: siteConfig.description,
+}
 
 export default function Home() {
   return (
     <main className="min-h-screen">
+      <JsonLd data={organizationJsonLd} />
+      <JsonLd data={websiteJsonLd} />
       <Header />
       <Hero />
-      <ProblemCards />
+      {/* <ProblemCards /> */}
       <ProcessSection />
-      <ImpactCases />
+      {/* <ImpactCases /> */}
       <SolutionsSection />
       <PublicProjects />
       <ResultsSection />
-      <TrustSection />
+      {/* <TrustSection /> */}
       <ContactCTA />
       <Footer />
     </main>

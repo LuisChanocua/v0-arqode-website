@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { ThemeProvider } from '@/components/theme-provider'
+import { siteConfig } from '@/lib/site'
 import './globals.css'
 
 const inter = Inter({ 
@@ -10,26 +11,71 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Codara | Soluciones Digitales para tu Negocio',
-  description: 'Creamos plataformas, automatizaciones, experiencias web y herramientas digitales que ayudan a las empresas a operar mejor, entender sus datos y conectar con sus clientes.',
-  generator: 'v0.app',
-  keywords: ['soluciones digitales', 'automatización', 'plataformas web', 'dashboards', 'analítica', 'desarrollo web'],
+  metadataBase: new URL(siteConfig.url),
+  applicationName: siteConfig.name,
+  title: {
+    default: siteConfig.title,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  generator: 'Next.js',
+  keywords: siteConfig.keywords,
+  authors: [{ name: siteConfig.name }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  category: 'technology',
+  alternates: {
+    canonical: '/',
+    languages: {
+      'es-MX': '/',
+    },
+  },
+  openGraph: {
+    type: 'website',
+    locale: siteConfig.locale,
+    url: '/',
+    siteName: siteConfig.name,
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: [
+      {
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'Codara - Soluciones digitales para operar mejor',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: ['/twitter-image'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
+  formatDetection: {
+    telephone: false,
+    email: false,
+    address: false,
+  },
   icons: {
     icon: [
       {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
+        url: '/icon',
+        type: 'image/png',
       },
     ],
-    apple: '/apple-icon.png',
+    apple: '/apple-icon',
   },
 }
 

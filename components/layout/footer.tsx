@@ -5,8 +5,10 @@ import { Linkedin, Twitter, Github, Mail } from "lucide-react"
 
 const footerLinks = [
   { label: "Inicio", href: "#inicio" },
-  { label: "Casos de impacto", href: "#casos" },
+  // { label: "Problemas que resolvemos", href: "#problemas" },
+  // { label: "Casos de impacto", href: "#casos" },
   { label: "Soluciones", href: "#soluciones" },
+  { label: "Proyectos", href: "#proyectos" },
   { label: "Contacto", href: "#contacto" },
 ]
 
@@ -26,7 +28,7 @@ export function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <a href="#inicio" className="flex items-center gap-2.5 mb-4 group">
+            <a href="#inicio" className="flex items-center gap-2.5 mb-4 group" aria-label="Codara - Inicio" title="Codara">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-md group-hover:shadow-lg group-hover:scale-105 transition-all duration-200">
                 <span className="text-primary-foreground font-bold text-lg">C</span>
               </div>
@@ -36,7 +38,7 @@ export function Footer() {
               Soluciones digitales para operar mejor, entender tus datos y crear mejores experiencias.
             </p>
             {/* Social Links */}
-            <div className="flex items-center gap-3">
+            {/* <div className="flex items-center gap-3">
               {socialLinks.map((social) => (
                 <motion.a
                   key={social.label}
@@ -49,7 +51,7 @@ export function Footer() {
                   <social.icon className="w-5 h-5 text-muted-foreground" />
                 </motion.a>
               ))}
-            </div>
+            </div> */}
           </div>
 
           {/* Quick Links */}
@@ -70,7 +72,7 @@ export function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
+          {/* <div>
             <h4 className="font-semibold text-foreground mb-4">Contacto</h4>
             <ul className="space-y-3">
               <li>
@@ -83,11 +85,11 @@ export function Footer() {
               </li>
               <li>
                 <span className="text-muted-foreground">
-                  Ciudad de Mexico, MX
+                  Ciudad de México, MX
                 </span>
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
 
         {/* Bottom Bar */}
@@ -96,7 +98,7 @@ export function Footer() {
             {currentYear} Codara. Todos los derechos reservados.
           </p>
           <p className="text-muted-foreground text-sm">
-            Hecho con tecnologia moderna para negocios modernos.
+            Hecho con tecnología moderna para negocios modernos.
           </p>
         </div>
       </div>

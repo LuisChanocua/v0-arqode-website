@@ -12,38 +12,38 @@ import {
 const cases = [
   {
     title: "Plataforma promocional para marca de consumo masivo",
-    challenge: "Una marca necesitaba operar una campana digital con registro de participantes, validacion de codigos unicos, control de premios y seguimiento de participacion.",
-    solution: "Se desarrollo una plataforma digital para centralizar registros, validar participaciones, administrar dinamicas promocionales y dar seguimiento operativo desde un panel privado.",
-    experience: "Los consumidores podian participar de forma sencilla desde una experiencia web, mientras el equipo interno tenia visibilidad sobre registros, codigos, premios, rankings y comportamiento de la campana.",
-    impact: "La marca pudo operar una campana compleja con mayor control, trazabilidad y menor dependencia de procesos manuales.",
-    capabilities: ["Registro digital", "Validacion de codigos", "Logica de premios", "Panel administrativo", "Reportes", "Trazabilidad de participacion", "Reglas de negocio"],
+    challenge: "Una marca necesitaba operar una campaña digital con registro de participantes, validación de códigos únicos, control de premios y seguimiento de participación.",
+    solution: "Se desarrolló una plataforma digital para centralizar registros, validar participaciones, administrar dinámicas promocionales y dar seguimiento operativo desde un panel privado.",
+    experience: "Los consumidores podían participar de forma sencilla desde una experiencia web, mientras el equipo interno tenía visibilidad sobre registros, códigos, premios, rankings y comportamiento de la campaña.",
+    impact: "La marca pudo operar una campaña compleja con mayor control, trazabilidad y menor dependencia de procesos manuales.",
+    capabilities: ["Registro digital", "Validación de códigos", "Lógica de premios", "Panel administrativo", "Reportes", "Trazabilidad de participación", "Reglas de negocio"],
     MockupComponent: PromotionalDashboardMockup,
   },
   {
-    title: "Dashboard comercial para analisis de mercado",
-    challenge: "Un equipo comercial necesitaba analizar informacion de ventas, productos y participacion de mercado desde multiples fuentes de datos.",
-    solution: "Se diseno un modelo de datos y procesos de analisis para transformar informacion dispersa en indicadores claros, consultables desde dashboards ejecutivos.",
-    experience: "Los equipos podian consultar metricas clave por periodo, marca, categoria o producto, facilitando el analisis de desempeno y la deteccion de variaciones relevantes.",
-    impact: "La solucion permitio mejorar la visibilidad del negocio, reducir discrepancias en la interpretacion de datos y facilitar conversaciones mas claras entre equipos comerciales, analiticos y directivos.",
-    capabilities: ["Modelado de datos", "Normalizacion de informacion", "Indicadores comerciales", "Dashboards", "Reporteria ejecutiva", "Analisis historico"],
+    title: "Dashboard comercial para análisis de mercado",
+    challenge: "Un equipo comercial necesitaba analizar información de ventas, productos y participación de mercado desde múltiples fuentes de datos.",
+    solution: "Se diseñó un modelo de datos y procesos de análisis para transformar información dispersa en indicadores claros, consultables desde dashboards ejecutivos.",
+    experience: "Los equipos podían consultar métricas clave por periodo, marca, categoría o producto, facilitando el análisis de desempeño y la detección de variaciones relevantes.",
+    impact: "La solución permitió mejorar la visibilidad del negocio, reducir discrepancias en la interpretación de datos y facilitar conversaciones más claras entre equipos comerciales, analíticos y directivos.",
+    capabilities: ["Modelado de datos", "Normalización de información", "Indicadores comerciales", "Dashboards", "Reportería ejecutiva", "Análisis histórico"],
     MockupComponent: CommercialDashboardMockup,
   },
   {
-    title: "Automatizacion de operacion interna",
+    title: "Automatización de operación interna",
     challenge: "Un equipo gestionaba procesos internos mediante archivos, validaciones manuales y seguimiento fragmentado.",
-    solution: "Se creo una plataforma administrativa para centralizar registros, automatizar validaciones, asignar roles, consultar informacion historica y generar reportes operativos.",
-    experience: "Los usuarios internos podian operar desde un panel claro, con permisos diferenciados y flujos controlados para registrar, consultar y validar informacion.",
-    impact: "El proceso gano orden, velocidad y trazabilidad. La operacion dejo de depender de documentos aislados y paso a gestionarse desde una herramienta centralizada.",
-    capabilities: ["Panel administrativo", "Roles de usuario", "Flujos de aprobacion", "Carga de informacion", "Validaciones automaticas", "Reportes"],
+    solution: "Se creó una plataforma administrativa para centralizar registros, automatizar validaciones, asignar roles, consultar información histórica y generar reportes operativos.",
+    experience: "Los usuarios internos podían operar desde un panel claro, con permisos diferenciados y flujos controlados para registrar, consultar y validar información.",
+    impact: "El proceso ganó orden, velocidad y trazabilidad. La operación dejó de depender de documentos aislados y pasó a gestionarse desde una herramienta centralizada.",
+    capabilities: ["Panel administrativo", "Roles de usuario", "Flujos de aprobación", "Carga de información", "Validaciones automáticas", "Reportes"],
     MockupComponent: InternalOperationsMockup,
   },
   {
-    title: "Experiencia digital para activacion de usuarios",
-    challenge: "Una empresa necesitaba captar informacion de usuarios y convertir una interaccion digital en una experiencia participativa y medible.",
-    solution: "Se diseno una experiencia web con formularios, preguntas, dinamicas interactivas y conexion con procesos internos de seguimiento.",
-    experience: "Los usuarios podian interactuar de manera simple y atractiva, mientras la empresa obtenia informacion util para entender mejor a su audiencia.",
-    impact: "La solucion ayudo a transformar una simple captura de datos en una experiencia digital mas valiosa, medible y alineada a objetivos comerciales.",
-    capabilities: ["Formularios inteligentes", "Experiencias interactivas", "Registro de usuarios", "Segmentacion", "Reporteria", "Integracion con campanas"],
+    title: "Experiencia digital para activación de usuarios",
+    challenge: "Una empresa necesitaba captar información de usuarios y convertir una interacción digital en una experiencia participativa y medible.",
+    solution: "Se diseñó una experiencia web con formularios, preguntas, dinámicas interactivas y conexión con procesos internos de seguimiento.",
+    experience: "Los usuarios podían interactuar de manera simple y atractiva, mientras la empresa obtenía información útil para entender mejor a su audiencia.",
+    impact: "La solución ayudó a transformar una simple captura de datos en una experiencia digital más valiosa, medible y alineada con objetivos comerciales.",
+    capabilities: ["Formularios inteligentes", "Experiencias interactivas", "Registro de usuarios", "Segmentación", "Reportería", "Integración con campañas"],
     MockupComponent: MobileExperienceMockup,
   },
 ]
@@ -78,8 +78,8 @@ export function ImpactCases() {
           </h2>
           <p className="text-muted-foreground max-w-3xl mx-auto text-lg leading-relaxed">
             Por acuerdos de confidencialidad, algunos proyectos se presentan de forma anonimizada. 
-            Conservamos lo mas importante: el contexto del reto, la solucion implementada y el impacto generado, 
-            sin revelar informacion sensible del cliente.
+            Conservamos lo más importante: el contexto del reto, la solución implementada y el impacto generado, 
+            sin revelar información sensible del cliente.
           </p>
         </motion.div>
 
@@ -92,7 +92,7 @@ export function ImpactCases() {
           className="text-center mb-12"
         >
           <p className="text-xs text-muted-foreground bg-secondary/50 inline-block px-4 py-2 rounded-full border border-border">
-            Las imagenes mostradas en casos anonimizados son representaciones conceptuales creadas para ilustrar el tipo de solucion desarrollada. No contienen informacion real de clientes ni datos sensibles.
+            Las imágenes mostradas en casos anonimizados son representaciones conceptuales creadas para ilustrar el tipo de solución desarrollada. No contienen información real de clientes ni datos sensibles.
           </p>
         </motion.div>
 
@@ -133,7 +133,7 @@ export function ImpactCases() {
                           </p>
                         </div>
                         <div>
-                          <span className="label-chip-solution mb-2">Solucion</span>
+                          <span className="label-chip-solution mb-2">Solución</span>
                           <p className="text-muted-foreground mt-2 leading-relaxed">
                             {caseItem.solution}
                           </p>

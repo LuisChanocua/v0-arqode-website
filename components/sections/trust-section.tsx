@@ -7,12 +7,12 @@ const trustPoints = [
   {
     icon: Shield,
     title: "Seguridad",
-    description: "Implementamos practicas de desarrollo seguro y proteccion de datos.",
+    description: "Implementamos prácticas de desarrollo seguro y protección de datos.",
   },
   {
     icon: Eye,
     title: "Trazabilidad",
-    description: "Cada accion queda registrada para auditoria y seguimiento.",
+    description: "Cada acción queda registrada para auditoría y seguimiento.",
   },
   {
     icon: Lock,
@@ -21,8 +21,8 @@ const trustPoints = [
   },
   {
     icon: Users,
-    title: "Colaboracion",
-    description: "Trabajamos de la mano con equipos internos para asegurar el exito.",
+    title: "Colaboración",
+    description: "Trabajamos de la mano con equipos internos para asegurar el éxito.",
   },
 ]
 
@@ -59,7 +59,7 @@ export function TrustSection() {
               <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                 Hemos colaborado en soluciones digitales para marcas, equipos internos y proyectos privados 
                 donde la seguridad, la trazabilidad y la confidencialidad son parte esencial del trabajo. 
-                Por eso, nuestro enfoque combina analisis, ejecucion tecnica y cuidado en el manejo de la informacion.
+                Por eso, nuestro enfoque combina análisis, ejecución técnica y cuidado en el manejo de la información.
               </p>
             </div>
 

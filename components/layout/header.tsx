@@ -8,8 +8,8 @@ import { ThemeToggle } from "@/components/theme-toggle"
 
 const navItems = [
   { label: "Inicio", href: "#inicio" },
-  { label: "Problemas que resolvemos", href: "#problemas" },
-  { label: "Casos de impacto", href: "#casos" },
+  // { label: "Problemas que resolvemos", href: "#problemas" },
+  // { label: "Casos de impacto", href: "#casos" },
   { label: "Soluciones", href: "#soluciones" },
   { label: "Proyectos", href: "#proyectos" },
   { label: "Contacto", href: "#contacto" },
@@ -41,7 +41,7 @@ export function Header() {
       <div className="container mx-auto px-4 lg:px-8">
         <nav className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#inicio" className="flex items-center gap-2.5 group">
+          <a href="#inicio" className="flex items-center gap-2.5 group" aria-label="Codara - Inicio" title="Codara">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-md group-hover:shadow-lg group-hover:scale-105 transition-all duration-200">
               <span className="text-primary-foreground font-bold text-lg">C</span>
             </div>
@@ -78,7 +78,7 @@ export function Header() {
             <button
               className="p-2 text-foreground rounded-lg hover:bg-secondary/60 transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label={isMobileMenuOpen ? "Cerrar menu" : "Abrir menu"}
+              aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
