@@ -8,19 +8,19 @@ const steps = [
     number: "01",
     icon: Search,
     title: "Entendemos el negocio",
-    description: "Analizamos el proceso, los usuarios, las reglas y los puntos de friccion.",
+    description: "Analizamos el proceso, los usuarios, las reglas y los puntos de fricción.",
   },
   {
     number: "02",
     icon: Lightbulb,
-    title: "Disenamos la solucion",
-    description: "Convertimos la necesidad en una propuesta digital clara, escalable y alineada al objetivo del negocio.",
+    title: "Diseñamos la solución",
+    description: "Convertimos la necesidad en una propuesta digital clara, escalable y alineada con el objetivo del negocio.",
   },
   {
     number: "03",
     icon: Code2,
     title: "Construimos la plataforma",
-    description: "Desarrollamos la solucion con enfoque en experiencia, operacion, seguridad y crecimiento.",
+    description: "Desarrollamos la solución con enfoque en experiencia, operación, seguridad y crecimiento.",
   },
   {
     number: "04",
@@ -63,7 +63,7 @@ export function ProcessSection() {
             <span className="text-gradient">entendemos el problema</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
-            Nuestro proceso esta disenado para asegurar que cada solucion responda a una necesidad real del negocio.
+            Nuestro proceso está diseñado para asegurar que cada solución responda a una necesidad real del negocio.
           </p>
         </motion.div>
 
@@ -120,7 +120,7 @@ export function ProcessSection() {
         >
           <div className="inline-block card-elevated px-8 py-4">
             <p className="text-lg font-medium text-foreground">
-              No construimos tecnologia aislada.{" "}
+              No construimos tecnología aislada.{" "}
               <span className="text-gradient">Construimos herramientas conectadas al negocio.</span>
             </p>
           </div>
