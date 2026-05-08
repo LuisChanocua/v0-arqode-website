@@ -10,7 +10,7 @@ const floatingCards = [
   { label: "Datos", delay: 0.1 },
   { label: "Experiencia", delay: 0.2 },
   { label: "Resultados", delay: 0.3 },
-  { label: "Automatizacion", delay: 0.4 },
+  { label: "Automatización", delay: 0.4 },
 ]
 
 export function Hero() {
@@ -24,22 +24,22 @@ export function Hero() {
       {/* Layer 1: Background gradient blobs (very subtle, above canvas) */}
       <div className="absolute inset-0 z-[5] pointer-events-none opacity-50">
         {/* Primary blue blob */}
-        <div 
+        <div
           className="blob-gradient w-[600px] h-[600px] -top-48 -left-48"
           style={{ background: "var(--hero-gradient-1)" }}
         />
         {/* Cyan/teal blob */}
-        <div 
+        <div
           className="blob-gradient w-[700px] h-[700px] top-1/4 -right-64"
           style={{ background: "var(--hero-gradient-2)" }}
         />
         {/* Subtle purple accent */}
-        <div 
+        <div
           className="blob-gradient w-[500px] h-[500px] bottom-1/4 left-1/4"
           style={{ background: "var(--hero-gradient-3)" }}
         />
         {/* Warm accent for balance */}
-        <div 
+        <div
           className="blob-gradient w-[400px] h-[400px] bottom-0 right-1/4"
           style={{ background: "var(--hero-gradient-warm)" }}
         />
@@ -60,7 +60,7 @@ export function Hero() {
           >
             <Sparkles className="w-4 h-4 text-primary" />
             <span className="text-sm font-medium text-muted-foreground">
-              Tecnologia pensada para negocio, operacion y experiencia
+              Tecnología pensada para negocio, operación y experiencia
             </span>
           </motion.div>
 
@@ -82,8 +82,8 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 text-pretty leading-relaxed"
           >
-            Disenamos plataformas, automatizaciones y experiencias digitales para ayudarte 
-            a operar mejor, entender tus datos y crear interacciones mas valiosas con tus clientes.
+            Diseñamos plataformas, automatizaciones y experiencias digitales para ayudarte
+            a operar mejor, entender tus datos y crear interacciones más valiosas con tus clientes.
           </motion.p>
 
           {/* CTAs */}
@@ -107,9 +107,9 @@ export function Hero() {
               asChild
               variant="outline"
               size="lg"
-              className="border-border bg-card/50 hover:bg-secondary px-8 transition-all duration-200 font-medium"
+              className="border-border bg-card/50 hover:bg-card/50 hover:text-current dark:hover:bg-card/50 hover:opacity-90 px-8 transition-all duration-200 font-medium"
             >
-              <a href="#casos">Ver casos de impacto</a>
+              <a href="#proyectos">Ver proyectos</a>
             </Button>
           </motion.div>
 
@@ -135,22 +135,6 @@ export function Hero() {
           </motion.div>
         </div>
       </div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
-      >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-6 h-10 rounded-full border-2 border-border flex items-start justify-center p-2"
-        >
-          <motion.div className="w-1 h-2 bg-primary rounded-full" />
-        </motion.div>
-      </motion.div>
     </section>
   )
 }

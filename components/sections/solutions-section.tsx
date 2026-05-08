@@ -14,27 +14,27 @@ const solutions = [
   {
     icon: LayoutDashboard,
     title: "Plataformas web a la medida",
-    description: "Para operar procesos, registrar informacion, administrar usuarios o centralizar operaciones.",
+    description: "Para operar procesos, registrar información, administrar usuarios o centralizar operaciones.",
   },
   {
     icon: Trophy,
     title: "Sistemas promocionales",
-    description: "Para campanas con codigos, premios, rankings, trivias, registros, formularios y validaciones.",
+    description: "Para campañas con códigos, premios, rankings, trivias, registros, formularios y validaciones.",
   },
   {
     icon: PieChart,
-    title: "Dashboards y analitica",
+    title: "Dashboards y analítica",
     description: "Para transformar datos en indicadores, reportes y tableros que faciliten decisiones.",
   },
   {
     icon: Cog,
-    title: "Automatizacion de procesos",
-    description: "Para reducir tareas manuales, validar informacion y conectar herramientas internas.",
+    title: "Automatización de procesos",
+    description: "Para reducir tareas manuales, validar información y conectar herramientas internas.",
   },
   {
     icon: Users,
     title: "Portales y experiencias digitales",
-    description: "Para mejorar la interaccion con clientes, usuarios, colaboradores o comunidades.",
+    description: "Para mejorar la interacción con clientes, usuarios, colaboradores o comunidades.",
   },
   {
     icon: Link2,
@@ -96,7 +96,7 @@ export function SolutionsSection() {
             <span className="text-gradient">necesidades reales</span> de negocio
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
-            No vendemos tecnologia por tecnologia. Ofrecemos soluciones conectadas a problemas especificos de operacion, comercio y experiencia.
+            No vendemos tecnología por tecnología. Ofrecemos soluciones conectadas a problemas específicos de operación, comercio y experiencia.
           </p>
         </motion.div>
 

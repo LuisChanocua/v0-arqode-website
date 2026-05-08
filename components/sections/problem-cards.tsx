@@ -12,33 +12,33 @@ import {
 const problems = [
   {
     icon: FileSpreadsheet,
-    title: "Procesos manuales y operacion dispersa",
-    description: "Para empresas que todavia dependen de Excel, validaciones manuales, correos o archivos sueltos.",
-    result: "Mayor control, trazabilidad y reduccion de errores.",
+    title: "Procesos manuales y operación dispersa",
+    description: "Para empresas que todavía dependen de Excel, validaciones manuales, correos o archivos sueltos.",
+    result: "Mayor control, trazabilidad y reducción de errores.",
   },
   {
     icon: Target,
-    title: "Campanas digitales complejas",
-    description: "Para marcas que necesitan registros, codigos unicos, premios, rankings, trivias o dinamicas promocionales.",
-    result: "Campanas mas controladas, medibles y escalables.",
+    title: "Campañas digitales complejas",
+    description: "Para marcas que necesitan registros, códigos únicos, premios, rankings, trivias o dinámicas promocionales.",
+    result: "Campañas más controladas, medibles y escalables.",
   },
   {
     icon: BarChart3,
     title: "Datos que no se aprovechan",
-    description: "Para equipos que tienen informacion, pero no cuentan con indicadores claros o dashboards accionables.",
-    result: "Mejores decisiones a partir de informacion centralizada.",
+    description: "Para equipos que tienen información, pero no cuentan con indicadores claros o dashboards accionables.",
+    result: "Mejores decisiones a partir de información centralizada.",
   },
   {
     icon: Globe,
     title: "Experiencias digitales para clientes",
     description: "Para negocios que necesitan sitios, portales, formularios o flujos digitales que conecten mejor con sus usuarios.",
-    result: "Mejor experiencia, mas confianza y mayor conversion.",
+    result: "Mejor experiencia, más confianza y mayor conversión.",
   },
   {
     icon: Workflow,
-    title: "Integraciones y automatizacion",
+    title: "Integraciones y automatización",
     description: "Para empresas que usan distintas herramientas y necesitan que sus sistemas se comuniquen entre si.",
-    result: "Menos tareas repetitivas, menos errores y mas velocidad operativa.",
+    result: "Menos tareas repetitivas, menos errores y más velocidad operativa.",
   },
 ]
 

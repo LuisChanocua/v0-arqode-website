@@ -51,6 +51,7 @@ export function PublicProjectCard({ project, index, onViewGallery }: PublicProje
             <Image
               src={project.coverImage}
               alt={project.coverAlt || project.title}
+              title={project.coverAlt || project.title}
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-105"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -101,7 +102,7 @@ export function PublicProjectCard({ project, index, onViewGallery }: PublicProje
             className="w-full mt-4 bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all duration-200 text-primary-foreground font-medium shadow-sm hover:shadow-md"
           >
             <Eye className="w-4 h-4 mr-2" />
-            Ver recorrido visual
+            Ver
           </Button>
         </div>
       </div>
