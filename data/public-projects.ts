@@ -1,7 +1,9 @@
 export interface ProjectSlide {
   title: string
   description: string
-  image: string
+  mediaType?: "image" | "video"
+  image?: string
+  video?: string
   alt?: string
 }
 
@@ -21,6 +23,49 @@ export const isPlaceholderImage = (image?: string): boolean =>
   !image || image.startsWith("placeholder")
 
 export const publicProjects: PublicProject[] = [
+  {
+    id: "seguro-auto-movil",
+    title: "App móvil para seguro de auto",
+    category: "Aplicación Móvil",
+    coverImage: "/projects/seguro-auto-movil/cover.jpg",
+    coverAlt: "Pantallas de app móvil para controlar el seguro de un auto",
+    need: "Diseñar una experiencia móvil para que el usuario pueda consultar su vehículo, controlar la vigencia del seguro y acceder rápido a servicios relacionados con su auto.",
+    value: "Una interfaz clara y visual que centraliza seguro, agenda, mantenimiento y asistencia, facilitando la gestión del vehículo desde el celular.",
+    slides: [
+      {
+        title: "Experiencia móvil",
+        description: "Pantallas principales de una aplicación móvil enfocada en el control del seguro del auto, servicios, mantenimiento y reporte de siniestros.",
+        mediaType: "image",
+        image: "/projects/seguro-auto-movil/cover.jpg",
+        alt: "Diseño de app móvil para seguro y servicios de auto",
+      },
+    ],
+  },
+  {
+    id: "logistics-pak",
+    title: "Logistics Pak",
+    category: "Aplicación Móvil",
+    coverImage: "/projects/logistics-pak/cover.png",
+    coverAlt: "Vista principal del proyecto Logistics Pak",
+    need: "Presentar una solución digital para operación logística con una muestra visual clara del producto y su experiencia de uso.",
+    value: "Mayor claridad comercial para mostrar la plataforma, comunicar sus capacidades y facilitar la validación visual del proyecto con clientes potenciales.",
+    slides: [
+      {
+        title: "Vista principal",
+        description: "Imagen de presentación del proyecto Logistics Pak, usada como primera referencia visual dentro del portafolio.",
+        mediaType: "image",
+        image: "/projects/logistics-pak/cover.png",
+        alt: "Imagen principal del proyecto Logistics Pak",
+      },
+      {
+        title: "Demostración en video",
+        description: "Video demostrativo del proyecto para mostrar su flujo visual y comportamiento en movimiento.",
+        mediaType: "video",
+        video: "/projects/logistics-pak/demo.mov",
+        alt: "Video demostrativo del proyecto Logistics Pak",
+      },
+    ],
+  },
   {
     id: "gestion-deportiva",
     title: "Plataforma de gestión deportiva",

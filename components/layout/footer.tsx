@@ -28,11 +28,11 @@ export function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <a href="#inicio" className="flex items-center gap-2.5 mb-4 group" aria-label="Codara - Inicio" title="Codara">
+            <a href="#inicio" className="flex items-center gap-2.5 mb-4 group" aria-label="ArQode - Inicio" title="ArQode">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-md group-hover:shadow-lg group-hover:scale-105 transition-all duration-200">
-                <span className="text-primary-foreground font-bold text-lg">C</span>
+                <span className="text-primary-foreground font-bold text-lg">A</span>
               </div>
-              <span className="text-xl font-semibold text-foreground">Codara</span>
+              <span className="text-xl font-semibold text-foreground">ArQode</span>
             </a>
             <p className="text-muted-foreground max-w-md mb-6 leading-relaxed">
               Soluciones digitales para operar mejor, entender tus datos y crear mejores experiencias.
@@ -77,10 +77,10 @@ export function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="mailto:hola@codara.dev"
+                  href="mailto:hola@arqode.dev"
                   className="text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  hola@codara.dev
+                  hola@arqode.dev
                 </a>
               </li>
               <li>
@@ -95,7 +95,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-muted-foreground text-sm">
-            {currentYear} Codara. Todos los derechos reservados.
+            {currentYear} ArQode. Todos los derechos reservados.
           </p>
           <p className="text-muted-foreground text-sm">
             Hecho con tecnología moderna para negocios modernos.

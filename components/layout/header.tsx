@@ -41,11 +41,11 @@ export function Header() {
       <div className="container mx-auto px-4 lg:px-8">
         <nav className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#inicio" className="flex items-center gap-2.5 group" aria-label="Codara - Inicio" title="Codara">
+          <a href="#inicio" className="flex items-center gap-2.5 group" aria-label="ArQode - Inicio" title="ArQode">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-md group-hover:shadow-lg group-hover:scale-105 transition-all duration-200">
-              <span className="text-primary-foreground font-bold text-lg">C</span>
+              <span className="text-primary-foreground font-bold text-lg">A</span>
             </div>
-            <span className="text-xl font-semibold text-foreground">Codara</span>
+            <span className="text-xl font-semibold text-foreground">ArQode</span>
           </a>
 
           {/* Desktop Navigation */}

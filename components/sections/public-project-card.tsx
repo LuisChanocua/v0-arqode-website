@@ -14,6 +14,7 @@ const categoryIcons: Record<string, React.ReactNode> = {
   "Dashboard": <LayoutDashboard className="w-5 h-5" />,
   "Landing Page": <Rocket className="w-5 h-5" />,
   "Automatización": <Zap className="w-5 h-5" />,
+  "Aplicación Móvil": <Layers className="w-5 h-5" />,
 }
 
 // Category color classes (using design tokens)
@@ -24,6 +25,7 @@ const categoryColors: Record<string, string> = {
   "Dashboard": "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
   "Landing Page": "bg-rose-500/10 text-rose-600 dark:text-rose-400",
   "Automatización": "bg-violet-500/10 text-violet-600 dark:text-violet-400",
+  "Aplicación Móvil": "bg-sky-500/10 text-sky-600 dark:text-sky-400",
 }
 
 interface PublicProjectCardProps {
