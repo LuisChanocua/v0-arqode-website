@@ -1,7 +1,7 @@
 export const siteConfig = {
-  name: "Codara",
-  url: (process.env.NEXT_PUBLIC_SITE_URL || "https://codara.dev").replace(/\/$/, ""),
-  title: "Codara | Soluciones digitales para operar mejor",
+  name: "ArQode",
+  url: (process.env.NEXT_PUBLIC_SITE_URL || "https://arqode.dev").replace(/\/$/, ""),
+  title: "ArQode | Soluciones digitales para operar mejor",
   description:
     "Diseñamos plataformas web, automatizaciones, dashboards e integraciones para mejorar procesos, datos y experiencias digitales de negocios.",
   locale: "es_MX",
