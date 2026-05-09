@@ -1,6 +1,7 @@
 services:
-  codara-website-dev:
+  arqode-website-dev:
     image: node:22-alpine
+    container_name: arqode-website-dev
     working_dir: /app
 
     ports:
@@ -13,8 +14,8 @@ services:
 
     volumes:
       - .:/app
-      - codara_node_modules:/app/node_modules
-      - codara_next_cache:/app/.next
+      - arqode_node_modules:/app/node_modules
+      - arqode_next_cache:/app/.next
 
     command: >
       sh -c "
@@ -25,5 +26,5 @@ services:
       "
 
 volumes:
-  codara_node_modules:
-  codara_next_cache:
+  arqode_node_modules:
+  arqode_next_cache:

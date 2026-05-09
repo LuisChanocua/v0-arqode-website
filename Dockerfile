@@ -2,6 +2,9 @@
 
 FROM node:22-alpine AS base
 
+LABEL app.name="arqode-website"
+LABEL app.description="ArQode Next.js website"
+
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
