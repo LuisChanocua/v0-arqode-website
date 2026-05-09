@@ -100,7 +100,9 @@ export function ProjectGalleryModal({
   }
 
   const currentSlide = slides[currentIndex]
-  const hasRealImage = currentSlide && !isPlaceholderImage(currentSlide.image)
+  const isVideoSlide = currentSlide?.mediaType === "video"
+  const hasRealImage = currentSlide && !isVideoSlide && !isPlaceholderImage(currentSlide.image)
+  const hasRealVideo = isVideoSlide && !!currentSlide.video
 
   if (!isOpen) return null
 
@@ -173,9 +175,18 @@ export function ProjectGalleryModal({
                       className="cursor-grab active:cursor-grabbing"
                     >
                       <div className="aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-gradient-to-br from-secondary to-muted relative flex items-center justify-center">
-                        {hasRealImage ? (
+                        {hasRealVideo ? (
+                          <video
+                            src={currentSlide.video}
+                            title={currentSlide.alt || currentSlide.title}
+                            className="h-full w-full object-contain"
+                            controls
+                            playsInline
+                            preload="metadata"
+                          />
+                        ) : hasRealImage ? (
                           <Image
-                            src={currentSlide.image}
+                            src={currentSlide.image || ""}
                             alt={currentSlide.alt || currentSlide.title}
                             title={currentSlide.alt || currentSlide.title}
                             fill
