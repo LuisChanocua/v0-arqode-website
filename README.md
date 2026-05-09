@@ -1,6 +1,6 @@
-# Codara Website
+# ArQode Website
 
-Landing page y portfolio para Codara, una consultora tecnológica moderna que resuelve problemas reales de negocio mediante plataformas web, automatización, datos, dashboards, campañas digitales e integraciones.
+Landing page y portfolio para ArQode, una consultora tecnológica moderna que resuelve problemas reales de negocio mediante plataformas web, automatización, datos, dashboards, campañas digitales e integraciones.
 
 ## Stack Tecnológico
 
@@ -22,8 +22,8 @@ Landing page y portfolio para Codara, una consultora tecnológica moderna que re
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/codara-website.git
-cd codara-website
+git clone https://github.com/tu-usuario/arqode-website.git
+cd arqode-website
 ```
 
 ### 2. Instalar dependencias
@@ -61,13 +61,13 @@ pnpm start
 ### Build de la imagen
 
 ```bash
-docker build -t codara-website .
+docker build -t arqode-website .
 ```
 
 ### Ejecutar el contenedor
 
 ```bash
-docker run -p 3000:3000 codara-website
+docker run -p 3000:3000 arqode-website
 ```
 
 ### Usando Docker Compose
@@ -90,7 +90,7 @@ El sitio estará disponible en [http://localhost:3000](http://localhost:3000).
 ## Estructura del Proyecto
 
 ```
-codara-website/
+arqode-website/
 ├── app/                    # Next.js App Router
 │   ├── globals.css         # Estilos globales y tokens de diseño
 │   ├── layout.tsx          # Layout principal
