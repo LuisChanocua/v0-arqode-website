@@ -18,7 +18,7 @@ const organizationJsonLd = {
   name: siteConfig.name,
   url: siteConfig.url,
   image: `${siteConfig.url}/opengraph-image`,
-  logo: `${siteConfig.url}/icon`,
+  logo: `${siteConfig.url}/brand/arqode-logo.png`,
   description: siteConfig.description,
   areaServed: {
     "@type": "Country",
