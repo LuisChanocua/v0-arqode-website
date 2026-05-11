@@ -42,8 +42,17 @@ export function Header() {
         <nav className="flex items-center justify-between">
           {/* Logo */}
           <a href="#inicio" className="flex items-center gap-2.5 group" aria-label="ArQode - Inicio" title="ArQode">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-md group-hover:shadow-lg group-hover:scale-105 transition-all duration-200">
-              <span className="text-primary-foreground font-bold text-lg">A</span>
+            <div className="w-10 h-10 rounded-xl bg-background/80 border border-border/60 flex items-center justify-center shadow-md group-hover:shadow-lg group-hover:scale-105 transition-all duration-200 overflow-hidden">
+              <img
+                src="/brand/arqode-logo.png"
+                alt="Isotipo de ArQode"
+                className="h-8 w-8 object-contain dark:hidden"
+              />
+              <img
+                src="/brand/arqode-logo-dark.png"
+                alt="Isotipo de ArQode"
+                className="hidden h-8 w-8 object-contain dark:block"
+              />
             </div>
             <span className="text-xl font-semibold text-foreground">ArQode</span>
           </a>
