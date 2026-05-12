@@ -46,18 +46,18 @@ export default function OpenGraphImage() {
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 28, maxWidth: 900 }}>
           <div style={{ fontSize: 70, lineHeight: 1.02, fontWeight: 850 }}>
-            Soluciones digitales para operar mejor
+            Experiencias digitales que generan resultados
           </div>
           <div style={{ fontSize: 30, lineHeight: 1.35, color: '#425466' }}>
-            Plataformas web, automatizaciones, dashboards e integraciones para negocios que buscan claridad,
-            eficiencia y mejores experiencias.
+            Sitios, plataformas, automatizaciones e integraciones que convierten datos e ideas
+            en interacciones claras, útiles y medibles.
           </div>
         </div>
 
         <div style={{ display: 'flex', gap: 14, color: '#0f70d7', fontSize: 24, fontWeight: 700 }}>
-          <span>Procesos</span>
           <span>Datos</span>
           <span>Experiencia</span>
+          <span>Conversión</span>
           <span>Resultados</span>
         </div>
       </div>

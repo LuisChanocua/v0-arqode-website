@@ -14,32 +14,32 @@ const solutions = [
   {
     icon: LayoutDashboard,
     title: "Plataformas web a la medida",
-    description: "Para operar procesos, registrar información, administrar usuarios o centralizar operaciones.",
+    description: "Para convertir datos, servicios y flujos específicos en herramientas claras para usuarios y equipos.",
   },
   {
     icon: Trophy,
     title: "Sistemas promocionales",
-    description: "Para campañas con códigos, premios, rankings, trivias, registros, formularios y validaciones.",
+    description: "Para lanzar campañas, dinámicas y registros que conectan con usuarios y generan información accionable.",
   },
   {
     icon: PieChart,
     title: "Dashboards y analítica",
-    description: "Para transformar datos en indicadores, reportes y tableros que faciliten decisiones.",
+    description: "Para ordenar datos, leer comportamiento y tomar decisiones con indicadores claros.",
   },
   {
     icon: Cog,
-    title: "Automatización de procesos",
-    description: "Para reducir tareas manuales, validar información y conectar herramientas internas.",
+    title: "Automatización inteligente",
+    description: "Para reducir fricción, conectar información y liberar tiempo para enfocarte en lo que genera valor.",
   },
   {
     icon: Users,
     title: "Portales y experiencias digitales",
-    description: "Para mejorar la interacción con clientes, usuarios, colaboradores o comunidades.",
+    description: "Para que clientes, usuarios o comunidades encuentren, compren, participen o se comuniquen sin fricción.",
   },
   {
     icon: Link2,
     title: "Integraciones",
-    description: "Para conectar sistemas, APIs, formularios, CRMs, WhatsApp, bases de datos o herramientas externas.",
+    description: "Para unir APIs, CRMs, WhatsApp, formularios, bases de datos y plataformas en flujos más inteligentes.",
   },
 ]
 
@@ -92,11 +92,11 @@ export function SolutionsSection() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance text-foreground">
-            Soluciones digitales para{" "}
-            <span className="text-gradient">necesidades reales</span> de negocio
+            Soluciones digitales que convierten datos en{" "}
+            <span className="text-gradient">experiencias de valor</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
-            No vendemos tecnología por tecnología. Ofrecemos soluciones conectadas a problemas específicos de operación, comercio y experiencia.
+            No hacemos tecnología por hacer tecnología. Diseñamos herramientas que parten de una necesidad clara, mejoran la interacción y ayudan a medir lo que realmente importa.
           </p>
         </motion.div>
 

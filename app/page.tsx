@@ -31,12 +31,14 @@ const organizationJsonLd = {
     url: siteConfig.whatsapp,
   },
   knowsAbout: [
+    "Soluciones digitales",
     "Desarrollo web",
-    "Automatización de procesos",
+    "Experiencia de cliente",
+    "Experiencias digitales",
+    "Automatización",
     "Dashboards",
     "Analítica de datos",
     "Integraciones",
-    "Experiencias digitales",
   ],
 }
 

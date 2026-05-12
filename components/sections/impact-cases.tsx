@@ -12,37 +12,37 @@ import {
 const cases = [
   {
     title: "Plataforma promocional para marca de consumo masivo",
-    challenge: "Una marca necesitaba operar una campaña digital con registro de participantes, validación de códigos únicos, control de premios y seguimiento de participación.",
-    solution: "Se desarrolló una plataforma digital para centralizar registros, validar participaciones, administrar dinámicas promocionales y dar seguimiento operativo desde un panel privado.",
-    experience: "Los consumidores podían participar de forma sencilla desde una experiencia web, mientras el equipo interno tenía visibilidad sobre registros, códigos, premios, rankings y comportamiento de la campaña.",
-    impact: "La marca pudo operar una campaña compleja con mayor control, trazabilidad y menor dependencia de procesos manuales.",
-    capabilities: ["Registro digital", "Validación de códigos", "Lógica de premios", "Panel administrativo", "Reportes", "Trazabilidad de participación", "Reglas de negocio"],
+    challenge: "Una marca necesitaba activar una campaña digital con registro de participantes, validación de códigos únicos, premios y seguimiento de interacción.",
+    solution: "Se desarrolló una plataforma para convertir la dinámica promocional en una experiencia web medible, con datos centralizados y administración privada.",
+    experience: "Los consumidores podían participar de forma sencilla, mientras el equipo tenía visibilidad sobre registros, códigos, premios, rankings y comportamiento de la campaña.",
+    impact: "La marca obtuvo una experiencia promocional más controlada, datos accionables y mayor claridad para evaluar resultados.",
+    capabilities: ["Registro digital", "Validación de códigos", "Lógica de premios", "Panel administrativo", "Reportes", "Datos de participación", "Reglas de campaña"],
     MockupComponent: PromotionalDashboardMockup,
   },
   {
     title: "Dashboard comercial para análisis de mercado",
     challenge: "Un equipo comercial necesitaba analizar información de ventas, productos y participación de mercado desde múltiples fuentes de datos.",
-    solution: "Se diseñó un modelo de datos y procesos de análisis para transformar información dispersa en indicadores claros, consultables desde dashboards ejecutivos.",
-    experience: "Los equipos podían consultar métricas clave por periodo, marca, categoría o producto, facilitando el análisis de desempeño y la detección de variaciones relevantes.",
-    impact: "La solución permitió mejorar la visibilidad del negocio, reducir discrepancias en la interpretación de datos y facilitar conversaciones más claras entre equipos comerciales, analíticos y directivos.",
+    solution: "Se diseñó un modelo de datos para transformar información dispersa en indicadores claros, consultables desde dashboards ejecutivos.",
+    experience: "Los equipos podían explorar métricas clave por periodo, marca, categoría o producto, facilitando análisis y conversaciones mejor enfocadas.",
+    impact: "La solución convirtió datos complejos en una experiencia de consulta clara para detectar oportunidades y tomar mejores decisiones.",
     capabilities: ["Modelado de datos", "Normalización de información", "Indicadores comerciales", "Dashboards", "Reportería ejecutiva", "Análisis histórico"],
     MockupComponent: CommercialDashboardMockup,
   },
   {
-    title: "Automatización de operación interna",
-    challenge: "Un equipo gestionaba procesos internos mediante archivos, validaciones manuales y seguimiento fragmentado.",
-    solution: "Se creó una plataforma administrativa para centralizar registros, automatizar validaciones, asignar roles, consultar información histórica y generar reportes operativos.",
-    experience: "Los usuarios internos podían operar desde un panel claro, con permisos diferenciados y flujos controlados para registrar, consultar y validar información.",
-    impact: "El proceso ganó orden, velocidad y trazabilidad. La operación dejó de depender de documentos aislados y pasó a gestionarse desde una herramienta centralizada.",
-    capabilities: ["Panel administrativo", "Roles de usuario", "Flujos de aprobación", "Carga de información", "Validaciones automáticas", "Reportes"],
+    title: "Plataforma para gestión de información",
+    challenge: "Un equipo gestionaba registros, validaciones y seguimiento mediante archivos, correos y consultas fragmentadas.",
+    solution: "Se creó una plataforma administrativa para centralizar datos, automatizar validaciones, asignar roles, consultar historial y generar reportes.",
+    experience: "Los usuarios internos podían trabajar desde un panel claro, con permisos diferenciados y flujos controlados para registrar, consultar y validar información.",
+    impact: "La información ganó orden, velocidad y trazabilidad, facilitando mejores respuestas y reduciendo dependencia de trabajo manual.",
+    capabilities: ["Panel administrativo", "Roles de usuario", "Flujos de aprobación", "Carga de datos", "Validaciones automáticas", "Reportes"],
     MockupComponent: InternalOperationsMockup,
   },
   {
     title: "Experiencia digital para activación de usuarios",
-    challenge: "Una empresa necesitaba captar información de usuarios y convertir una interacción digital en una experiencia participativa y medible.",
-    solution: "Se diseñó una experiencia web con formularios, preguntas, dinámicas interactivas y conexión con procesos internos de seguimiento.",
-    experience: "Los usuarios podían interactuar de manera simple y atractiva, mientras la empresa obtenía información útil para entender mejor a su audiencia.",
-    impact: "La solución ayudó a transformar una simple captura de datos en una experiencia digital más valiosa, medible y alineada con objetivos comerciales.",
+    challenge: "Una empresa necesitaba captar información de usuarios y convertir una interacción breve en una experiencia participativa y medible.",
+    solution: "Se diseñó una experiencia web con formularios, preguntas, dinámicas interactivas y conexión con indicadores de seguimiento.",
+    experience: "Los usuarios podían interactuar de manera simple y atractiva, mientras la empresa obtenía información útil sobre su audiencia.",
+    impact: "La solución transformó una captura de datos en una experiencia digital con mayor valor, mejor medición y objetivos comerciales más claros.",
     capabilities: ["Formularios inteligentes", "Experiencias interactivas", "Registro de usuarios", "Segmentación", "Reportería", "Integración con campañas"],
     MockupComponent: MobileExperienceMockup,
   },
@@ -73,12 +73,12 @@ export function ImpactCases() {
           className="text-center mb-8"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance text-foreground">
-            Problemas reales.{" "}
-            <span className="text-gradient">Soluciones medibles.</span>
+            Datos reales.{" "}
+            <span className="text-gradient">Experiencias medibles.</span>
           </h2>
           <p className="text-muted-foreground max-w-3xl mx-auto text-lg leading-relaxed">
             Por acuerdos de confidencialidad, algunos proyectos se presentan de forma anonimizada. 
-            Conservamos lo más importante: el contexto del reto, la solución implementada y el impacto generado, 
+            Conservamos lo más importante: el contexto, la experiencia creada y el impacto generado, 
             sin revelar información sensible del cliente.
           </p>
         </motion.div>

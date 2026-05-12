@@ -14,15 +14,15 @@ import {
 } from "lucide-react"
 
 const results = [
-  { icon: ArrowDownToLine, text: "Reducir procesos manuales" },
-  { icon: Eye, text: "Mejorar la trazabilidad de la operación" },
-  { icon: Database, text: "Centralizar información" },
-  { icon: BrainCircuit, text: "Facilitar la toma de decisiones" },
-  { icon: Smile, text: "Mejorar la experiencia del usuario" },
-  { icon: Zap, text: "Aumentar la eficiencia de equipos internos" },
+  { icon: ArrowDownToLine, text: "Convertir interacción en contactos, registros o ventas" },
+  { icon: Eye, text: "Hacer más clara la experiencia con tu marca" },
+  { icon: Database, text: "Ordenar información clave en un solo lugar" },
+  { icon: BrainCircuit, text: "Tomar decisiones con datos accionables" },
+  { icon: Smile, text: "Crear recorridos más simples para clientes y usuarios" },
+  { icon: Zap, text: "Ahorrar tiempo en tareas repetitivas" },
   { icon: Megaphone, text: "Activar campañas digitales medibles" },
-  { icon: PieChart, text: "Convertir datos dispersos en información útil" },
-  { icon: TrendingUp, text: "Escalar procesos que antes dependían de Excel, correos o seguimiento manual" },
+  { icon: PieChart, text: "Entender qué funciona, qué no y qué mejorar" },
+  { icon: TrendingUp, text: "Escalar una idea con una base digital sólida" },
 ]
 
 const containerVariants = {
@@ -70,11 +70,11 @@ export function ResultsSection() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance text-foreground">
-            No construimos por construir.{" "}
-            <span className="text-gradient">Diseñamos para generar resultados.</span>
+            Diseñamos experiencias que se sienten claras.{" "}
+            <span className="text-gradient">Y se miden en resultados.</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
-            Cada solución está orientada a generar un impacto tangible en la operación, la experiencia o los resultados del negocio.
+            Cada solución busca que usuarios y clientes entiendan, participen, compren o se comuniquen con menos fricción, mientras tú obtienes información útil para seguir creciendo.
           </p>
         </motion.div>
 
