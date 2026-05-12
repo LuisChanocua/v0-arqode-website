@@ -43,7 +43,7 @@ export const metadata: Metadata = {
         url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'ArQode - Soluciones digitales para operar mejor',
+        alt: 'ArQode - Experiencias digitales que generan resultados',
       },
     ],
   },

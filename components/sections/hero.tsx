@@ -6,11 +6,11 @@ import { ArrowRight, Sparkles } from "lucide-react"
 import { InteractiveParticlesBackground } from "@/components/interactive-particles-background"
 
 const floatingCards = [
-  { label: "Procesos", delay: 0 },
-  { label: "Datos", delay: 0.1 },
-  { label: "Experiencia", delay: 0.2 },
-  { label: "Resultados", delay: 0.3 },
-  { label: "Automatización", delay: 0.4 },
+  { label: "Datos", delay: 0 },
+  { label: "Experiencia", delay: 0.1 },
+  { label: "Usuarios", delay: 0.2 },
+  { label: "Conversión", delay: 0.3 },
+  { label: "Crecimiento", delay: 0.4 },
 ]
 
 export function Hero() {
@@ -60,7 +60,7 @@ export function Hero() {
           >
             <Sparkles className="w-4 h-4 text-primary" />
             <span className="text-sm font-medium text-muted-foreground">
-              Tecnología pensada para negocio, operación y experiencia
+              Estrategia, datos y desarrollo para experiencias digitales con propósito
             </span>
           </motion.div>
 
@@ -71,7 +71,7 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-balance mb-6 text-foreground"
           >
-            Soluciones digitales que convierten procesos en{" "}
+            Experiencias digitales que convierten información en{" "}
             <span className="text-gradient">resultados</span>
           </motion.h1>
 
@@ -82,8 +82,8 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 text-pretty leading-relaxed"
           >
-            Diseñamos plataformas, automatizaciones y experiencias digitales para ayudarte
-            a operar mejor, entender tus datos y crear interacciones más valiosas con tus clientes.
+            Creamos sitios, plataformas, automatizaciones e integraciones que transforman
+            datos, ideas y necesidades reales en interacciones claras, útiles y medibles.
           </motion.p>
 
           {/* CTAs */}

@@ -19,11 +19,12 @@ import {
 const WHATSAPP_NUMBER = "524351207883"
 
 const projectTypes = [
+  { value: "experiencia-digital", label: "Experiencia digital" },
+  { value: "sitio-web", label: "Sitio web o landing page" },
   { value: "plataforma-web", label: "Plataforma web" },
-  { value: "automatizacion", label: "Automatización de procesos" },
+  { value: "automatizacion", label: "Automatización o integración" },
   { value: "dashboard", label: "Dashboard o análisis de datos" },
   { value: "campana", label: "Campaña digital" },
-  { value: "integracion", label: "Integración de sistemas" },
   { value: "otro", label: "Otro" },
 ]
 
@@ -75,7 +76,7 @@ export function ContactCTA() {
   }
 
   const handleDirectWhatsApp = () => {
-    const defaultMessage = encodeURIComponent("Hola, me gustaría hablar sobre un proyecto.")
+    const defaultMessage = encodeURIComponent("Hola, me gustaría hablar sobre una solución digital.")
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${defaultMessage}`
     window.open(whatsappUrl, "_blank")
   }
@@ -110,12 +111,11 @@ export function ContactCTA() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance text-foreground">
-              ¿Tienes un proceso que podría funcionar{" "}
-              <span className="text-gradient">mejor con tecnología</span>?
+              ¿Tienes una idea que podría convertirse en una{" "}
+              <span className="text-gradient">experiencia digital medible</span>?
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
-              Cuéntanos qué estás intentando resolver. Podemos ayudarte a convertir una necesidad operativa, 
-              comercial o de datos en una solución digital clara, funcional y medible.
+              Cuéntanos qué quieres crear, mejorar o resolver. Podemos ayudarte a convertir datos, objetivos o necesidades en una solución clara, atractiva y orientada a resultados.
             </p>
           </motion.div>
 
@@ -223,7 +223,7 @@ export function ContactCTA() {
                 </Label>
                 <Textarea
                   id="message"
-                  placeholder="Cuéntanos sobre tu proyecto o necesidad..."
+                  placeholder="Cuéntanos qué quieres crear, mejorar o resolver..."
                   rows={5}
                   value={formData.message}
                   onChange={(e) => {
