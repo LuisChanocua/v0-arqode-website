@@ -71,8 +71,10 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-balance mb-6 text-foreground"
           >
-            Experiencias digitales que convierten información en{" "}
-            <span className="text-gradient">resultados</span>
+            Experiencias digitales que convierten{" "} 
+            <span className="text-gradient">d4t0s</span>
+            {" "}en{" "}
+            <span className="text-gradient">re$ultado$</span>
           </motion.h1>
 
           {/* Subheadline */}

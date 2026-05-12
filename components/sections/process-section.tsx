@@ -7,7 +7,7 @@ const steps = [
   {
     number: "01",
     icon: Search,
-    title: "Entendemos la señal",
+    title: "Entendemos la data",
     description: "Revisamos objetivos, datos disponibles, usuarios y puntos de fricción para encontrar dónde está el valor.",
   },
   {

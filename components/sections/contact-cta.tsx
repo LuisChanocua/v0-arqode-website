@@ -112,7 +112,7 @@ export function ContactCTA() {
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance text-foreground">
               ¿Tienes una idea que podría convertirse en una{" "}
-              <span className="text-gradient">experiencia digital medible</span>?
+              <span className="text-gradient">experiencia digital</span>?
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
               Cuéntanos qué quieres crear, mejorar o resolver. Podemos ayudarte a convertir datos, objetivos o necesidades en una solución clara, atractiva y orientada a resultados.
