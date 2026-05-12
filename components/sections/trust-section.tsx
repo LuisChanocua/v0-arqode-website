@@ -12,7 +12,7 @@ const trustPoints = [
   {
     icon: Eye,
     title: "Trazabilidad",
-    description: "Cada acción queda registrada para auditoría y seguimiento.",
+    description: "Diseñamos flujos que permiten entender qué ocurre y cómo mejora la experiencia.",
   },
   {
     icon: Lock,
@@ -22,7 +22,7 @@ const trustPoints = [
   {
     icon: Users,
     title: "Colaboración",
-    description: "Trabajamos de la mano con equipos internos para asegurar el éxito.",
+    description: "Trabajamos contigo para conectar objetivos, usuarios, datos y resultados.",
   },
 ]
 
@@ -53,13 +53,13 @@ export function TrustSection() {
             {/* Header */}
             <div className="text-center mb-10">
               <h2 className="text-2xl md:text-3xl font-bold mb-4 text-balance text-foreground">
-                Experiencia en proyectos donde la{" "}
+                Cuidamos los datos cuando la{" "}
                 <span className="text-gradient">confidencialidad importa</span>
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                Hemos colaborado en soluciones digitales para marcas, equipos internos y proyectos privados 
-                donde la seguridad, la trazabilidad y la confidencialidad son parte esencial del trabajo. 
-                Por eso, nuestro enfoque combina análisis, ejecución técnica y cuidado en el manejo de la información.
+                Hemos colaborado en soluciones digitales para marcas, equipos internos y proyectos privados
+                donde la información es parte esencial del valor. Por eso, nuestro enfoque combina análisis,
+                ejecución técnica y cuidado en el manejo de datos sensibles.
               </p>
             </div>
 

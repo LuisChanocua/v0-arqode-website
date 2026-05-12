@@ -44,7 +44,7 @@ export function Footer() {
               <span className="text-xl font-semibold text-foreground">ArQode</span>
             </a>
             <p className="text-muted-foreground max-w-md mb-6 leading-relaxed">
-              Soluciones digitales para operar mejor, entender tus datos y crear mejores experiencias.
+              Soluciones digitales que convierten información e ideas en experiencias claras, útiles y medibles.
             </p>
             {/* Social Links */}
             {/* <div className="flex items-center gap-3">
@@ -107,7 +107,7 @@ export function Footer() {
             {currentYear} ArQode. Todos los derechos reservados.
           </p>
           <p className="text-muted-foreground text-sm">
-            Hecho con tecnología moderna para negocios modernos.
+            Hecho con tecnología moderna para experiencias que generan valor.
           </p>
         </div>
       </div>

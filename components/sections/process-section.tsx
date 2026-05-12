@@ -7,26 +7,26 @@ const steps = [
   {
     number: "01",
     icon: Search,
-    title: "Entendemos el negocio",
-    description: "Analizamos el proceso, los usuarios, las reglas y los puntos de fricción.",
+    title: "Entendemos la data",
+    description: "Revisamos objetivos, datos disponibles, usuarios y puntos de fricción para encontrar dónde está el valor.",
   },
   {
     number: "02",
     icon: Lightbulb,
-    title: "Diseñamos la solución",
-    description: "Convertimos la necesidad en una propuesta digital clara, escalable y alineada con el objetivo del negocio.",
+    title: "Diseñamos la experiencia",
+    description: "Convertimos hallazgos y necesidades en una propuesta digital simple, atractiva y enfocada en resultados.",
   },
   {
     number: "03",
     icon: Code2,
-    title: "Construimos la plataforma",
-    description: "Desarrollamos la solución con enfoque en experiencia, operación, seguridad y crecimiento.",
+    title: "Construimos la solución",
+    description: "Desarrollamos con enfoque en usabilidad, rendimiento, seguridad y medición desde la base.",
   },
   {
     number: "04",
     icon: TrendingUp,
-    title: "Medimos el impacto",
-    description: "Integramos datos, reportes o indicadores para que el negocio pueda evaluar resultados.",
+    title: "Medimos y mejoramos",
+    description: "Integramos indicadores para evaluar impacto, aprender del comportamiento y detectar nuevas oportunidades.",
   },
 ]
 
@@ -60,10 +60,10 @@ export function ProcessSection() {
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance text-foreground">
             Antes de construir,{" "}
-            <span className="text-gradient">entendemos el problema</span>
+            <span className="text-gradient">entendemos qué debe lograr</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
-            Nuestro proceso está diseñado para asegurar que cada solución responda a una necesidad real del negocio.
+            Nuestro proceso alinea estrategia, datos, diseño y desarrollo para que cada solución tenga un propósito claro: ser útil, usable y medible.
           </p>
         </motion.div>
 
@@ -120,8 +120,8 @@ export function ProcessSection() {
         >
           <div className="inline-block card-elevated px-8 py-4">
             <p className="text-lg font-medium text-foreground">
-              No construimos tecnología aislada.{" "}
-              <span className="text-gradient">Construimos herramientas conectadas al negocio.</span>
+              La mejor tecnología se entiende rápido y demuestra valor.{" "}
+              <span className="text-gradient">Construimos experiencias que conectan interacción con resultados.</span>
             </p>
           </div>
         </motion.div>

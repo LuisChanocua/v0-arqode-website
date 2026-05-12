@@ -69,11 +69,11 @@ export function PublicProjects() {
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
             <div className="text-center sm:text-left">
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance text-foreground">
-                Proyectos públicos y{" "}
-                <span className="text-gradient">muestras visuales</span>
+                Experiencias digitales{" "}
+                <span className="text-gradient">puestas en acción</span>
               </h2>
               <p className="text-muted-foreground max-w-2xl text-lg leading-relaxed">
-                Algunos proyectos que podemos mostrar abiertamente. Explora cada uno para ver el recorrido visual de la solución.
+                Una selección de proyectos que muestran cómo una idea puede convertirse en una experiencia clara, útil y lista para conectar con usuarios reales.
               </p>
             </div>
 
