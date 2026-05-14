@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Sparkles } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { InteractiveParticlesBackground } from "@/components/interactive-particles-background"
 
 const floatingCards = [
@@ -58,10 +58,11 @@ export function Hero() {
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/80 border border-border mb-8"
           >
-            <Sparkles className="w-4 h-4 text-primary" />
+            <span className="font-mono text-sm font-semibold text-primary">&lt;</span>
             <span className="text-sm font-medium text-muted-foreground">
               Estrategia, datos y desarrollo para experiencias digitales con propósito
             </span>
+            <span className="font-mono text-sm font-semibold text-primary">/&gt;</span>
           </motion.div>
 
           {/* Headline */}
