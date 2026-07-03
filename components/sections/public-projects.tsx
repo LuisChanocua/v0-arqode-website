@@ -107,7 +107,9 @@ export function PublicProjects() {
           opts={{
             align: "start",
             loop: true,
-            dragFree: false,
+            dragFree: true,
+            skipSnaps: true,
+            duration: 20,
           }}
           className="w-full"
         >

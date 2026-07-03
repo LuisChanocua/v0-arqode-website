@@ -1,7 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { Linkedin, Twitter, Github, Mail } from "lucide-react"
+import { siteConfig } from "@/lib/site"
 
 const footerLinks = [
   { label: "Inicio", href: "#inicio" },
@@ -10,13 +9,6 @@ const footerLinks = [
   { label: "Soluciones", href: "#soluciones" },
   { label: "Proyectos", href: "#proyectos" },
   { label: "Contacto", href: "#contacto" },
-]
-
-const socialLinks = [
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Github, href: "#", label: "GitHub" },
-  { icon: Mail, href: "#contacto", label: "Email" },
 ]
 
 export function Footer() {
@@ -46,21 +38,6 @@ export function Footer() {
             <p className="text-muted-foreground max-w-md mb-6 leading-relaxed">
               Soluciones digitales que convierten información e ideas en experiencias claras, útiles y medibles.
             </p>
-            {/* Social Links */}
-            {/* <div className="flex items-center gap-3">
-              {socialLinks.map((social) => (
-                <motion.a
-                  key={social.label}
-                  href={social.href}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-10 h-10 rounded-xl bg-secondary/80 hover:bg-secondary border border-border flex items-center justify-center transition-all duration-200"
-                  aria-label={social.label}
-                >
-                  <social.icon className="w-5 h-5 text-muted-foreground" />
-                </motion.a>
-              ))}
-            </div> */}
           </div>
 
           {/* Quick Links */}
@@ -81,15 +58,25 @@ export function Footer() {
           </div>
 
           {/* Contact */}
-          {/* <div>
+          <div>
             <h4 className="font-semibold text-foreground mb-4">Contacto</h4>
             <ul className="space-y-3">
               <li>
                 <a
-                  href="mailto:hola@arqode.dev"
+                  href={`mailto:${siteConfig.email}`}
                   className="text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  hola@arqode.dev
+                  {siteConfig.email}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={siteConfig.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  WhatsApp
                 </a>
               </li>
               <li>
@@ -98,7 +85,7 @@ export function Footer() {
                 </span>
               </li>
             </ul>
-          </div> */}
+          </div>
         </div>
 
         {/* Bottom Bar */}

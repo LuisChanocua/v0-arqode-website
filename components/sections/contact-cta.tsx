@@ -1,12 +1,14 @@
 "use client"
 
-import { useState } from "react"
+import { type FormEvent, useEffect, useRef, useState } from "react"
 import { motion } from "framer-motion"
-import { MessageCircle, Send, AlertCircle } from "lucide-react"
+import { AlertCircle, Loader2, Mail } from "lucide-react"
+import { toast } from "sonner"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
+import { contactProjectTypes } from "@/lib/contact/domain/contact-message"
 import {
   Select,
   SelectContent,
@@ -15,33 +17,54 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
-// WhatsApp number - placeholder configurable
-const WHATSAPP_NUMBER = "524351207883"
+type SubmitStatus = "idle" | "loading" | "success" | "error"
+type ContactSubmitError = Error & { status?: number }
 
-const projectTypes = [
-  { value: "experiencia-digital", label: "Experiencia digital" },
-  { value: "sitio-web", label: "Sitio web o landing page" },
-  { value: "plataforma-web", label: "Plataforma web" },
-  { value: "automatizacion", label: "Automatización o integración" },
-  { value: "dashboard", label: "Dashboard o análisis de datos" },
-  { value: "campana", label: "Campaña digital" },
-  { value: "otro", label: "Otro" },
-]
+const REQUEST_TIMEOUT_MS = 12_000
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+const PHONE_PATTERN = /^[0-9+\-().\s]*$/
+
+const initialFormData = {
+  name: "",
+  email: "",
+  phone: "",
+  company: "",
+  projectType: "",
+  message: "",
+  website: "",
+}
 
 export function ContactCTA() {
-  const [formData, setFormData] = useState({
-    name: "",
-    company: "",
-    projectType: "",
-    message: "",
-  })
+  const [formData, setFormData] = useState(initialFormData)
   const [errors, setErrors] = useState<Record<string, string>>({})
+  const [submitStatus, setSubmitStatus] = useState<SubmitStatus>("idle")
+  const [statusMessage, setStatusMessage] = useState("")
+  const abortControllerRef = useRef<AbortController | null>(null)
+
+  useEffect(() => {
+    return () => {
+      abortControllerRef.current?.abort()
+    }
+  }, [])
+
+  const clearSubmitFeedback = () => {
+    if (submitStatus !== "idle") setSubmitStatus("idle")
+    if (statusMessage) setStatusMessage("")
+  }
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {}
     
     if (!formData.name.trim()) {
       newErrors.name = "El nombre es requerido"
+    }
+    if (!formData.email.trim()) {
+      newErrors.email = "El correo es requerido"
+    } else if (!EMAIL_PATTERN.test(formData.email.trim())) {
+      newErrors.email = "Ingresa un correo válido"
+    }
+    if (formData.phone.trim() && !PHONE_PATTERN.test(formData.phone.trim())) {
+      newErrors.phone = "Ingresa un celular válido"
     }
     if (!formData.message.trim()) {
       newErrors.message = "El mensaje es requerido"
@@ -51,34 +74,76 @@ export function ContactCTA() {
     return Object.keys(newErrors).length === 0
   }
 
-  const buildWhatsAppMessage = () => {
-    const projectLabel = projectTypes.find(p => p.value === formData.projectType)?.label || formData.projectType
-    
-    let message = `Hola, soy ${formData.name}`
-    if (formData.company.trim()) {
-      message += ` de ${formData.company}`
-    }
-    message += "."
-    if (formData.projectType) {
-      message += ` Me interesa hablar sobre ${projectLabel}.`
-    }
-    message += ` ${formData.message}`
-    
-    return encodeURIComponent(message)
-  }
-
-  const handleWhatsAppClick = () => {
+  const handleContactSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    if (submitStatus === "loading") return
     if (!validateForm()) return
-    
-    const message = buildWhatsAppMessage()
-    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`
-    window.open(whatsappUrl, "_blank")
-  }
 
-  const handleDirectWhatsApp = () => {
-    const defaultMessage = encodeURIComponent("Hola, me gustaría hablar sobre una solución digital.")
-    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${defaultMessage}`
-    window.open(whatsappUrl, "_blank")
+    setSubmitStatus("loading")
+    setStatusMessage("Enviando mensaje...")
+
+    const controller = new AbortController()
+    abortControllerRef.current = controller
+    const timeoutId = window.setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS)
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+        signal: controller.signal,
+      })
+
+      let responseBody: unknown = null
+      try {
+        responseBody = await response.json()
+      } catch {
+        responseBody = null
+      }
+
+      if (!response.ok) {
+        const message =
+          responseBody &&
+          typeof responseBody === "object" &&
+          "message" in responseBody &&
+          typeof responseBody.message === "string"
+            ? responseBody.message
+            : "No pudimos enviar el mensaje. Inténtalo de nuevo."
+
+        const submitError = new Error(message) as ContactSubmitError
+        submitError.status = response.status
+        throw submitError
+      }
+
+      setFormData(initialFormData)
+      setErrors({})
+      setSubmitStatus("success")
+      setStatusMessage("Solicitud enviada. Te contactaremos pronto para darle seguimiento.")
+      toast.success("Solicitud enviada", {
+        description: "Recibimos tu mensaje y te contactaremos pronto.",
+      })
+    } catch (error) {
+      const status = error instanceof Error ? (error as ContactSubmitError).status : undefined
+      const message =
+        error instanceof DOMException && error.name === "AbortError"
+          ? "El envío tardó demasiado. Inténtalo nuevamente."
+          : error instanceof Error
+            ? error.message
+            : "No pudimos enviar el mensaje. Inténtalo de nuevo."
+
+      setSubmitStatus("error")
+      setStatusMessage(message)
+      if (!status || status === 429 || status >= 500) {
+        toast.error("No se pudo enviar", {
+          description: message,
+        })
+      }
+    } finally {
+      window.clearTimeout(timeoutId)
+      abortControllerRef.current = null
+    }
   }
 
   return (
@@ -119,46 +184,15 @@ export function ContactCTA() {
             </p>
           </motion.div>
 
-          {/* Quick WhatsApp CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-center mb-8"
-          >
-            <Button
-              onClick={handleDirectWhatsApp}
-              size="lg"
-              className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all duration-200 text-primary-foreground font-medium shadow-lg hover:shadow-xl"
-            >
-              <MessageCircle className="w-5 h-5 mr-2" />
-              Hablemos por WhatsApp
-            </Button>
-          </motion.div>
-
-          {/* Divider */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-            className="flex items-center gap-4 mb-8"
-          >
-            <div className="flex-1 h-px bg-border" />
-            <span className="text-sm text-muted-foreground">o completa el formulario</span>
-            <div className="flex-1 h-px bg-border" />
-          </motion.div>
-
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
             className="card-elevated p-8 lg:p-12"
           >
-            <div className="space-y-6">
+            <form onSubmit={handleContactSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 {/* Name */}
                 <div className="space-y-2">
@@ -172,6 +206,7 @@ export function ContactCTA() {
                     onChange={(e) => {
                       setFormData(prev => ({ ...prev, name: e.target.value }))
                       if (errors.name) setErrors(prev => ({ ...prev, name: "" }))
+                      clearSubmitFeedback()
                     }}
                     className={`bg-input border-border focus:border-primary transition-colors ${errors.name ? 'border-destructive' : ''}`}
                   />
@@ -183,6 +218,33 @@ export function ContactCTA() {
                   )}
                 </div>
                 
+                {/* Email */}
+                <div className="space-y-2">
+                  <Label htmlFor="email" className="text-foreground font-medium">
+                    Correo <span className="text-destructive">*</span>
+                  </Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="tu@correo.com"
+                    value={formData.email}
+                    onChange={(e) => {
+                      setFormData(prev => ({ ...prev, email: e.target.value }))
+                      if (errors.email) setErrors(prev => ({ ...prev, email: "" }))
+                      clearSubmitFeedback()
+                    }}
+                    className={`bg-input border-border focus:border-primary transition-colors ${errors.email ? 'border-destructive' : ''}`}
+                  />
+                  {errors.email && (
+                    <p className="text-xs text-destructive flex items-center gap-1">
+                      <AlertCircle className="w-3 h-3" />
+                      {errors.email}
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-6">
                 {/* Company */}
                 <div className="space-y-2">
                   <Label htmlFor="company" className="text-foreground font-medium">Empresa</Label>
@@ -190,9 +252,35 @@ export function ContactCTA() {
                     id="company"
                     placeholder="Nombre de tu empresa"
                     value={formData.company}
-                    onChange={(e) => setFormData(prev => ({ ...prev, company: e.target.value }))}
+                    onChange={(e) => {
+                      setFormData(prev => ({ ...prev, company: e.target.value }))
+                      clearSubmitFeedback()
+                    }}
                     className="bg-input border-border focus:border-primary transition-colors"
                   />
+                </div>
+
+                {/* Phone */}
+                <div className="space-y-2">
+                  <Label htmlFor="phone" className="text-foreground font-medium">Celular</Label>
+                  <Input
+                    id="phone"
+                    type="tel"
+                    placeholder="Tu celular"
+                    value={formData.phone}
+                    onChange={(e) => {
+                      setFormData(prev => ({ ...prev, phone: e.target.value }))
+                      if (errors.phone) setErrors(prev => ({ ...prev, phone: "" }))
+                      clearSubmitFeedback()
+                    }}
+                    className={`bg-input border-border focus:border-primary transition-colors ${errors.phone ? 'border-destructive' : ''}`}
+                  />
+                  {errors.phone && (
+                    <p className="text-xs text-destructive flex items-center gap-1">
+                      <AlertCircle className="w-3 h-3" />
+                      {errors.phone}
+                    </p>
+                  )}
                 </div>
               </div>
 
@@ -201,13 +289,16 @@ export function ContactCTA() {
                 <Label htmlFor="projectType" className="text-foreground font-medium">Tipo de necesidad / proyecto</Label>
                 <Select
                   value={formData.projectType}
-                  onValueChange={(value) => setFormData(prev => ({ ...prev, projectType: value }))}
+                  onValueChange={(value) => {
+                    setFormData(prev => ({ ...prev, projectType: value }))
+                    clearSubmitFeedback()
+                  }}
                 >
                   <SelectTrigger className="bg-input border-border focus:border-primary transition-colors">
                     <SelectValue placeholder="Selecciona una opción" />
                   </SelectTrigger>
                   <SelectContent>
-                    {projectTypes.map((type) => (
+                    {contactProjectTypes.map((type) => (
                       <SelectItem key={type.value} value={type.value}>
                         {type.label}
                       </SelectItem>
@@ -229,6 +320,7 @@ export function ContactCTA() {
                   onChange={(e) => {
                     setFormData(prev => ({ ...prev, message: e.target.value }))
                     if (errors.message) setErrors(prev => ({ ...prev, message: "" }))
+                    clearSubmitFeedback()
                   }}
                   className={`bg-input border-border focus:border-primary transition-colors resize-none ${errors.message ? 'border-destructive' : ''}`}
                 />
@@ -240,17 +332,45 @@ export function ContactCTA() {
                 )}
               </div>
 
+              {/* Honeypot */}
+              <div className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+                <Label htmlFor="website">Sitio web</Label>
+                <Input
+                  id="website"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={formData.website}
+                  onChange={(e) => setFormData(prev => ({ ...prev, website: e.target.value }))}
+                />
+              </div>
+
+              {statusMessage && (
+                <p
+                  className={`text-sm ${submitStatus === "error" ? "text-destructive" : "text-muted-foreground"}`}
+                  aria-live="polite"
+                >
+                  {statusMessage}
+                </p>
+              )}
+
               {/* Submit Button */}
-              <Button
-                type="button"
-                onClick={handleWhatsAppClick}
-                size="lg"
-                className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all duration-200 text-primary-foreground font-medium shadow-lg hover:shadow-xl"
-              >
-                <Send className="w-4 h-4 mr-2" />
-                Enviar por WhatsApp
-              </Button>
-            </div>
+              <div>
+                <Button
+                  type="submit"
+                  size="lg"
+                  disabled={submitStatus === "loading"}
+                  className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all duration-200 text-primary-foreground font-medium shadow-lg hover:shadow-xl"
+                >
+                  {submitStatus === "loading" ? (
+                    <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                  ) : (
+                    <Mail className="w-4 h-4 mr-2" />
+                  )}
+                  {submitStatus === "loading" ? "Enviando..." : "Enviar solicitud"}
+                </Button>
+              </div>
+            </form>
           </motion.div>
 
           {/* Note */}
@@ -261,7 +381,7 @@ export function ContactCTA() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="text-center text-sm text-muted-foreground mt-6"
           >
-            Respuesta inicial por WhatsApp. Si el proyecto lo requiere, podemos agendar una llamada para revisar el alcance.
+            Recibiremos tu solicitud por correo y te contactaremos para darle seguimiento.
           </motion.p>
         </div>
       </div>
