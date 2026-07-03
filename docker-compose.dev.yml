@@ -7,9 +7,10 @@ services:
     ports:
       - "3000:3000"
 
+    env_file:
+      - .env.development
+
     environment:
-      - NODE_ENV=development
-      - NEXT_TELEMETRY_DISABLED=1
       - WATCHPACK_POLLING=true
 
     volumes:

@@ -20,6 +20,7 @@ const organizationJsonLd = {
   image: `${siteConfig.url}/opengraph-image`,
   logo: `${siteConfig.url}/brand/arqode-logo.png`,
   description: siteConfig.description,
+  email: siteConfig.email,
   areaServed: {
     "@type": "Country",
     name: "México",
@@ -28,6 +29,7 @@ const organizationJsonLd = {
     "@type": "ContactPoint",
     contactType: "sales",
     availableLanguage: ["es"],
+    email: siteConfig.email,
     url: siteConfig.whatsapp,
   },
   knowsAbout: [
