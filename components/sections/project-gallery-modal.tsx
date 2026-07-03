@@ -169,10 +169,11 @@ export function ProjectGalleryModal({
                       exit="exit"
                       transition={{ duration: 0.25, ease: "easeInOut" }}
                       drag="x"
+                      dragDirectionLock
                       dragConstraints={{ left: 0, right: 0 }}
                       dragElastic={0.15}
                       onDragEnd={handleDragEnd}
-                      className="cursor-grab active:cursor-grabbing"
+                      className="cursor-grab touch-pan-y active:cursor-grabbing"
                     >
                       <div className="aspect-[16/9] w-full overflow-hidden rounded-xl border border-border bg-gradient-to-br from-secondary to-muted relative flex items-center justify-center">
                         {hasRealVideo ? (
@@ -190,6 +191,7 @@ export function ProjectGalleryModal({
                             alt={currentSlide.alt || currentSlide.title}
                             title={currentSlide.alt || currentSlide.title}
                             fill
+                            draggable={false}
                             className="object-contain"
                             sizes="(max-width: 768px) 100vw, 900px"
                             priority={currentIndex === 0}

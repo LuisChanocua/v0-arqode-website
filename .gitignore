@@ -27,6 +27,7 @@ pnpm-debug.log*
 .env
 .env.*
 !.env.example
+stack.env
 
 # vercel
 .vercel/
@@ -47,6 +48,3 @@ Thumbs.db
 .vscode/*
 !.vscode/settings.json
 !.vscode/extensions.json
-
-.env.*
-!.env.example
