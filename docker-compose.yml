@@ -3,8 +3,12 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+
     image: arqode-website:latest
+    pull_policy: build
+
     container_name: arqode-website
+
     environment:
       NODE_ENV: ${NODE_ENV:-production}
       NEXT_TELEMETRY_DISABLED: ${NEXT_TELEMETRY_DISABLED:-1}
@@ -15,9 +19,12 @@ services:
       RESEND_API_KEY: ${RESEND_API_KEY}
       CONTACT_FROM_EMAIL: ${CONTACT_FROM_EMAIL:-contacto@arqode.mx}
       CONTACT_TO_EMAIL: ${CONTACT_TO_EMAIL:-contacto@arqode.mx}
+
     restart: unless-stopped
+
     networks:
       - proxy-manager_default
+
     healthcheck:
       test: ["CMD-SHELL", "wget -q --spider http://127.0.0.1:3000 || exit 1"]
       interval: 30s
