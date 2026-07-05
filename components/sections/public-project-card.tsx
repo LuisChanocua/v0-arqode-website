@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { Eye, Layers, Globe, Lightbulb, LayoutDashboard, Rocket, Zap } from "lucide-react"
+import { Clock, Code2, Eye, Layers, Globe, Lightbulb, LayoutDashboard, Rocket, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { type PublicProject, isPlaceholderImage } from "@/data/public-projects"
 
@@ -17,6 +17,7 @@ const categoryIcons: Record<string, React.ReactNode> = {
   "Automatización inteligente": <Zap className="w-5 h-5" />,
   "Dashboards y analítica": <LayoutDashboard className="w-5 h-5" />,
   "Aplicación Móvil": <Layers className="w-5 h-5" />,
+  "Software a medida": <Code2 className="w-5 h-5" />,
 }
 
 // Category color classes (using design tokens)
@@ -30,6 +31,7 @@ const categoryColors: Record<string, string> = {
   "Automatización inteligente": "bg-violet-500/10 text-violet-600 dark:text-violet-400",
   "Dashboards y analítica": "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
   "Aplicación Móvil": "bg-sky-500/10 text-sky-600 dark:text-sky-400",
+  "Software a medida": "bg-cyan-500/10 text-cyan-600 dark:text-cyan-400",
 }
 
 interface PublicProjectCardProps {
@@ -39,7 +41,8 @@ interface PublicProjectCardProps {
 }
 
 export function PublicProjectCard({ project, index, onViewGallery }: PublicProjectCardProps) {
-  const hasRealCover = !isPlaceholderImage(project.coverImage)
+  const hasRealCover = !project.coverPlaceholder && !isPlaceholderImage(project.coverImage)
+  const valueLabel = project.comingSoon ? "Valor esperado" : "Valor generado"
 
   return (
     <motion.div
@@ -81,6 +84,14 @@ export function PublicProjectCard({ project, index, onViewGallery }: PublicProje
               {project.category}
             </span>
           </div>
+
+          {project.status && (
+            <div className="absolute top-3 right-3">
+              <span className="inline-flex items-center rounded-full border border-border/60 bg-card/85 px-2.5 py-1 text-xs font-medium text-muted-foreground backdrop-blur-sm">
+                {project.status}
+              </span>
+            </div>
+          )}
         </div>
 
         {/* Content */}
@@ -97,7 +108,7 @@ export function PublicProjectCard({ project, index, onViewGallery }: PublicProje
               </p>
             </div>
             <div>
-              <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Valor generado</span>
+              <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">{valueLabel}</span>
               <p className="text-foreground text-sm mt-1 font-medium leading-relaxed line-clamp-2">
                 {project.value}
               </p>
@@ -106,10 +117,20 @@ export function PublicProjectCard({ project, index, onViewGallery }: PublicProje
 
           <Button
             onClick={onViewGallery}
+            disabled={project.comingSoon}
             className="w-full mt-4 bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all duration-200 text-primary-foreground font-medium shadow-sm hover:shadow-md"
           >
-            <Eye className="w-4 h-4 mr-2" />
-            Ver
+            {project.comingSoon ? (
+              <>
+                <Clock className="w-4 h-4 mr-2" />
+                Proyecto en desarrollo
+              </>
+            ) : (
+              <>
+                <Eye className="w-4 h-4 mr-2" />
+                Ver
+              </>
+            )}
           </Button>
         </div>
       </div>

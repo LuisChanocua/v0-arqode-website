@@ -13,8 +13,11 @@ export interface PublicProject {
   category: string
   coverImage: string
   coverAlt?: string
+  coverPlaceholder?: boolean
   need: string
   value: string
+  status?: string
+  comingSoon?: boolean
   slides: ProjectSlide[]
 }
 
@@ -274,6 +277,26 @@ export const publicProjects: PublicProject[] = [
         description: "Sección de contacto con WhatsApp, correo, ubicación, redes sociales y mapa para facilitar la comunicación con personas interesadas.",
         image: "/projects/huaraches-huetamo/slide-5.webp",
         alt: "Sección de contacto y ubicación de Huaraches Huetamo",
+      },
+    ],
+  },
+  {
+    id: "software-consultorio-medico",
+    title: "Software de gestión para consultorio médico",
+    category: "Software a medida",
+    coverImage: "/projects/software-consultorio-medico/cover.webp",
+    coverAlt: "Vista conceptual de un software de gestión para consultorio médico",
+    coverPlaceholder: true,
+    need: "Centralizar la información de pacientes, expedientes, consultas, recetas y seguimiento clínico en una aplicación adaptada a la operación diaria de un consultorio.",
+    value: "Una solución personalizada orientada a organizar la información, simplificar tareas administrativas y facilitar el seguimiento de cada paciente.",
+    status: "En desarrollo",
+    comingSoon: true,
+    slides: [
+      {
+        title: "Proyecto en desarrollo",
+        description: "Proyecto actualmente en desarrollo. La imagen representa una vista conceptual de la solución y puede cambiar durante el proceso de diseño e implementación.",
+        image: "placeholder-software-consultorio-medico",
+        alt: "Vista conceptual de un software de gestión para consultorio médico",
       },
     ],
   },
