@@ -30,7 +30,6 @@ const organizationJsonLd = {
     contactType: "sales",
     availableLanguage: ["es"],
     email: siteConfig.email,
-    url: siteConfig.whatsapp,
   },
   knowsAbout: [
     "Soluciones digitales",

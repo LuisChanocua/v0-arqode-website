@@ -70,18 +70,8 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a
-                  href={siteConfig.whatsapp}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  WhatsApp
-                </a>
-              </li>
-              <li>
                 <span className="text-muted-foreground">
-                  Ciudad de México, MX
+                  Huetamo de Núñez, MX
                 </span>
               </li>
             </ul>

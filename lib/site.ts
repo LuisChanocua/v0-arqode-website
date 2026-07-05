@@ -20,5 +20,4 @@ export const siteConfig = {
     "software a la medida",
   ],
   email: "contacto@arqode.mx",
-  whatsapp: "https://wa.me/524351207883",
 }

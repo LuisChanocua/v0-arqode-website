@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { ArrowLeft, Compass, Home, MessageCircle, SearchX } from "lucide-react"
+import { ArrowLeft, Compass, Home, Mail, SearchX } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { JsonLd } from "@/components/seo/json-ld"
 import { siteConfig } from "@/lib/site"
@@ -78,9 +78,9 @@ const quickLinks = [
     href: "/#soluciones",
   },
   {
-    icon: MessageCircle,
-    label: "Hablar por WhatsApp",
-    href: siteConfig.whatsapp,
+    icon: Mail,
+    label: "Contactar por correo",
+    href: `mailto:${siteConfig.email}`,
   },
 ]
 
