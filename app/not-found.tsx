@@ -38,9 +38,9 @@ export const metadata: Metadata = {
     description: pageDescription,
     images: [
       {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
+        url: siteConfig.shareImage,
+        width: 1731,
+        height: 909,
         alt: "ArQode - Página no encontrada",
       },
     ],
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: pageTitle,
     description: pageDescription,
-    images: ["/twitter-image"],
+    images: [siteConfig.shareImage],
   },
 }
 

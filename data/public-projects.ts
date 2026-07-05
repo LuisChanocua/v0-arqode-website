@@ -29,8 +29,8 @@ export const publicProjects: PublicProject[] = [
     category: "Automatización inteligente",
     coverImage: "/projects/chatbot-whatsapp/slide-1.webp",
     coverAlt: "Asistente inteligente conectado con WhatsApp para atención y consulta de productos",
-    need: "Facilitar que clientes y usuarios encuentren información sobre productos, servicios, pedidos y procesos del negocio sin depender de búsquedas manuales o largos tiempos de atención.",
-    value: "Una experiencia conversacional que resuelve preguntas, recomienda productos, consulta información del negocio, captura prospectos y permite transferir la conversación a un asesor humano.",
+    need: "Responder dudas sobre productos, pedidos y servicios sin búsquedas manuales ni espera.",
+    value: "Un asistente que recomienda, consulta datos, captura prospectos y escala a un asesor.",
     slides: [
       {
         title: "Asistente de bienvenida",
@@ -70,8 +70,8 @@ export const publicProjects: PublicProject[] = [
     category: "Dashboards y analítica",
     coverImage: "/projects/inteligencia-de-mercado/slide-1.webp",
     coverAlt: "Dashboard de inteligencia de mercado, marcas, segmentos y productos",
-    need: "Centralizar información mensual de mercado, marcas, categorías, segmentos y productos para facilitar el análisis de participación, crecimiento y desempeño comercial.",
-    value: "Una plataforma que transforma archivos dispersos en indicadores comparables, permitiendo identificar tendencias, cambios de participación y oportunidades de crecimiento.",
+    need: "Unificar datos mensuales de marcas, categorías y productos para decidir más rápido.",
+    value: "Indicadores comparables para detectar tendencias, cambios de share y oportunidades.",
     slides: [
       {
         title: "Resumen de mercado",
@@ -111,8 +111,8 @@ export const publicProjects: PublicProject[] = [
     category: "Aplicación Móvil",
     coverImage: "/projects/seguro-auto-movil/cover.jpg",
     coverAlt: "Pantallas de app móvil para controlar el seguro de un auto",
-    need: "Diseñar una experiencia móvil que reuniera información del vehículo, vigencia del seguro y servicios relacionados en un recorrido simple.",
-    value: "Una interfaz clara que convierte datos del auto en acciones útiles: asistencia, agenda, mantenimiento y consulta desde el celular.",
+    need: "Reunir seguro, vehículo y servicios en una experiencia móvil simple.",
+    value: "Datos del auto convertidos en asistencia, agenda y mantenimiento desde el celular.",
     slides: [
       {
         title: "Experiencia móvil",
@@ -129,8 +129,8 @@ export const publicProjects: PublicProject[] = [
     category: "Aplicación Móvil",
     coverImage: "/projects/logistics-pak/cover.png",
     coverAlt: "Vista principal del proyecto Logistics Pak",
-    need: "Presentar una app logística con una muestra visual clara del producto, sus datos clave, su flujo y su experiencia de uso.",
-    value: "Un recorrido más convincente para explicar valor, validar la idea y facilitar conversaciones comerciales con una experiencia tangible.",
+    need: "Mostrar la app logística, sus datos clave y flujo de uso con claridad.",
+    value: "Un demo tangible para explicar valor, validar la idea y abrir conversaciones.",
     slides: [
       {
         title: "Vista principal",
@@ -154,8 +154,8 @@ export const publicProjects: PublicProject[] = [
     category: "Plataforma Web",
     coverImage: "/projects/gestion-deportiva/cover.webp",
     coverAlt: "Vista principal de la plataforma de gestión deportiva",
-    need: "Centralizar datos de deportes, ligas, calendarios, partidos, resultados y clasificaciones en una plataforma pública fácil de consultar.",
-    value: "Una experiencia más clara para consultar información deportiva, encontrar partidos y entender resultados sin perderse entre datos dispersos.",
+    need: "Centralizar ligas, partidos, resultados y rankings en una consulta pública clara.",
+    value: "Información deportiva más fácil de encontrar, comparar y entender.",
     slides: [
       {
         title: "Vista general",
@@ -195,8 +195,8 @@ export const publicProjects: PublicProject[] = [
     category: "Sitio Web",
     coverImage: "/projects/la-esmeralda/cover.webp",
     coverAlt: "Vista principal del sitio web de restaurante La Esmeralda",
-    need: "Presentar el restaurante, ordenar la información del menú y facilitar pedidos o consultas desde una experiencia digital sencilla.",
-    value: "Una experiencia más atractiva para clientes: menú claro, pedido simple y acceso rápido a ubicación, contacto e información clave.",
+    need: "Ordenar menú, ubicación y pedidos en una experiencia web sencilla.",
+    value: "Menú claro, pedido simple y contacto rápido para convertir visitas en pedidos.",
     slides: [
       {
         title: "Vista principal",
@@ -242,8 +242,8 @@ export const publicProjects: PublicProject[] = [
     category: "Sitio Web",
     coverImage: "/projects/huaraches-huetamo/cover.webp",
     coverAlt: "Vista principal del sitio web de Huaraches Huetamo",
-    need: "Crear una presencia digital para mostrar productos artesanales, comunicar la historia de la marca y facilitar pedidos personalizados.",
-    value: "Una experiencia de marca más clara: catálogo profesional, narrativa artesanal y canal directo para convertir interés en conversación.",
+    need: "Mostrar productos artesanales, historia de marca y pedidos personalizados.",
+    value: "Catálogo profesional y narrativa artesanal para convertir interés en conversación.",
     slides: [
       {
         title: "Vista principal",

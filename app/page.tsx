@@ -17,7 +17,7 @@ const organizationJsonLd = {
   "@type": "ProfessionalService",
   name: siteConfig.name,
   url: siteConfig.url,
-  image: `${siteConfig.url}/opengraph-image`,
+  image: `${siteConfig.url}${siteConfig.shareImage}`,
   logo: `${siteConfig.url}/brand/arqode-logo.png`,
   description: siteConfig.description,
   email: siteConfig.email,

@@ -20,4 +20,5 @@ export const siteConfig = {
     "software a la medida",
   ],
   email: "contacto@arqode.mx",
+  shareImage: "/brand/share.webp",
 }
