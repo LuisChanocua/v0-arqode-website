@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { ArrowLeft, Compass, Home, MessageCircle, SearchX } from "lucide-react"
+import { ArrowLeft, Compass, Home, Mail, SearchX } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { JsonLd } from "@/components/seo/json-ld"
 import { siteConfig } from "@/lib/site"
@@ -38,9 +38,9 @@ export const metadata: Metadata = {
     description: pageDescription,
     images: [
       {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
+        url: siteConfig.shareImage,
+        width: 1731,
+        height: 909,
         alt: "ArQode - Página no encontrada",
       },
     ],
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: pageTitle,
     description: pageDescription,
-    images: ["/twitter-image"],
+    images: [siteConfig.shareImage],
   },
 }
 
@@ -78,9 +78,9 @@ const quickLinks = [
     href: "/#soluciones",
   },
   {
-    icon: MessageCircle,
-    label: "Hablar por WhatsApp",
-    href: siteConfig.whatsapp,
+    icon: Mail,
+    label: "Contactar por correo",
+    href: `mailto:${siteConfig.email}`,
   },
 ]
 

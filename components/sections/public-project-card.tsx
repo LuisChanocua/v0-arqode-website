@@ -8,23 +8,27 @@ import { type PublicProject, isPlaceholderImage } from "@/data/public-projects"
 
 // Category icon mapping
 const categoryIcons: Record<string, React.ReactNode> = {
-  "Plataforma Web": <Layers className="w-5 h-5" />,
   "Sitio Web": <Globe className="w-5 h-5" />,
+  "Plataforma Web": <Layers className="w-5 h-5" />,
   "Prototipo": <Lightbulb className="w-5 h-5" />,
   "Dashboard": <LayoutDashboard className="w-5 h-5" />,
   "Landing Page": <Rocket className="w-5 h-5" />,
   "Automatización": <Zap className="w-5 h-5" />,
+  "Automatización inteligente": <Zap className="w-5 h-5" />,
+  "Dashboards y analítica": <LayoutDashboard className="w-5 h-5" />,
   "Aplicación Móvil": <Layers className="w-5 h-5" />,
 }
 
 // Category color classes (using design tokens)
 const categoryColors: Record<string, string> = {
-  "Plataforma Web": "bg-primary/10 text-primary",
   "Sitio Web": "bg-accent/10 text-accent",
+  "Plataforma Web": "bg-primary/10 text-primary",
   "Prototipo": "bg-amber-500/10 text-amber-600 dark:text-amber-400",
   "Dashboard": "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
   "Landing Page": "bg-rose-500/10 text-rose-600 dark:text-rose-400",
   "Automatización": "bg-violet-500/10 text-violet-600 dark:text-violet-400",
+  "Automatización inteligente": "bg-violet-500/10 text-violet-600 dark:text-violet-400",
+  "Dashboards y analítica": "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
   "Aplicación Móvil": "bg-sky-500/10 text-sky-600 dark:text-sky-400",
 }
 

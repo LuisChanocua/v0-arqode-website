@@ -41,9 +41,9 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [
       {
-        url: '/opengraph-image',
-        width: 1200,
-        height: 630,
+        url: siteConfig.shareImage,
+        width: 1731,
+        height: 909,
         alt: 'ArQode - Experiencias digitales que generan resultados',
       },
     ],
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: siteConfig.title,
     description: siteConfig.description,
-    images: ['/twitter-image'],
+    images: [siteConfig.shareImage],
   },
   robots: {
     index: true,

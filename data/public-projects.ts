@@ -24,13 +24,95 @@ export const isPlaceholderImage = (image?: string): boolean =>
 
 export const publicProjects: PublicProject[] = [
   {
+    id: "chatbot-whatsapp",
+    title: "Asistente inteligente para atención y productos",
+    category: "Automatización inteligente",
+    coverImage: "/projects/chatbot-whatsapp/slide-1.webp",
+    coverAlt: "Asistente inteligente conectado con WhatsApp para atención y consulta de productos",
+    need: "Responder dudas sobre productos, pedidos y servicios sin búsquedas manuales ni espera.",
+    value: "Un asistente que recomienda, consulta datos, captura prospectos y escala a un asesor.",
+    slides: [
+      {
+        title: "Asistente de bienvenida",
+        description: "Menú conversacional con opciones para consultar productos, rastrear pedidos y acceder a otros servicios mediante interacciones compatibles con WhatsApp.",
+        image: "/projects/chatbot-whatsapp/slide-1.webp",
+        alt: "Menú inicial de un asistente inteligente integrado con WhatsApp",
+      },
+      {
+        title: "Recomendación de productos",
+        description: "El asistente interpreta las necesidades del usuario y recomienda productos con información de precio, características y acceso al catálogo.",
+        image: "/projects/chatbot-whatsapp/slide-2.webp",
+        alt: "Recomendaciones de productos realizadas por un asistente inteligente",
+      },
+      {
+        title: "Información del negocio",
+        description: "Respuestas automáticas sobre horarios, cobertura de envíos, métodos de pago, devoluciones y otras preguntas frecuentes.",
+        image: "/projects/chatbot-whatsapp/slide-3.webp",
+        alt: "Consulta de horarios, envíos y políticas mediante un chatbot",
+      },
+      {
+        title: "Seguimiento de pedidos",
+        description: "Consulta del estado de un pedido mediante información estructurada y opciones para solicitar asistencia adicional.",
+        image: "/projects/chatbot-whatsapp/slide-4.webp",
+        alt: "Consulta del estado de un pedido mediante WhatsApp",
+      },
+      {
+        title: "Transferencia a un asesor",
+        description: "Captura de datos de contacto y transferencia de la conversación a un asesor humano para continuar con atención personalizada.",
+        image: "/projects/chatbot-whatsapp/slide-5.webp",
+        alt: "Transferencia de una conversación desde un chatbot hacia un asesor humano",
+      },
+    ],
+  },
+  {
+    id: "inteligencia-de-mercado",
+    title: "Plataforma de inteligencia de mercado",
+    category: "Dashboards y analítica",
+    coverImage: "/projects/inteligencia-de-mercado/slide-1.webp",
+    coverAlt: "Dashboard de inteligencia de mercado, marcas, segmentos y productos",
+    need: "Unificar datos mensuales de marcas, categorías y productos para decidir más rápido.",
+    value: "Indicadores comparables para detectar tendencias, cambios de share y oportunidades.",
+    slides: [
+      {
+        title: "Resumen de mercado",
+        description: "Vista ejecutiva con tamaño del mercado, ventas de la compañía, participación, crecimiento, evolución mensual y principales marcas.",
+        image: "/projects/inteligencia-de-mercado/slide-1.webp",
+        alt: "Resumen ejecutivo de una plataforma de inteligencia de mercado",
+      },
+      {
+        title: "Participación por marca",
+        description: "Análisis de share of market, evolución mensual, variación de participación y comparativos entre marcas y fabricantes.",
+        image: "/projects/inteligencia-de-mercado/slide-2.webp",
+        alt: "Dashboard de participación de mercado por marca",
+      },
+      {
+        title: "Categorías y segmentos",
+        description: "Visualización del desempeño por categoría, segmento y canal para identificar áreas de crecimiento y cambios en el mercado.",
+        image: "/projects/inteligencia-de-mercado/slide-3.webp",
+        alt: "Análisis de categorías, segmentos y canales de venta",
+      },
+      {
+        title: "Detalle de productos",
+        description: "Consulta de productos, marcas, categorías, segmentos, ventas, participación y crecimiento mediante tablas y filtros.",
+        image: "/projects/inteligencia-de-mercado/slide-4.webp",
+        alt: "Detalle de productos dentro de una plataforma de inteligencia de mercado",
+      },
+      {
+        title: "Carga y procesamiento",
+        description: "Importación de archivos Excel o CSV, validación de estructura, seguimiento del procesamiento e historial de cargas.",
+        image: "/projects/inteligencia-de-mercado/slide-5.webp",
+        alt: "Carga y procesamiento de archivos para un dashboard de mercado",
+      },
+    ],
+  },
+  {
     id: "seguro-auto-movil",
     title: "App móvil para seguro de auto",
     category: "Aplicación Móvil",
     coverImage: "/projects/seguro-auto-movil/cover.jpg",
     coverAlt: "Pantallas de app móvil para controlar el seguro de un auto",
-    need: "Diseñar una experiencia móvil que reuniera información del vehículo, vigencia del seguro y servicios relacionados en un recorrido simple.",
-    value: "Una interfaz clara que convierte datos del auto en acciones útiles: asistencia, agenda, mantenimiento y consulta desde el celular.",
+    need: "Reunir seguro, vehículo y servicios en una experiencia móvil simple.",
+    value: "Datos del auto convertidos en asistencia, agenda y mantenimiento desde el celular.",
     slides: [
       {
         title: "Experiencia móvil",
@@ -47,8 +129,8 @@ export const publicProjects: PublicProject[] = [
     category: "Aplicación Móvil",
     coverImage: "/projects/logistics-pak/cover.png",
     coverAlt: "Vista principal del proyecto Logistics Pak",
-    need: "Presentar una app logística con una muestra visual clara del producto, sus datos clave, su flujo y su experiencia de uso.",
-    value: "Un recorrido más convincente para explicar valor, validar la idea y facilitar conversaciones comerciales con una experiencia tangible.",
+    need: "Mostrar la app logística, sus datos clave y flujo de uso con claridad.",
+    value: "Un demo tangible para explicar valor, validar la idea y abrir conversaciones.",
     slides: [
       {
         title: "Vista principal",
@@ -72,8 +154,8 @@ export const publicProjects: PublicProject[] = [
     category: "Plataforma Web",
     coverImage: "/projects/gestion-deportiva/cover.webp",
     coverAlt: "Vista principal de la plataforma de gestión deportiva",
-    need: "Centralizar datos de deportes, ligas, calendarios, partidos, resultados y clasificaciones en una plataforma pública fácil de consultar.",
-    value: "Una experiencia más clara para consultar información deportiva, encontrar partidos y entender resultados sin perderse entre datos dispersos.",
+    need: "Centralizar ligas, partidos, resultados y rankings en una consulta pública clara.",
+    value: "Información deportiva más fácil de encontrar, comparar y entender.",
     slides: [
       {
         title: "Vista general",
@@ -113,8 +195,8 @@ export const publicProjects: PublicProject[] = [
     category: "Sitio Web",
     coverImage: "/projects/la-esmeralda/cover.webp",
     coverAlt: "Vista principal del sitio web de restaurante La Esmeralda",
-    need: "Presentar el restaurante, ordenar la información del menú y facilitar pedidos o consultas desde una experiencia digital sencilla.",
-    value: "Una experiencia más atractiva para clientes: menú claro, pedido simple y acceso rápido a ubicación, contacto e información clave.",
+    need: "Ordenar menú, ubicación y pedidos en una experiencia web sencilla.",
+    value: "Menú claro, pedido simple y contacto rápido para convertir visitas en pedidos.",
     slides: [
       {
         title: "Vista principal",
@@ -160,8 +242,8 @@ export const publicProjects: PublicProject[] = [
     category: "Sitio Web",
     coverImage: "/projects/huaraches-huetamo/cover.webp",
     coverAlt: "Vista principal del sitio web de Huaraches Huetamo",
-    need: "Crear una presencia digital para mostrar productos artesanales, comunicar la historia de la marca y facilitar pedidos personalizados.",
-    value: "Una experiencia de marca más clara: catálogo profesional, narrativa artesanal y canal directo para convertir interés en conversación.",
+    need: "Mostrar productos artesanales, historia de marca y pedidos personalizados.",
+    value: "Catálogo profesional y narrativa artesanal para convertir interés en conversación.",
     slides: [
       {
         title: "Vista principal",
@@ -192,47 +274,6 @@ export const publicProjects: PublicProject[] = [
         description: "Sección de contacto con WhatsApp, correo, ubicación, redes sociales y mapa para facilitar la comunicación con personas interesadas.",
         image: "/projects/huaraches-huetamo/slide-5.webp",
         alt: "Sección de contacto y ubicación de Huaraches Huetamo",
-      },
-    ],
-  },
-  {
-    id: "gestion-deportiva-example",
-    title: "Plataforma de gestión deportiva",
-    category: "Plataforma Web",
-    coverImage: "/projects/gestion-deportiva/cover.webp",
-    coverAlt: "Vista principal de la plataforma de gestión deportiva",
-    need: "Organizar datos de ligas, equipos, calendarios, partidos y resultados desde un solo lugar.",
-    value: "Consulta rápida de información y una experiencia más clara para jugadores, organizadores y público.",
-    slides: [
-      {
-        title: "Vista general",
-        description: "Vista principal con navegación a ligas, equipos y calendario de partidos.",
-        image: "/projects/gestion-deportiva/slide-1.webp",
-        alt: "Dashboard principal de la plataforma deportiva",
-      },
-      {
-        title: "Gestión de ligas",
-        description: "Panel para crear y administrar ligas con temporadas, categorías y datos clave.",
-        image: "/projects/gestion-deportiva/slide-2.webp",
-        alt: "Panel de gestión de ligas",
-      },
-      {
-        title: "Calendario de partidos",
-        description: "Vista de calendario con próximos encuentros, horarios y ubicaciones consultables.",
-        image: "/projects/gestion-deportiva/slide-3.webp",
-        alt: "Calendario de partidos deportivos",
-      },
-      {
-        title: "Tabla de posiciones",
-        description: "Posiciones actualizadas con estadísticas por equipo.",
-        image: "/projects/gestion-deportiva/slide-4.webp",
-        alt: "Tabla de posiciones de la liga",
-      },
-      {
-        title: "Resultados y estadísticas",
-        description: "Registro de resultados con estadísticas detalladas por jugador y equipo.",
-        image: "/projects/gestion-deportiva/slide-5.webp",
-        alt: "Panel de resultados y estadísticas",
       },
     ],
   },
